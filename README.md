@@ -7,10 +7,6 @@
 # Selfpub UI
 
 
-[![Dependencies](https://img.shields.io/david/ant-design/ant-design.svg)](https://david-dm.org/ant-design/ant-design)
-[![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg)](https://david-dm.org/ant-design/ant-design?type=dev)
-
-
 [Selfpub](selfpub.ru) UI design system language and React-based components implementation.
 
 [Русская версия README](README-ru_RU.md)
