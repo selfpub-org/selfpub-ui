@@ -2,9 +2,10 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 
-import ClickableLink from "../../components/link/clickable-link";
+import ClickableLink from "../link/clickable-link";
 
 import { StyledButton, themesMap } from "./button.styled.js";
+import Icon from "../icons";
 
 export const buttonThemes = [
   "default",
@@ -30,21 +31,12 @@ export default class Button extends PureComponent {
       : StyledButton;
 
     const content = (
-      <span>
-        {icon && (
-          <span>
-            <Icon glyph={icon} size={iconSize} loading={props.loader} />
-          </span>
-        )}
+      <React.Fragment>
         {children && <span>{children}</span>}
-        {/*{dropdown && (*/}
-        {/*<Icon*/}
-        {/*glyph={chevronDown}*/}
-        {/*size={Icon.Size.Size14}*/}
-        {/*className={styles.dropdownIcon}*/}
-        {/*/>*/}
-        {/*)}*/}
-      </span>
+        {props.loading && (
+          <Icon size={Icon.Size.Size14} loading={props.loading} />
+        )}
+      </React.Fragment>
     );
 
     return (
@@ -54,7 +46,6 @@ export default class Button extends PureComponent {
           {...props}
           onClick={onClick}
         >
-          {/*{props.loader && !icon && <div className={styles.loaderBackground}/>}*/}
           {content}
         </ButtonTag>
       </ThemeProvider>
@@ -65,10 +56,10 @@ export default class Button extends PureComponent {
 Button.propTypes = {
   // tagName: PropTypes.string.isRequired,
   target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top"]),
-  externalClassName: PropTypes.string,
   children: PropTypes.any.isRequired,
   theme: PropTypes.oneOf(buttonThemes),
   size: PropTypes.oneOf(["big", "medium", "small", "null"]),
+  loading: PropTypes.bool,
   disabled: PropTypes.bool,
 };
 
@@ -77,5 +68,5 @@ Button.defaultProps = {
   size: "small",
   target: "_self",
   theme: "default",
-  externalClassName: "",
+  loading: false,
 };

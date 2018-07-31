@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { THEME_MAIN } from "../ui-styles";
+import { THEME_MAIN } from "../ui-styles/index";
 import { darken } from "../../tools/styled";
 
 export const themesMap = {
