@@ -46,14 +46,17 @@ Icon.Size = Size;
 Icon.propTypes = {
   color: PropTypes.string,
   glyph: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  height: PropTypes.number,
-  size: PropTypes.number,
-  width: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   loading: PropTypes.bool,
 };
 
 Icon.defaultProps = {
   color: Color.DEFAULT,
   glyph: "",
+  height: Size.Size32,
+  width: Size.Size32,
+  loading: false,
   size: Size.Size32,
 };
