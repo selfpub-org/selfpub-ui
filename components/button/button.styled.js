@@ -1,156 +1,156 @@
 import styled, { css } from "styled-components";
-import { THEME_MAIN } from "../ui-styles/index";
-import { darken } from "../../tools/styled";
+import { mainTheme } from "../ui-styles/index";
+import { darken } from "../../utils/styled";
 
 export const themesMap = {
   ["default"]: {
-    color: THEME_MAIN.color.coal,
-    border: THEME_MAIN.color.lightCoal,
+    color: mainTheme.color.coal,
+    border: mainTheme.color.lightCoal,
     background: 0,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.lightCoal,
-      background: THEME_MAIN.color.coal,
+      color: mainTheme.color.white,
+      border: mainTheme.color.lightCoal,
+      background: mainTheme.color.coal,
     },
     active: {
-      background: THEME_MAIN.color.coal,
-      border: THEME_MAIN.color.coal,
+      background: mainTheme.color.coal,
+      border: mainTheme.color.coal,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
     },
   },
   ["primary"]: {
-    color: THEME_MAIN.color.white,
-    border: THEME_MAIN.color.orange,
-    background: THEME_MAIN.color.orange,
+    color: mainTheme.color.white,
+    border: mainTheme.color.orange,
+    background: mainTheme.color.orange,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.coal,
-      background: THEME_MAIN.color.coal,
+      color: mainTheme.color.white,
+      border: mainTheme.color.coal,
+      background: mainTheme.color.coal,
     },
     active: {
-      border: THEME_MAIN.color.coal,
-      background: THEME_MAIN.color.coal,
+      border: mainTheme.color.coal,
+      background: mainTheme.color.coal,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
     },
   },
   ["success"]: {
-    color: THEME_MAIN.color.white,
-    border: THEME_MAIN.color.green,
-    background: THEME_MAIN.color.green,
+    color: mainTheme.color.white,
+    border: mainTheme.color.green,
+    background: mainTheme.color.green,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.green,
-      background: THEME_MAIN.color.green,
+      color: mainTheme.color.white,
+      border: mainTheme.color.green,
+      background: mainTheme.color.green,
     },
     active: {
-      border: THEME_MAIN.color.green,
-      background: THEME_MAIN.color.green,
+      border: mainTheme.color.green,
+      background: mainTheme.color.green,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(29, 181, 29, 0.65)`,
     },
   },
   ["light"]: {
-    color: THEME_MAIN.color.coal,
-    border: THEME_MAIN.color.strongLighterCoal,
-    background: THEME_MAIN.color.white,
+    color: mainTheme.color.coal,
+    border: mainTheme.color.strongLighterCoal,
+    background: mainTheme.color.white,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.lighterCoal,
-      background: THEME_MAIN.color.lighterCoal,
+      color: mainTheme.color.white,
+      border: mainTheme.color.lighterCoal,
+      background: mainTheme.color.lighterCoal,
     },
     active: {
-      border: THEME_MAIN.color.lighterCoal,
-      background: THEME_MAIN.color.lighterCoal,
+      border: mainTheme.color.lighterCoal,
+      background: mainTheme.color.lighterCoal,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
     },
   },
   ["lighter"]: {
-    color: THEME_MAIN.color.coal,
-    border: THEME_MAIN.color.lighterCoal,
-    background: THEME_MAIN.color.white,
+    color: mainTheme.color.coal,
+    border: mainTheme.color.lighterCoal,
+    background: mainTheme.color.white,
     hover: {
-      color: THEME_MAIN.color.coal,
-      border: THEME_MAIN.color.coal,
-      background: THEME_MAIN.color.white,
+      color: mainTheme.color.coal,
+      border: mainTheme.color.coal,
+      background: mainTheme.color.white,
     },
     active: {
-      border: THEME_MAIN.color.coal,
-      background: THEME_MAIN.color.white,
+      border: mainTheme.color.coal,
+      background: mainTheme.color.white,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
     },
   },
   ["white"]: {
-    color: THEME_MAIN.color.white,
-    border: THEME_MAIN.color.white,
-    background: THEME_MAIN.color.white,
+    color: mainTheme.color.white,
+    border: mainTheme.color.white,
+    background: mainTheme.color.white,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.coal,
-      background: THEME_MAIN.color.coal,
+      color: mainTheme.color.white,
+      border: mainTheme.color.coal,
+      background: mainTheme.color.coal,
     },
     active: {
-      border: THEME_MAIN.color.coal,
-      background: THEME_MAIN.color.white,
+      border: mainTheme.color.coal,
+      background: mainTheme.color.white,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
     },
   },
   ["danger"]: {
-    color: THEME_MAIN.color.red,
-    border: THEME_MAIN.color.red,
-    background: THEME_MAIN.color.white,
+    color: mainTheme.color.red,
+    border: mainTheme.color.red,
+    background: mainTheme.color.white,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.red,
-      background: THEME_MAIN.color.red,
+      color: mainTheme.color.white,
+      border: mainTheme.color.red,
+      background: mainTheme.color.red,
     },
     active: {
-      border: THEME_MAIN.color.red,
-      background: THEME_MAIN.color.red,
+      border: mainTheme.color.red,
+      background: mainTheme.color.red,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(197, 50, 50, 0.65)`,
     },
   },
   ["black"]: {
-    color: THEME_MAIN.color.white,
-    border: THEME_MAIN.color.coal,
-    background: THEME_MAIN.color.coal,
+    color: mainTheme.color.white,
+    border: mainTheme.color.coal,
+    background: mainTheme.color.coal,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.orange,
-      background: THEME_MAIN.color.orange,
+      color: mainTheme.color.white,
+      border: mainTheme.color.orange,
+      background: mainTheme.color.orange,
     },
     active: {
-      border: THEME_MAIN.color.orange,
-      background: THEME_MAIN.color.orange,
+      border: mainTheme.color.orange,
+      background: mainTheme.color.orange,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
     },
   },
   ["primary-light"]: {
-    color: THEME_MAIN.color.orange,
-    border: THEME_MAIN.color.orange,
-    background: THEME_MAIN.color.white,
+    color: mainTheme.color.orange,
+    border: mainTheme.color.orange,
+    background: mainTheme.color.white,
     hover: {
-      color: THEME_MAIN.color.white,
-      border: THEME_MAIN.color.orange,
-      background: THEME_MAIN.color.orange,
+      color: mainTheme.color.white,
+      border: mainTheme.color.orange,
+      background: mainTheme.color.orange,
     },
     active: {
-      border: THEME_MAIN.color.orange,
-      background: THEME_MAIN.color.orange,
+      border: mainTheme.color.orange,
+      background: mainTheme.color.orange,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
@@ -230,20 +230,20 @@ export const StyledButton = styled.button`
   ${props =>
     props.disabled &&
     css`
-      color: ${THEME_MAIN.color.white};
-      background: ${THEME_MAIN.color.lighterCoal};
-      border-color: ${THEME_MAIN.color.lighterCoal};
+      color: ${mainTheme.color.white};
+      background: ${mainTheme.color.lighterCoal};
+      border-color: ${mainTheme.color.lighterCoal};
       cursor: default;
 
       &:hover {
-        color: ${THEME_MAIN.color.white};
-        background: ${THEME_MAIN.color.lighterCoal};
-        border-color: ${THEME_MAIN.color.lighterCoal};
+        color: ${mainTheme.color.white};
+        background: ${mainTheme.color.lighterCoal};
+        border-color: ${mainTheme.color.lighterCoal};
       }
 
       &:active {
-        background: ${THEME_MAIN.color.lighterCoal};
-        border-color: ${THEME_MAIN.color.lighterCoal};
+        background: ${mainTheme.color.lighterCoal};
+        border-color: ${mainTheme.color.lighterCoal};
       }
     `}
 `;

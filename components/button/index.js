@@ -6,7 +6,7 @@ import Icon from "../icons";
 import ClickableLink from "../link";
 
 import { StyledButton, themesMap } from "./button.styled.js";
-import { arrayFromHash } from "../../tools/utils";
+import { arrayFromHash } from "../../utils/utils";
 
 export default class Button extends PureComponent {
   render() {

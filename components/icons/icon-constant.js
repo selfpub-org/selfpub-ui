@@ -6,7 +6,7 @@ export const Color = {
 };
 
 /**
- * @enum {number}
+ * @enum {string}
  */
 export const Size = {
   Size12: "12",

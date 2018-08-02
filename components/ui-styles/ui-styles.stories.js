@@ -1,9 +1,9 @@
 /* global module */
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { THEME_MAIN } from "./index";
+import { mainTheme } from "./index";
 
-storiesOf("ui-styles", module).add("THEME_MAIN", () => (
+storiesOf("ui-styles", module).add("mainTheme", () => (
   <div
     style={{
       display: "flex",
@@ -11,7 +11,7 @@ storiesOf("ui-styles", module).add("THEME_MAIN", () => (
       justifyContent: "space-between",
     }}
   >
-    {Object.keys(THEME_MAIN.color).map((colorName, index) => (
+    {Object.keys(mainTheme.color).map((colorName, index) => (
       <React.Fragment key={index}>
         <div
           style={{
@@ -22,10 +22,10 @@ storiesOf("ui-styles", module).add("THEME_MAIN", () => (
             margin: "10px",
           }}
         >
-          {THEME_MAIN.color[colorName]}
+          {mainTheme.color[colorName]}
           <div
             style={{
-              background: THEME_MAIN.color[colorName],
+              background: mainTheme.color[colorName],
               width: "150px",
               height: "50px",
               borderRadius: "6px",

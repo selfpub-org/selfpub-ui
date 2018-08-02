@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { THEME_MAIN } from "../ui-styles/index";
+import { mainTheme } from "../ui-styles/index";
 import { PureComponent } from "react";
 import React from "react";
 
@@ -18,8 +18,8 @@ export default class Loader extends PureComponent {
     `;
 
     const Loader = styled.span`
-      border: 2px solid ${THEME_MAIN.color.loaderWhite};
-      border-top: 2px solid ${THEME_MAIN.color.orange};
+      border: 2px solid ${mainTheme.color.loaderWhite};
+      border-top: 2px solid ${mainTheme.color.orange};
       display: inline-block;
       vertical-align: middle;
       border-radius: 50%;

@@ -1,37 +1,37 @@
 import styled, { css } from "styled-components";
-import { THEME_MAIN } from "../ui-styles/index";
+import { mainTheme } from "../ui-styles/index";
 
 export const themesMap = {
   ["default"]: {
-    color: THEME_MAIN.color.coal,
+    color: mainTheme.color.coal,
     border: `rgba(59,57,63,.5)`,
     hover: {
-      color: THEME_MAIN.color.orange,
-      border: THEME_MAIN.color.orange,
+      color: mainTheme.color.orange,
+      border: mainTheme.color.orange,
     },
   },
   ["blue"]: {
-    color: THEME_MAIN.color.blue,
+    color: mainTheme.color.blue,
     border: `rgba(16,110,220,.5)`,
     hover: {
-      color: THEME_MAIN.color.orange,
-      border: THEME_MAIN.color.orange,
+      color: mainTheme.color.orange,
+      border: mainTheme.color.orange,
     },
   },
   ["grey"]: {
-    color: THEME_MAIN.color.lighterCoal,
+    color: mainTheme.color.lighterCoal,
     border: `rgba(16,110,220,.5)`,
     hover: {
-      color: THEME_MAIN.color.orange,
-      border: THEME_MAIN.color.orange,
+      color: mainTheme.color.orange,
+      border: mainTheme.color.orange,
     },
   },
   ["white"]: {
-    color: THEME_MAIN.color.white,
+    color: mainTheme.color.white,
     border: `rgba(255,255,255,.5)`,
     hover: {
-      color: THEME_MAIN.color.orange,
-      border: THEME_MAIN.color.orange,
+      color: mainTheme.color.orange,
+      border: mainTheme.color.orange,
     },
   },
 };
