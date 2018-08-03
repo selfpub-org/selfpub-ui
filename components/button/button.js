@@ -1,0 +1,109 @@
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { ThemeProvider } from "styled-components";
+
+import { Link } from "index";
+import Icon from "../icons/icon";
+
+import { StyledButton, themesMap } from "./button.styled.js";
+import { arrayFromHash } from "../../utils/utils";
+
+export default class Button extends PureComponent {
+  render() {
+    const {
+      children,
+      htmlType,
+      icon,
+      iconSize,
+      loading,
+      onClick,
+      theme,
+      ...rest
+    } = this.props;
+
+    const iconNode = !!icon ? <Icon type={icon} size={iconSize} /> : null;
+    const loaderSize = iconSize ? iconSize : Icon.Size.Size12;
+
+    const content = (
+      <React.Fragment>
+        {iconNode}
+        {children && <span>{children}</span>}
+        {loading && <Icon type="loader" size={loaderSize} loading={loading} />}
+      </React.Fragment>
+    );
+
+    if ("href" in rest && !!rest.href) {
+      return (
+        <Link {...rest} onClick={this.handleClick}>
+          {content}
+        </Link>
+      );
+    } else {
+      return (
+        <ThemeProvider theme={themesMap[theme] || themesMap["default"]}>
+          <StyledButton
+            {...rest}
+            onClick={onClick}
+            tabIndex={loading ? -1 : 0}
+            type={htmlType || "button"}
+          >
+            {content}
+          </StyledButton>
+        </ThemeProvider>
+      );
+    }
+  }
+}
+
+Button.Themes = [
+  "default",
+  "primary",
+  "white",
+  "light",
+  "default-disabled",
+  "danger",
+  "lighter",
+  "primary-light",
+  "success",
+  "black",
+  "to-right",
+  "null",
+];
+
+Button.Sizes = ["big", "medium", "small"];
+
+Button.propTypes = {
+  /** children - label or content for button */
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
+  /** disabled state of button */
+  disabled: PropTypes.bool,
+  /** redirect url of link button */
+  href: PropTypes.string,
+  /** set the original html type of button, see: MDN */
+  htmlType: PropTypes.string,
+  /** set the target of link, see: */
+  target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top", ""]),
+  /** themes of button */
+  theme: PropTypes.oneOf(Button.Themes),
+  /** set the icon of button, see: Icon component */
+  icon: PropTypes.string,
+  /** set the icon size, see: Icon component */
+  iconSize: PropTypes.oneOf(arrayFromHash(Icon.Size)),
+  /** set the loading status of button */
+  loading: PropTypes.bool,
+  /** size type for button */
+  size: PropTypes.oneOf(Button.Sizes),
+};
+
+Button.defaultProps = {
+  disabled: false,
+  href: null,
+  htmlType: null,
+  icon: null,
+  iconSize: Icon.Size.Size12,
+  loading: false,
+  size: "small",
+  target: "_self",
+  theme: "default",
+};

@@ -3,7 +3,7 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withKnobs } from "@storybook/addon-knobs";
 
-// Add the `withKnobs` decorator to add knobs support to your stories.
+// Add the `withKnobs` decorator to add knobs support to your __stories__.
 addDecorator(withKnobs);
 
 function loadStories() {
