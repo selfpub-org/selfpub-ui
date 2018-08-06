@@ -1,13 +1,12 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { themesMap } from "../checkbox/checkbox.styled";
+import { themesMap } from "./checkbox.styled";
 import { ThemeProvider } from "styled-components";
 import {
   StyledCheckboxInput,
   StyledFakeCheckbox,
   StyledInnerCheck,
 } from "./checkbox.styled";
-import { Icon } from "../icons/icon";
 import nanoid from "nanoid";
 import { StyledLabel } from "../input/input.styled";
 
@@ -87,7 +86,12 @@ export default class Checkbox extends PureComponent {
 
     return (
       <ThemeProvider
-        theme={{ ...themesMap[theme], checked: this.state.checked, size }}
+        theme={{
+          ...themesMap[theme],
+          size,
+          checked: this.state.checked,
+          rounded: this.props.rounded,
+        }}
       >
         <StyledLabel htmlFor={this.id} {...rest}>
           {iconPosition === "right" && content}

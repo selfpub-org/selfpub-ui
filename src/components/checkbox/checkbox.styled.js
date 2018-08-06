@@ -7,15 +7,54 @@ export const themesMap = {
     accent: mainTheme.color.orange,
     fill: mainTheme.color.white,
     background: mainTheme.color.white,
-    base: mainTheme.color.lightCoal,
+    base: mainTheme.color.lighterCoal,
     hover: {
-      accent: mainTheme.color.coal,
+      accent: darken(mainTheme.color.coal, 15),
+      fill: mainTheme.color.lighterCoal,
+      background: 0,
+    },
+    active: {
+      background: 0,
+      border: mainTheme.color.coal,
+      accent: mainTheme.color.orange,
+    },
+    focus: {
+      shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+    },
+  },
+  ["dark"]: {
+    accent: mainTheme.color.coal,
+    fill: mainTheme.color.white,
+    background: 0,
+    border: mainTheme.color.lighterCoal,
+    hover: {
+      accent: mainTheme.color.lightCoal,
       fill: mainTheme.color.lightCoal,
       background: 0,
     },
     active: {
       background: mainTheme.color.coal,
       border: mainTheme.color.coal,
+      accent: mainTheme.color.white,
+    },
+    focus: {
+      shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+    },
+  },
+  ["green"]: {
+    accent: mainTheme.color.green,
+    fill: mainTheme.color.white,
+    background: mainTheme.color.white,
+    base: mainTheme.color.lightCoal,
+    hover: {
+      accent: mainTheme.color.coal,
+      fill: mainTheme.color.green,
+      background: 0,
+    },
+    active: {
+      background: mainTheme.color.green,
+      border: mainTheme.color.green,
+      accent: mainTheme.color.white,
     },
     focus: {
       shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
@@ -25,7 +64,6 @@ export const themesMap = {
 
 export const StyledFakeCheckbox = styled.span`
   font-size: ${props => props.theme.size}px;
-  color: rgba(0, 0, 0, 0.65);
   box-sizing: border-box;
   padding: 0;
   list-style: none;
@@ -40,7 +78,6 @@ export const StyledFakeCheckbox = styled.span`
   margin: 0 5px;
 
   ${({ theme: { checked } }) => {
-    console.log(checked);
     return (
       checked &&
       css`
@@ -50,11 +87,8 @@ export const StyledFakeCheckbox = styled.span`
           left: 0;
           width: 100%;
           height: 100%;
-          border-radius: 2px;
-          border: 1px solid ${props => props.theme.accent};
+          border: 1px solid ${props => props.theme.active.border};
           content: "";
-          //animation: easyEffect 0.36s ease-in-out;
-          //animation-fill-mode: both;
           visibility: hidden;
         }
 
@@ -64,8 +98,8 @@ export const StyledFakeCheckbox = styled.span`
           position: absolute;
           top: 0;
           left: 0;
-          font: ${props => props.theme.size}px Font Awesome;
-          color: ${props => props.theme.accent};
+          font: ${props => props.theme.size - 2}px Font Awesome;
+          color: ${props => props.theme.active.accent};
           width: 100%;
           height: 100%;
           vertical-align: middle;
@@ -77,31 +111,28 @@ export const StyledFakeCheckbox = styled.span`
   }};
 `;
 
-export const StyledInnerCheck = styled.span`
+export const StyledInnerCheck = styled.div`
   position: relative;
+  box-sizing: border-box;
   top: 0;
   left: 0;
-  display: block;
   width: ${props => props.theme.size}px;
   height: ${props => props.theme.size}px;
-  border: 1px solid ${props => props.theme.base};
-  border-radius: 2px;
+  border: 1px solid ${props => props.theme.border};
   background-color: ${props => props.theme.background};
   transition: all 0.3s;
-
-  ${({ theme: { checked } }) =>
+  ${({ theme: { rounded } }) =>
+    rounded &&
+    css`
+      border-radius: 2px;
+    `} ${({ theme: { checked } }) =>
     checked &&
     css`
-      background-color: ${props => props.theme.background};
-      border-color: ${props => props.theme.accent};
+      background-color: ${props => props.theme.active.background};
+      border-color: ${props => props.theme.active.background};
     `} &:after {
     transform: rotate(45deg) scale(0);
     position: absolute;
-    left: 4.57142857px;
-    top: 1.14285714px;
-    display: table;
-    width: 5.71428571px;
-    height: 9.14285714px;
     border: 2px solid #fff;
     border-top: 0;
     border-left: 0;
@@ -112,6 +143,7 @@ export const StyledInnerCheck = styled.span`
 
 export const StyledCheckboxInput = styled.span`
   position: absolute;
+  box-sizing: border-box;
   left: 0;
   z-index: 1;
   cursor: pointer;
