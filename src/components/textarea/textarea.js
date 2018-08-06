@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Input } from "../input";
-import { mainTheme } from "../ui-styles";
+import { Input } from "../input/index";
+import { mainTheme } from "../ui-styles/index";
 
 export default class Textarea extends PureComponent {
   render() {

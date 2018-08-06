@@ -1,7 +1,7 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Component } from "react";
 import { StyledInput, StyledLabel } from "./input.styled";
 import PropTypes from "prop-types";
-import { mainTheme } from "../ui-styles";
+import { mainTheme } from "@selfpub-ui/components/ui-styles";
 import styled from "styled-components";
 
 export class InputStatus extends PureComponent {
@@ -61,7 +61,7 @@ export class ErrorField extends PureComponent {
 
 export class LabelWrapper extends PureComponent {
   render() {
-    const { id, error, children, rest, labelText } = this.props;
+    const { id, children, rest, labelText } = this.props;
     const elemId = id || labelText;
     return (
       <React.Fragment>
@@ -69,35 +69,24 @@ export class LabelWrapper extends PureComponent {
           {this.props.labelText}
           {children}
         </StyledLabel>
-        <ErrorField error={error} />
       </React.Fragment>
     );
-    // </ThemeProvider> TODO
-    //<ThemeProvider theme={themesMap[theme]}>
   }
 }
 
-export class Input extends PureComponent {
+export class Input extends Component {
   constructor(props) {
     super(props);
-    this.saveRef = ::this.saveRef;
     this.onChangeHelper = ::this.onChangeHelper;
     this.state = {
       type: this.props.type,
     };
   }
 
-  saveRef(ref) {
-    this.input = ref;
-    if (this.props.inputRef) {
-      this.props.inputRef(ref);
-    }
-  }
-
   onChangeHelper(event) {
-    if (this.props.onChange) {
-      this.props.onChange(event, event.target.value);
-    }
+    const { onChange } = this.props;
+
+    onChange && onChange(event, event.target.value);
   }
 
   render() {
@@ -112,18 +101,18 @@ export class Input extends PureComponent {
       ...rest
     } = this.props;
     const id = this.props.id || this.props.labelText;
-    const InputTag = tagName && StyledInput.withComponent(tagName);
 
     return (
-      <InputTag
+      <StyledInput
         id={id}
         name={name}
         value={value}
         disabled={disabled}
-        ref={this.saveRef}
+        ref={input => (this.input = input)}
         tabIndex={0}
         placeholder={placeholder}
         onChange={this.onChangeHelper}
+        htmlType={this.state.type}
         {...rest}
       />
     );
@@ -151,8 +140,8 @@ Input.propTypes = {
   isFocused: PropTypes.bool,
   /** By default, the input element is stretched to the full width of the parent container. */
   stretch: PropTypes.oneOf(["auto", "fill"]),
-  /** Callback onChange возвращает event и event.target.value */
-  onChange: PropTypes.func.isRequired,
+  /** Callback onChange return event и event.target.value */
+  onChange: PropTypes.func,
   /** Callback onBlur */
   onBlur: PropTypes.func,
   /** Callback onFocus */

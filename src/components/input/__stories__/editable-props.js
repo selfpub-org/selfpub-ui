@@ -51,7 +51,7 @@ const positions = {
   top: "top",
 };
 
-export class InputExampleWithEditableProps extends Component {
+export default class extends Component {
   constructor() {
     super();
     this.onChange = ::this.onChange;
@@ -61,32 +61,28 @@ export class InputExampleWithEditableProps extends Component {
   }
 
   onChange(event, value) {
-    action("checkbox toggle");
     this.setState({ value });
   }
 
   render() {
     return (
-      <div>
-        <h3>Input with editable props</h3>
-        <InputWrapper id="uniq-id" label={text("label", "Some Label")}>
-          <InputStatus
-            type={select("status theme", statusTypes, "null")}
-            message={text("message", "Success message")}
-          >
-            <Input
-              disabled={boolean("disabled", false)}
-              id={"uniq-id"}
-              name={text("name", "checkbox-name")}
-              size={"small"}
-              theme={select("theme", themes, "default")}
-              type={select("type", types, "text")}
-              onChange={this.onChange}
-              value={this.state.value}
-            />
-          </InputStatus>
-        </InputWrapper>
-      </div>
+      <InputWrapper id="uniq-id" label={text("label", "Some Label")}>
+        <InputStatus
+          type={select("status theme", statusTypes, "null")}
+          message={text("message", "Success message")}
+        >
+          <Input
+            disabled={boolean("disabled", false)}
+            id={"uniq-id"}
+            name={text("name", "checkbox-name")}
+            size={"small"}
+            theme={select("theme", themes, "default")}
+            type={select("type", types, "text")}
+            onChange={this.onChange}
+            value={this.state.value}
+          />
+        </InputStatus>
+      </InputWrapper>
     );
   }
 }

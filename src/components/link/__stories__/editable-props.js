@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import { Link } from "index";
+import { Link } from "ui-styles/index";
 
 const targets = {
   _blank: "_blank",

@@ -1,4 +1,4 @@
-export { default } from "./Typography";
+export { default } from "./typography";
 export { default as H1 } from "./H1";
 export { default as H2 } from "./H2";
 export { default as H3 } from "./H3";
