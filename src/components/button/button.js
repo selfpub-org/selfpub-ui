@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 
-import { Link } from "index";
+import { Link } from "ui-styles/index";
 import Icon from "../icons/icon";
 
 import { StyledButton, themesMap } from "./button.styled.js";
@@ -83,7 +83,7 @@ Button.propTypes = {
   /** set the original html type of button, see: MDN */
   htmlType: PropTypes.string,
   /** set the target of link, see: */
-  target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top", ""]),
+  target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top"]),
   /** themes of button */
   theme: PropTypes.oneOf(Button.Themes),
   /** set the icon of button, see: Icon component */
@@ -98,11 +98,11 @@ Button.propTypes = {
 
 Button.defaultProps = {
   disabled: false,
+  loading: false,
   href: null,
   htmlType: null,
   icon: null,
   iconSize: Icon.Size.Size12,
-  loading: false,
   size: "small",
   target: "_self",
   theme: "default",

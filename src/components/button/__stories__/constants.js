@@ -23,7 +23,6 @@ export const targets = {
   _parent: "_parent",
   _self: "_self",
   _top: "_top",
-  null: "empty props",
 };
 
 export const iconSizes = {

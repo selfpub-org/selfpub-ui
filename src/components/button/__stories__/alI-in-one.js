@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { Button } from "index";
+import Button from "../button";
 
 export default class ButtonAllInOneExample extends Component {
   render() {

@@ -3,7 +3,7 @@ import { boolean, select } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
 import { sizes } from "./constants";
-import { Button } from "index";
+import Button from "../button";
 
 export default class ButtonWithLoadingExample extends Component {
   render() {
