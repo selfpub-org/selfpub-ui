@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { Loader } from "../index";
-import { Color, Size } from "./icon-constant";
+import { Color, Size } from "./icon.constant";
+import { StyledIcon } from "./icon.styled";
 import PropTypes from "prop-types";
 
 export default class Icon extends PureComponent {
@@ -23,15 +24,16 @@ export default class Icon extends PureComponent {
             height: size,
             color,
           };
+    const TagName = StyledIcon["question"];
 
     return (
       <React.Fragment>
         {loading ? (
           <Loader size={size} />
         ) : (
-          <span {...restProps}>
-            <img src={glyph} style={style} alt="altText" />
-          </span>
+          <TagName {...restProps}>
+            {/*<img src={glyph} style={style} alt="altText" />*/}
+          </TagName>
         )}
       </React.Fragment>
     );
