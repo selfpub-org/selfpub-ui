@@ -17,8 +17,8 @@ export default class Paragraph extends PureComponent {
       display: block;
       text-align: left;
       max-width: 80%;
-      font-size: 21px;
-      line-height: 33px;
+      font-size: 16px;
+      line-height: 1.6;
       font-weight: normal;
       margin: 16px auto 20px;
 

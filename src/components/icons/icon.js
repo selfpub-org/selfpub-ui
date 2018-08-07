@@ -31,7 +31,7 @@ export default class Icon extends PureComponent {
       <Loader size={size} />
     ) : (
       <TagName style={style} {...restProps} />
-    );;
+    );
   }
 }
 

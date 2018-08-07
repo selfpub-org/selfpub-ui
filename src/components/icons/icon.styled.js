@@ -12,7 +12,7 @@ const icons = {
   ["delete"]: `-${spriteCell * 2}px 0`,
   ["download"]: `-${spriteCell * 3}px 0`,
   ["question"]: `-${spriteCell * 4}px 0`,
-  ["question-invert"]: `72px -17px`,
+  ["question-invert"]: `-72px -18px`,
   ["radio"]: `-${spriteCell * 6}px 0`,
   ["bookmark"]: `-${spriteCell * 7}px 0`,
   ["triangle-bottom"]: `-${spriteCell * 8}px 0`,
