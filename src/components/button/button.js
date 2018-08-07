@@ -1,10 +1,8 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
-
-import { Link } from "ui-styles/index";
-import Icon from "../icons/icon";
-
+import { Link, Icon } from "../../components";
+import { Size as IconSize } from "../../components/theme/base/constant";
 import { StyledButton, themesMap } from "./button.styled.js";
 import { arrayFromHash } from "../../utils/utils";
 
@@ -89,7 +87,7 @@ Button.propTypes = {
   /** set the icon of button, see: Icon component */
   icon: PropTypes.string,
   /** set the icon size, see: Icon component */
-  iconSize: PropTypes.oneOf(arrayFromHash(Icon.Size)),
+  iconSize: PropTypes.oneOf(arrayFromHash(IconSize)),
   /** set the loading status of button */
   loading: PropTypes.bool,
   /** size type for button */
@@ -102,7 +100,7 @@ Button.defaultProps = {
   href: null,
   htmlType: null,
   icon: null,
-  iconSize: Icon.Size.Size12,
+  iconSize: IconSize.Size12,
   size: "small",
   target: "_self",
   theme: "default",

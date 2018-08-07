@@ -6,5 +6,5 @@ import { TextareaExample } from "./__stories__/all-in-one";
 
 storiesOf("TextArea", module).add(
   "1. All in one",
-  withInfo("Input component")(() => <TextareaExample />),
+  withInfo({ text: "Textarea", inline: true })(() => <TextareaExample />),
 );

@@ -10,8 +10,8 @@ import {
 } from "./__stories__/editable-props";
 import { boolean, select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
+import { Checkbox, ThemeProviderWrapper } from "../../components";
 import CheckboxAllInOneExample from "./__stories__/al-in-one";
-import Checkbox from "./index";
 
 const buttonsMdDocs = `Checkbox with editable props`;
 
@@ -30,20 +30,22 @@ storiesOf("Checkbox", module)
       const type = select("type", types, "");
       const onCheck = action("checkbox toggle");
       return (
-        <Checkbox
-          checked={checked}
-          disabled={disabled}
-          rounded={rounded}
-          iconPosition={iconPosition}
-          id={id}
-          name={name}
-          size={size}
-          theme={theme}
-          type={type}
-          onCheck={onCheck}
-        >
-          Some text
-        </Checkbox>
+        <ThemeProviderWrapper>
+          <Checkbox
+            checked={checked}
+            disabled={disabled}
+            rounded={rounded}
+            iconPosition={iconPosition}
+            id={id}
+            name={name}
+            size={size}
+            theme={theme}
+            type={type}
+            onCheck={onCheck}
+          >
+            Some text
+          </Checkbox>
+        </ThemeProviderWrapper>
       );
     }),
   )

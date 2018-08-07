@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table is rendered 1`] = `
+<div
+  class="sc-bwzfXH iNkJQj"
+>
+  <div
+    class="sc-htpNat bZGgon"
+  >
+    <div
+      class="sc-bxivhb cZnznB"
+      style="width:200px"
+    >
+      123
+    </div>
+  </div>
+</div>
+`;

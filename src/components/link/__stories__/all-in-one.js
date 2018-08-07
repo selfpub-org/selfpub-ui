@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { Link } from "ui-styles/index";
+import { Link } from "../../../components";
 
 export class LinkAllInOneExample extends Component {
   render() {

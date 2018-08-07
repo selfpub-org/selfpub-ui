@@ -8,7 +8,7 @@ const StyledInputWrapper = styled.div`
   width: 100%;
 `;
 
-export class InputWrapper extends PureComponent {
+export default class InputWrapper extends PureComponent {
   render() {
     const { id, label, labelPosition, children, ...rest } = this.props;
     const inputId = id || nanoid();

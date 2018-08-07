@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { InputWrapper } from "../input-wrapper";
-import { Input, InputStatus } from "../input";
+import InputWrapper from "../input-wrapper";
+import Input from "../input";
+import InputStatus from "../input-status";
 
 export class InputExample extends Component {
   constructor() {

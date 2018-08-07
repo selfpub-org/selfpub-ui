@@ -1,26 +1,7 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
-import { mainTheme } from "../ui-styles/index";
+import { mainTheme } from "../../components/ui-styles";
 import { lighten } from "../../utils/styled";
-
-const styles = `
-table {
-  width: 650px;
-  border-collapse: collapse;
-}
-td, th {
-  padding: 10px 20px;
-  color: $font-color-text;
-  font: 20px/1em $futura;
-  text-align: left;
-}
-td {
-  font-weight: 400;
-}
-th {
-  font-weight: 600;
-}
-`;
 
 const StyledBaseTabelItem = styled.div`
   padding: 10px 20px;
@@ -31,7 +12,7 @@ const StyledBaseTabelItem = styled.div`
 
 export class Table extends PureComponent {
   render() {
-    const { className, children } = this.props;
+    const { children } = this.props;
 
     const StyledTable = styled.div`
       color: ${mainTheme.color.coal};
@@ -72,7 +53,7 @@ export class Tr extends PureComponent {
 
 export class Td extends PureComponent {
   render() {
-    const { className, children, onClick, style } = this.props;
+    const { children, onClick, style } = this.props;
 
     const StyledTd = styled.div`
       display: flex;
@@ -83,7 +64,7 @@ export class Td extends PureComponent {
     `;
 
     return (
-      <StyledTd onClick={onClick} style={style}>
+        <StyledTd onClick={onClick} style={style}>
         {children}
       </StyledTd>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import { Link } from "ui-styles/index";
+import { Link } from "../../../components";
 
 const targets = {
   _blank: "_blank",
@@ -10,6 +10,7 @@ const targets = {
   _top: "_top",
   null: "empty props",
 };
+
 const types = {
   default: "default",
   underline: "underline",
@@ -17,6 +18,7 @@ const types = {
   small: "small",
   null: "empty props",
 };
+
 const themes = {
   default: "default",
   blue: "blue",

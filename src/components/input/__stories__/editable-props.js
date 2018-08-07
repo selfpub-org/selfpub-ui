@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { action } from "@storybook/addon-actions";
-import { InputWrapper } from "../input-wrapper";
+// import { action } from "@storybook/addon-actions";
 import { boolean, select, text } from "@storybook/addon-knobs";
-import { InputStatus } from "../input";
-import { Input } from "../input";
+import InputWrapper from "../input-wrapper";
+import InputStatus from "../input-status";
+import Input from "../input";
 
 const targets = {
   _blank: "_blank",

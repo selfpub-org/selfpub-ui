@@ -1,13 +1,6 @@
 /**
  * @enum {string}
  */
-export const Color = {
-  DEFAULT: "",
-};
-
-/**
- * @enum {string}
- */
 export const Size = {
   Size12: "12",
   Size14: "14",

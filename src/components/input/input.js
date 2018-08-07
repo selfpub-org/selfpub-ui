@@ -1,80 +1,8 @@
-import React, { PureComponent, Component } from "react";
-import { StyledInput, StyledLabel } from "./input.styled";
+import React, { Component } from "react";
+import { StyledInput } from "./input.styled";
 import PropTypes from "prop-types";
-import { mainTheme } from "@selfpub-ui/components/ui-styles";
-import styled from "styled-components";
 
-export class InputStatus extends PureComponent {
-  render() {
-    const { type, message, children } = this.props;
-
-    const colorMap = {
-      error: mainTheme.color.red,
-      warning: mainTheme.color.yellow,
-      success: mainTheme.color.green,
-      null: "transparent",
-    };
-
-    const StyledMessage = styled.div`
-      margin-top: 5px;
-      font-size: 14px;
-      color: ${colorMap[type]};
-    `;
-
-    return (
-      <div>
-        {children}
-        {message && type !== "null" ? (
-          <StyledMessage type={type}>{message}</StyledMessage>
-        ) : null}
-      </div>
-    );
-  }
-}
-
-InputStatus.propTypes = {
-  /** Type of status */
-  type: PropTypes.oneOf(["error", "warning", "success", "null"]),
-  /** Message for display */
-  message: PropTypes.node,
-  /** Input element for set position*/
-  children: PropTypes.node.isRequired,
-};
-
-InputStatus.defaultProps = {
-  type: "type",
-};
-
-export class ErrorField extends PureComponent {
-  render() {
-    const { error, id } = this.props;
-
-    const StyledErrorField = styled.div`
-      margin-top: 5px;
-      color: ${mainTheme.color.red};
-      font-size: 14px;
-    `;
-
-    return error ? <StyledErrorField id={id}>{error}</StyledErrorField> : null;
-  }
-}
-
-export class LabelWrapper extends PureComponent {
-  render() {
-    const { id, children, rest, labelText } = this.props;
-    const elemId = id || labelText;
-    return (
-      <React.Fragment>
-        <StyledLabel htmlFor={elemId} {...rest}>
-          {this.props.labelText}
-          {children}
-        </StyledLabel>
-      </React.Fragment>
-    );
-  }
-}
-
-export class Input extends Component {
+export default class Input extends Component {
   constructor(props) {
     super(props);
     this.onChangeHelper = ::this.onChangeHelper;

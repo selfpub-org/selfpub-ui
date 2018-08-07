@@ -10,6 +10,6 @@ const buttonsMdDocs = `Link component`;
 storiesOf("Link", module)
   .add(
     "1. Width editable props",
-    withInfo(buttonsMdDocs)(() => <LinkWithEditablePropsExample />),
+    withInfo({ text: buttonsMdDocs, inline: true })(() => <LinkWithEditablePropsExample />),
   )
   .add("2. All in one", () => <LinkAllInOneExample />);

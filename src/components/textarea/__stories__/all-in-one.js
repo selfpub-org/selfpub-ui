@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { InputWrapper } from "../../input/input-wrapper";
-import Textarea from "../textarea";
+import { InputWrapper, Textarea } from "../../../components";
 
 export class TextareaExample extends Component {
   constructor() {

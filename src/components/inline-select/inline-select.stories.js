@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
-import InlineSelect from "./inline-select";
+import { InlineSelect } from "../../components";
 
 const rangeOptions = [
   { text: "За последние 7 дней", value: "last7" },
@@ -29,5 +29,4 @@ storiesOf("Select/inline-select", module).add(
     />
   )),
 );
-// .add("2. All in one", () => <ButtonAllInOneExample />)
-// .add("3. With loading", () => <ButtonWithLoadingExample />);
+

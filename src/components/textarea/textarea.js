@@ -1,28 +1,35 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Input } from "../input/index";
-import { mainTheme } from "../ui-styles/index";
+import { Input } from "../../components";
+import { mainTheme } from "../../components/ui-styles";
+
+const BaseStyledTextarea = styled.textarea`
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  line-height: 28px;
+  border: 1px solid ${mainTheme.color.lighterCoal};
+  border-radius: 0;
+  outline: none;
+  padding: 6px 10px;
+  height: 46px;
+  resize: none;
+  min-height: 150px;
+`;
+// const StyledTextarea = styled(Input).withComponent(BaseStyledTextarea);
 
 export default class Textarea extends PureComponent {
   render() {
     const { value, onChange, ...rest } = this.props;
-    const BaseStyledTextarea = styled.textarea`
-      display: block;
-      width: 100%;
-      font-size: 17px;
-      line-height: 28px;
-      border: 1px solid ${mainTheme.color.lighterCoal};
-      border-radius: 0;
-      outline: none;
-      padding: 6px 10px;
-      height: 46px;
-      resize: none;
-      min-height: 150px;
-    `;
 
     return (
-      <Input tagName="textarea" value={value} onChange={onChange} {...rest} />
+      <BaseStyledTextarea
+        tagName="textarea"
+        value={value}
+        onChange={onChange}
+        {...rest}
+      />
     );
   }
 }

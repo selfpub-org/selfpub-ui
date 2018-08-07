@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { mainTheme } from "../ui-styles/index";
+import { mainTheme } from "../../components/ui-styles";
 import { darken } from "../../utils/styled";
 
 export const themesMap = {
@@ -121,6 +121,7 @@ export const StyledInnerCheck = styled.div`
   border: 1px solid ${props => props.theme.border};
   background-color: ${props => props.theme.background};
   transition: all 0.3s;
+
   ${({ theme: { rounded } }) =>
     rounded &&
     css`

@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import iconsSprite from "@selfpub-ui/assets/icon-sprite.svg";
-import openBookIcon from "@selfpub-ui/assets/book-open.svg";
+import iconsSprite from "../../assets/icon-sprite.svg";
+import openBookIcon from "../../assets/book-open.svg";
+
 const StyledIcon = {};
 
 const spriteCell = 18;
@@ -11,7 +12,7 @@ const icons = {
   ["delete"]: `-${spriteCell * 2}px 0`,
   ["download"]: `-${spriteCell * 3}px 0`,
   ["question"]: `-${spriteCell * 4}px 0`,
-  ["question-invert"]: `-${spriteCell * 5}px 0`,
+  ["question-invert"]: `72px -17px`,
   ["radio"]: `-${spriteCell * 6}px 0`,
   ["bookmark"]: `-${spriteCell * 7}px 0`,
   ["triangle-bottom"]: `-${spriteCell * 8}px 0`,

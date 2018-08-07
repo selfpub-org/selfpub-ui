@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { mainTheme } from "../ui-styles";
+import { lighten } from "../../utils/styled";
 
 export const StyledLabel = styled.label`
   font-size: 14px;
@@ -26,4 +28,28 @@ export const StyledInput = styled.input`
   padding: 6px 10px;
   text-size-adjust: none;
   width: 100%;
+
+  &:focus {
+    border-color: ${mainTheme.color.coal};
+  }
+
+  ${props =>
+    props.isFocused &&
+    css`
+      border-color: ${mainTheme.color.coal};
+    `};
+
+  ${props =>
+    props.disabled &&
+    css`
+      border-color: ${mainTheme.color.gray};
+      background: ${lighten(mainTheme.color.gray, 40)};
+    `};
+
+  ${props =>
+    props.status === "error" &&
+    css`
+      border-color: ${mainTheme.color.red};
+      background: ${lighten(mainTheme.color.red, 40)};
+    `};
 `;

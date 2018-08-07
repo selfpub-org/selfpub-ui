@@ -1,7 +1,7 @@
 /* global module */
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { mainTheme } from "@selfpub-ui/components/ui-styles";
+import { mainTheme } from "../../components/ui-styles";
 
 storiesOf("ui-styles", module).add("mainTheme", () => (
   <div
