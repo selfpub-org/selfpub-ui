@@ -1,6 +1,6 @@
 <p align="center" style="background: #3B393F;">
   <a href="https://selfpub.ru">
-    <img width="230" src="https://selfpub.ru/static/i/logo.01118b794f79.svg">
+    <img width="230" src="https://selfpub.ru/static/i/logo_black.svg">
   </a>
 </p>
 
