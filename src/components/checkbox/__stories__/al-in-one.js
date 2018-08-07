@@ -43,7 +43,7 @@ export default class CheckboxAllInOneExample extends Component {
           <Checkbox checked={this.isAllChecked} onCheck={this.onAllCheck}>
             Выбрать все
           </Checkbox>
-          {["default", "dark", "green"].map(variation => (
+          {["default"].map(variation => (
             <div style={{ maxWidth: 320, marginRight: 20 }} key={variation}>
               <h4>variation: {variation}</h4>
               <div style={{ marginTop: 20 }}>
@@ -69,6 +69,7 @@ export default class CheckboxAllInOneExample extends Component {
                   checked={this.state.checked1}
                   disabled
                   theme={variation}
+                  onCheck={() => {}}
                 >
                   Получать уведомления по почте
                 </Checkbox>
@@ -85,52 +86,6 @@ export default class CheckboxAllInOneExample extends Component {
               </div>
             </div>
           ))}
-          {/*<div style={{ maxWidth: 240, marginRight: 20 }}>*/}
-          {/*<h4>size: small</h4>*/}
-          {/*<div>*/}
-          {/*<Checkbox*/}
-          {/*checked={this.isAllChecked}*/}
-          {/*indeterminate={this.isIndeterminate}*/}
-          {/*theme={this.onAllCheck}*/}
-          {/*size="small"*/}
-          {/*>*/}
-          {/*Выбрать все*/}
-          {/*</Checkbox>*/}
-          {/*</div>*/}
-          {/*<div style={{ marginTop: 20 }}>*/}
-          {/*<Checkbox*/}
-          {/*checked={this.state.checked1}*/}
-          {/*onCheck={this.onCheck1}*/}
-          {/*size="small"*/}
-          {/*>*/}
-          {/*Получать уведомления по почте*/}
-          {/*</Checkbox>*/}
-          {/*</div>*/}
-          {/*<div style={{ marginTop: 20 }}>*/}
-          {/*<Checkbox*/}
-          {/*checked={this.state.checked2}*/}
-          {/*onCheck={this.onCheck2}*/}
-          {/*size="small"*/}
-          {/*>*/}
-          {/*Получать уведомления на мобильный*/}
-          {/*</Checkbox>*/}
-          {/*</div>*/}
-          {/*<div style={{ marginTop: 20 }}>*/}
-          {/*<Checkbox checked={this.state.checked1} disabled size="small">*/}
-          {/*Получать уведомления по почте*/}
-          {/*</Checkbox>*/}
-          {/*</div>*/}
-          {/*<div style={{ marginTop: 20 }}>*/}
-          {/*<Checkbox*/}
-          {/*checked={this.state.checked2}*/}
-          {/*onCheck={this.onCheck2}*/}
-          {/*size="small"*/}
-          {/*iconPosition="right"*/}
-          {/*>*/}
-          {/*Получать уведомления на мобильный*/}
-          {/*</Checkbox>*/}
-          {/*</div>*/}
-          {/*</div>*/}
         </div>
         <div>
           this.state.checked1: <b>{`${this.state.checked1}`}</b>

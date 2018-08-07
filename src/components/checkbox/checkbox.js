@@ -87,7 +87,7 @@ export default class Checkbox extends PureComponent {
     return (
       <ThemeProvider
         theme={{
-          ...themesMap[theme],
+          ...themesMap["green"],
           size,
           checked: this.state.checked,
           rounded: this.props.rounded,
@@ -107,7 +107,7 @@ export default class Checkbox extends PureComponent {
               disabled={disabled}
               checked={this.state.checked}
               onChange={this.handleChange}
-              value=""
+              value={this.state.checked}
             />
             <StyledInnerCheck />
           </StyledFakeCheckbox>
@@ -143,6 +143,6 @@ Checkbox.defaultProps = {
   iconPosition: "left",
   id: "",
   name: "",
-  size: "14",
-  theme: "default",
+  size: "24",
+  theme: "green",
 };

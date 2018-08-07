@@ -1,46 +1,47 @@
 import styled, { css } from "styled-components";
 import { mainTheme } from "../../components/ui-styles";
-import { darken } from "../../utils/styled";
+// import { darken } from "../../utils/styled";
+import svgSprite from "../../assets/icon-sprite.svg";
 
 export const themesMap = {
-  ["default"]: {
-    accent: mainTheme.color.orange,
-    fill: mainTheme.color.white,
-    background: mainTheme.color.white,
-    base: mainTheme.color.lighterCoal,
-    hover: {
-      accent: darken(mainTheme.color.coal, 15),
-      fill: mainTheme.color.lighterCoal,
-      background: 0,
-    },
-    active: {
-      background: 0,
-      border: mainTheme.color.coal,
-      accent: mainTheme.color.orange,
-    },
-    focus: {
-      shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
-    },
-  },
-  ["dark"]: {
-    accent: mainTheme.color.coal,
-    fill: mainTheme.color.white,
-    background: 0,
-    border: mainTheme.color.lighterCoal,
-    hover: {
-      accent: mainTheme.color.lightCoal,
-      fill: mainTheme.color.lightCoal,
-      background: 0,
-    },
-    active: {
-      background: mainTheme.color.coal,
-      border: mainTheme.color.coal,
-      accent: mainTheme.color.white,
-    },
-    focus: {
-      shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
-    },
-  },
+  // ["default"]: {
+  //   accent: mainTheme.color.orange,
+  //   fill: mainTheme.color.white,
+  //   background: mainTheme.color.white,
+  //   base: mainTheme.color.lighterCoal,
+  //   hover: {
+  //     accent: darken(mainTheme.color.coal, 15),
+  //     fill: mainTheme.color.lighterCoal,
+  //     background: 0,
+  //   },
+  //   active: {
+  //     background: 0,
+  //     border: mainTheme.color.coal,
+  //     accent: mainTheme.color.orange,
+  //   },
+  //   focus: {
+  //     shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+  //   },
+  // },
+  // ["dark"]: {
+  //   accent: mainTheme.color.coal,
+  //   fill: mainTheme.color.white,
+  //   background: 0,
+  //   border: mainTheme.color.lighterCoal,
+  //   hover: {
+  //     accent: mainTheme.color.lightCoal,
+  //     fill: mainTheme.color.lightCoal,
+  //     background: 0,
+  //   },
+  //   active: {
+  //     background: mainTheme.color.coal,
+  //     border: mainTheme.color.coal,
+  //     accent: mainTheme.color.white,
+  //   },
+  //   focus: {
+  //     shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+  //   },
+  // },
   ["green"]: {
     accent: mainTheme.color.green,
     fill: mainTheme.color.white,
@@ -76,6 +77,7 @@ export const StyledFakeCheckbox = styled.span`
   vertical-align: middle;
   top: -0.09em;
   margin: 0 5px;
+  background: url(${svgSprite}) 119px -37px;
 
   ${({ theme: { checked } }) => {
     return (
@@ -93,15 +95,16 @@ export const StyledFakeCheckbox = styled.span`
         }
 
         &:after {
-          content: "✓";
+          content: "";
           display: block;
           position: absolute;
           top: 0;
           left: 0;
-          font: ${props => props.theme.size - 2}px Font Awesome;
+          background: url(${svgSprite}) 119px -63px;
+          font-size: ${props => props.theme.size}px;
           color: ${props => props.theme.active.accent};
-          width: 100%;
-          height: 100%;
+          width: ${props => props.theme.size}px;
+          height: ${props => props.theme.size}px;
           vertical-align: middle;
           text-align: center;
           box-sizing: border-box;

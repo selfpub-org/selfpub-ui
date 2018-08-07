@@ -25,7 +25,7 @@ storiesOf("Checkbox", module)
       const iconPosition = select("iconPosition", positions);
       const id = text("id", "");
       const name = text("name", "checkbox-name");
-      const size = select("size", iconSizes, "14");
+      const size = select("size", iconSizes, "24");
       const theme = select("theme", themes, "default");
       const type = select("type", types, "");
       const onCheck = action("checkbox toggle");
