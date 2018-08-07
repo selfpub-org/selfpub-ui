@@ -5,13 +5,12 @@
 </p>
 
 # Selfpub UI
+[![version: 0.18.2](https://img.shields.io/badge/version-0.18.2-green.svg)](https://github.com/styled-components/styled-components)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 
 
 [Selfpub](selfpub.ru) UI design system language and React-based components implementation.
-
- <!-- [Русская версия README](README-ru_RU.md) -->
 
 ## Features
 
@@ -33,18 +32,6 @@
 git clone git@github.com:MyBook/selfpub-ui.git
 ```
 
-## Usage
-
-```jsx
-
-```
-
-## Links
-
-- [Repository](https://github.com/MyBook/selfpub-ui)
-- [Components](https://github.com/MyBook/selfpub-ui/tree/master/components)
-- [Change Log](CHANGELOG.md)
-
 ## Development
 
 ```bash
@@ -53,5 +40,50 @@ $ cd selfpub-ui
 $ yarn install
 $ yarn storybook
 ```
+
+## Usage
+
+### How Add in project
+
+```bash
+# Add library of components in project (add meta + git clone)
+$ git submodule add git@github.com:MyBook/selfpub-ui.git
+
+# Commit state of change
+$ git commit -am 'added selfpub-ui module'
+
+$ git push origin master
+```
+
+### How Clone project with submodules
+
+```bash
+# Clone a project with a submodule in it.
+$ git clone git@github.com:MyBook/selfpub.git
+
+# Initialize your local configuration file
+$ git submodule init
+
+# Fetch all the data from that project and check out the appropriate commit listed in your superproject
+$ git submodule update
+
+# ------
+
+# Or just use shotand comand
+$ git clone --recurse-submodules git@github.com:MyBook/selfpub.git
+```
+
+### How update submodule
+
+```shell
+# Update submodule selfpub-ui (at last commit)
+$ git submodule update --remote selfpub-ui
+```
+
+## Links
+
+- [Repository](https://github.com/MyBook/selfpub-ui)
+- [Components](https://github.com/MyBook/selfpub-ui/tree/master/components)
+- [Change Log](CHANGELOG.md)
 
 Open your browser and visit http://localhost:9001, see more at [Development](https://github.com/MyBook/selfpub-ui/wiki/Development).
