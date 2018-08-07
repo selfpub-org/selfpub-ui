@@ -2,6 +2,8 @@
 /* global __dirname */
 const path = require("path");
 
+console.log(path.resolve("src"))
+
 module.exports = {
   resolve: {
     modules: [
