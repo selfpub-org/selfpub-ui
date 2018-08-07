@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import Icon from "../icons/icon";
 import {
@@ -9,25 +9,57 @@ import {
 } from "./popover.styled";
 
 export default class Popover extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.onMouseOver = ::this.onMouseOver;
+    this.onMouseOut = ::this.onMouseOut;
+    this.onTouchStart = ::this.onTouchStart;
+    this.onTouchEnd = ::this.onTouchEnd;
+
+    this.state = {
+      open: this.props.open,
+    };
+  }
+
+  onMouseOver() {
+    this.setState({ open: true });
+  }
+
+  onMouseOut() {
+    this.setState({ open: false });
+  }
+
+  onTouchStart() {
+    this.setState({ open: true });
+  }
+
+  onTouchEnd() {
+    this.setState({ open: false });
+  }
+
   render() {
-    const { header, content, position, invert } = this.props;
+    const { header, children, position } = this.props;
     const icon = (
       <Icon
         size="small"
-        className={`icon icon--small icon--question${invert ? "-invert" : ""}`}
-      >
-        <span />
-      </Icon>
+        glyph={this.state.open ? "question-invert" : "question"}
+      />
     );
-    const contentLayout = content ? (
+    const contentLayout = children ? (
       <StyledPopoverContent>
         <StyledPopoverContentFixer />
-        {content}
+        {children}
       </StyledPopoverContent>
     ) : null;
 
     return (
-      <StyledPopoverWrapper>
+      <StyledPopoverWrapper
+        onMouseOver={this.onMouseOver}
+        onMouseOut={this.onMouseOut}
+        onTouchStart={this.onTouchStart}
+        onTouchEnd={this.onTouchEnd}
+        open={this.state.open}
+      >
         {position === "left" && icon}
         {contentLayout}
         <StyledPopoverHeader>{header}</StyledPopoverHeader>
@@ -39,11 +71,11 @@ export default class Popover extends PureComponent {
 
 Popover.propTypes = {
   header: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
+  open: PropTypes.bool,
   position: PropTypes.oneOf(["left", "right"]),
 };
 
 Popover.defaultProps = {
   position: null,
+  open: false,
 };

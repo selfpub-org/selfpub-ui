@@ -2,7 +2,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { text, select } from "@storybook/addon-knobs";
+import { text, select, boolean } from "@storybook/addon-knobs";
 import Popover from "./popover";
 
 const buttonsMdDocs = `
@@ -14,11 +14,13 @@ storiesOf("Popover", module).add(
   withInfo({ text: buttonsMdDocs, inline: true })(() => (
     <Popover
       header={text("header", "DOCX")}
-      content={text(
-        "content",
-        "Самый распространенный формат текстовых файлов; используется в&nbsp;Microsoft Word.",
-      )}
+      open={boolean("open", false)}
       position={select("position", { left: "left", right: "right" }, "right")}
-    />
+    >
+      {text(
+        "content",
+        "Самый распространенный формат текстовых файлов; используется в &nbsp; <a href='#ssrv'>Microsoft Word</a>.",
+      )}
+    </Popover>
   )),
 );

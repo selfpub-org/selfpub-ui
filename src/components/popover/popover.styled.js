@@ -61,14 +61,16 @@ export const StyledPopoverWrapper = styled.div`
   display: inline-flex;
   cursor: auto;
 
-  &:hover {
-    ${StyledPopoverContent} {
-      z-index: 10;
-      opacity: 1;
-      visibility: visible;
-      display: block;
-      transform: translate(-50%, 21px);
-      transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-    }
-  }
+  ${props =>
+    props.open &&
+    css`
+      ${StyledPopoverContent} {
+        z-index: 10;
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        transform: translate(-50%, 21px);
+        transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+      }
+    `};
 `;
