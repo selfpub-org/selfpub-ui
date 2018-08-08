@@ -91,7 +91,7 @@ export const themesMap = {
   ["white"]: {
     color: mainTheme.color.white,
     border: mainTheme.color.white,
-    background: mainTheme.color.white,
+    background: "transparent",
     hover: {
       color: mainTheme.color.white,
       border: mainTheme.color.coal,
@@ -164,69 +164,62 @@ export const StyledButton = styled.button`
   text-align: center;
   align-items: center;
   justify-content: center;
+  margin: 15px 0;
   //themes
-  color: ${props => props.theme.color};
-  border: solid ${props => props.theme.border};
-  background-color: ${props => props.theme.background};
+  color: ${props => props.theme.button.variations[props.variation].color};
+  border-color: ${props =>
+    props.theme.button.variations[props.variation].border};
+  background-color: ${props =>
+    props.theme.button.variations[props.variation].background};
   // base not modified
   outline: 0;
   appearance: none;
   border-radius: 0;
   user-select: none;
-  transition: background-color .2s, border-color .2s, box-shadow .2s, color .2s;
-  
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s,
+    color 0.2s;
+
   &:focus:not(:disabled) {
-    box-shadow: ${props => props.theme.focus.shadow};
+    box-shadow: ${props =>
+      props.theme.button.variations[props.variation].focus.shadow};
   }
-  
+
   &:hover:not(:disabled) {
     cursor: pointer;
-    color: ${props => props.theme.hover.color};
-    background-color: ${props => darken(props.theme.hover.background, -5)};
-    border-color: ${props => darken(props.theme.hover.border, -5)};
+    color: ${props =>
+      props.theme.button.variations[props.variation].hover.color};
+    background-color: ${props =>
+      darken(
+        props.theme.button.variations[props.variation].hover.background,
+        -5,
+      )};
+    border-color: ${props =>
+      darken(props.theme.button.variations[props.variation].hover.border, -5)};
   }
 
   &:active {
-    background-color: ${props => darken(props.theme.active.background, -15)};
-    border-color: ${props => darken(props.theme.active.border, -15)};
+    background-color: ${props =>
+      darken(
+        props.theme.button.variations[props.variation].active.background,
+        -15,
+      )};
+    border-color: ${props =>
+      darken(
+        props.theme.button.variations[props.variation].active.border,
+        -15,
+      )};
   }
 
-  ${props =>
-    props.size === "small" &&
-    css`
-      border-width: 1px;
-      font-size: 14px;
-      padding: 7px;
-      width: 192px;
-      margin: 15px 0;
-    `}
-  
-  ${props =>
-    props.size === "medium" &&
-    css`
-      border-width: 2px;
-      font-size: 14px;
-      text-transform: uppercase;
-      line-height: 36px;
-      width: 192px;
-      margin: 15px 0;
-      font-weight: 500;
-      min-height: 40px;
-    `}
-  
-  ${props =>
-    props.size === "big" &&
-    css`
-      border-width: 2px;
-      font-size: 17px;
-      font-weight: 500;
-      padding: 14px 21px;
-      margin: 15px 0;
-      text-transform: uppercase;
-      line-height: 17px;
-      height: 48px;
-    `};
-  
+  font-size: ${props => props.theme.button.sizes[props.size].fontSize}px;
+  font-weight: ${props => props.theme.button.sizes[props.size].fontWeight};
+  border-width: ${props => props.theme.button.sizes[props.size].borderWidth}px;
+  padding: ${props => props.theme.button.sizes[props.size].padding};
+  text-transform: ${props =>
+    props.theme.button.sizes[props.size].textTransform};
+  min-width: ${props => props.theme.button.sizes[props.size].minWidth};
+  line-height: ${props => props.theme.button.sizes[props.size].lineHeight};
+  height: ${props => props.theme.button.sizes[props.size].height};
+
   ${props =>
     props.disabled &&
     css`
@@ -245,5 +238,5 @@ export const StyledButton = styled.button`
         background: ${mainTheme.color.lighterCoal};
         border-color: ${mainTheme.color.lighterCoal};
       }
-    `}
+    `};
 `;

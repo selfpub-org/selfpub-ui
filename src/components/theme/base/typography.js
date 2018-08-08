@@ -1,7 +1,22 @@
-import { fontFamilies } from "./index";
 import colors from "./colors";
 
+const fontFamilies = {
+  Georgia: "Georgia, serif",
+  Roboto: "Roboto, sans-serif",
+  Garamond: "Garamond, serif",
+  Futura: "Futura, sans-serif",
+  FontAwesome: "Font Awesome",
+  PTSerif: "PTSerif, sans-serif",
+  oranienbaum: "oranienbaum, sans-serif",
+  PTsans: "PT Sans, sans-serif",
+  Exo2: "Exo2, sans-serif",
+  roboto: "ROBOTO, sans-serif",
+  system:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+};
+
 export default {
+  fontFamilies,
   h1: {
     colors: colors.dark,
     fontFamily: fontFamilies.system,
@@ -56,38 +71,12 @@ export default {
     lineHeight: 24,
   },
   paragraph: {
-    display: block,
-    textAlign: left,
+    display: "block",
+    textAlign: "left",
     maxWidth: "80%",
     fontSize: 21,
     lineHeight: 33,
     fontWeight: "normal",
     margin: "16px auto 20px",
-  },
-  quote: {
-    fontSize: 22,
-    lineHeight: 32,
-    fontStyle: "italic",
-    fontFamily: fontFamilies.system,
-    borderColor: colors.primary,
-  },
-  epigraph: {
-    fontSize: 22,
-    lineHeight: 32,
-    fontStyle: "italic",
-    fontFamily: fontFamilies.system,
-  },
-  source: {
-    fontSize: 11,
-    fontFamily: fontFamilies.system,
-  },
-  timestamp: {
-    fontSize: 12,
-    fontFamily: fontFamilies.system,
-  },
-  description: {
-    fontSize: 12,
-    lineHeight: 15,
-    fontFamily: fontFamilies.system,
   },
 };

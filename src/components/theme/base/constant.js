@@ -2,6 +2,8 @@
  * @enum {string}
  */
 export const Size = {
+  Size8: "8",
+  Size10: "10",
   Size12: "12",
   Size14: "14",
   Size16: "16",

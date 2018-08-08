@@ -17,7 +17,7 @@ export default class ButtonWithLoadingExample extends Component {
                 <h4>{`Variation: ${variation}`}</h4>
                 <Button
                   size={select("Size", sizes, "small")}
-                  theme={variation}
+                  variation={variation}
                   onClick={action("clicked")}
                   loading={boolean("Loading", true)}
                   disabled={boolean("Disabled", false)}

@@ -1,9 +1,8 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { ThemeProvider } from "styled-components";
 import { Link, Icon } from "../../components";
 import { Size as IconSize } from "../../components/theme/base/constant";
-import { StyledButton, themesMap } from "./button.styled.js";
+import { StyledButton } from "./button.styled.js";
 import { arrayFromHash } from "../../utils/utils";
 
 export default class Button extends PureComponent {
@@ -15,7 +14,6 @@ export default class Button extends PureComponent {
       iconSize,
       loading,
       onClick,
-      theme,
       ...rest
     } = this.props;
 
@@ -38,16 +36,14 @@ export default class Button extends PureComponent {
       );
     } else {
       return (
-        <ThemeProvider theme={themesMap[theme] || themesMap["default"]}>
-          <StyledButton
-            {...rest}
-            onClick={onClick}
-            tabIndex={loading ? -1 : 0}
-            type={htmlType || "button"}
-          >
-            {content}
-          </StyledButton>
-        </ThemeProvider>
+        <StyledButton
+          onClick={onClick}
+          tabIndex={loading ? -1 : 0}
+          type={htmlType || "button"}
+          {...rest}
+        >
+          {content}
+        </StyledButton>
       );
     }
   }
@@ -58,14 +54,11 @@ Button.Themes = [
   "primary",
   "white",
   "light",
-  "default-disabled",
   "danger",
   "lighter",
   "primary-light",
   "success",
   "black",
-  "to-right",
-  "null",
 ];
 
 Button.Sizes = ["big", "medium", "small"];
@@ -83,7 +76,7 @@ Button.propTypes = {
   /** set the target of link, see: */
   target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top"]),
   /** themes of button */
-  theme: PropTypes.oneOf(Button.Themes),
+  variation: PropTypes.oneOf(Button.Themes),
   /** set the icon of button, see: Icon component */
   icon: PropTypes.string,
   /** set the icon size, see: Icon component */
@@ -103,5 +96,5 @@ Button.defaultProps = {
   iconSize: IconSize.Size12,
   size: "small",
   target: "_self",
-  theme: "default",
+  variation: "default",
 };

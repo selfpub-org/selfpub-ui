@@ -24,7 +24,7 @@ export default class ButtonAllInOneExample extends Component {
                     Size: {size}
                     <Button
                       size={size}
-                      theme={variation}
+                      variation={variation}
                       onClick={action("clicked")}
                     >
                       Some text

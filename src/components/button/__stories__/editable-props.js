@@ -18,7 +18,7 @@ export default function() {
         disabled={disabled}
         loading={loading}
         href={href ? href : null}
-        theme={select("theme", themes, "default")}
+        variation={select("variation", themes, "default")}
         size={select("Size", sizes, "small")}
         htmlType={htmlType ? htmlType : null}
         target={target ? target : null}
