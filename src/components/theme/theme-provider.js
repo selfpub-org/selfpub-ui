@@ -2,6 +2,7 @@ import React, { Children, Component } from "react";
 import PropTypes from "prop-types";
 import { injectGlobal, ThemeProvider } from "styled-components";
 import { mainTheme } from "../../components/ui-styles";
+import { createTheme } from "./base";
 
 injectGlobal`
   /* Дефолтные стили */
@@ -33,7 +34,6 @@ injectGlobal`
   
   /* Основные стили */
   html {
-    background: rgba(255, 255, 255, 1);
     -webkit-font-smoothing: antialiased;
   }
   
@@ -77,8 +77,9 @@ export default class ThemeProviderWrapper extends Component {
   render() {
     const { children } = this.props;
     const { theme } = this.props;
+
     return (
-      <ThemeProvider theme={theme || mainTheme}>
+      <ThemeProvider theme={createTheme(theme)}>
         {Children.only(children)}
       </ThemeProvider>
     );
@@ -89,7 +90,7 @@ ThemeProviderWrapper.propTypes = {
   /** Child `ThemeProvider` */
   children: PropTypes.node,
   /** Theme компонента */
-  theme: PropTypes.oneOf(["selfpub"]),
+  theme: PropTypes.oneOf(["base"]),
 };
 
 ThemeProviderWrapper.contextTypes = {

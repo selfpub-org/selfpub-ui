@@ -35,10 +35,17 @@ git clone git@github.com:MyBook/selfpub-ui.git
 ## Development
 
 ```bash
+# Clone repository
 $ git clone git@github.com:MyBook/selfpub-ui.git
+
+# Go to project directory
 $ cd selfpub-ui
+
+# Install frontend dependencies
 $ yarn install
-$ yarn storybook
+
+# Start develop build with watching
+$ yarn storybook:dev
 ```
 
 ## Usage
@@ -52,6 +59,7 @@ $ git submodule add git@github.com:MyBook/selfpub-ui.git
 # Commit state of change
 $ git commit -am 'added selfpub-ui module'
 
+# Push commit of state
 $ git push origin master
 ```
 
