@@ -8,7 +8,7 @@ const StyledErrorField = styled.div`
   font-size: 14px;
 `;
 
-export class ErrorField extends PureComponent {
+export default class ErrorField extends PureComponent {
   render() {
     const { error, id } = this.props;
 
