@@ -1,5 +1,5 @@
 <a name="0.18.2"></a>
-## [0.18.2](https://github.com/alfa-laboratory/arui-feather/compare/v0.0.0...v0.18.2) (2018-08-08)
+## [0.18.2](https://github.com/MyBook/selfpub-ui/compare/v0.0.0...v0.18.2) (2018-08-08)
 
 
 ### Features
