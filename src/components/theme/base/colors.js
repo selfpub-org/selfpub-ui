@@ -82,20 +82,4 @@ export default {
   dark: baseColorCoal,
   light: baseColorWhite,
   fullDark: baseColorBlack,
-  controls: {
-    grey: {
-      default: "#ccc", // рамки кнопок
-      disabled: baseColorLighterCoal, // задизейбленные контролы
-      icon: "rgba(94, 94, 94, 0.4)", // иконки
-      background: "transparent", // бэкграунд кнопок
-      lightBackground: "#eef2f4", // бэкграунд иконки на нотификациях
-      activeBackground: "rgba(141, 150, 178, 0.2)", // бэкграунд при :active состоянии на checkbox
-      outline: "#8d96b2", // обводка на outline контролах
-      fieldOutline: "#dde0e8", // обводка на outline контролах
-      iconBackground: "#f3f4f7",
-      placeholder: "#a4a9b8",
-      fieldIcon: "#B0B4C2",
-      disabledText: "#afb5c9",
-    },
-  },
 };

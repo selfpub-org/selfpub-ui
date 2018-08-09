@@ -1,13 +1,3 @@
-export { default } from "./typography";
-export { default as H1 } from "./H1";
-export { default as H2 } from "./H2";
-export { default as H3 } from "./H3";
-export { default as Text } from "./Text";
-export { default as Quote } from "./Quote";
-export { default as Epigraph } from "./Epigraph";
-export { default as Source } from "./Source";
-export { default as Timestamp } from "./Timestamp";
-export { default as Description } from "./Description";
-export { default as GalleryDescription } from "./GalleryDescription";
-export { default as PhotoSource } from "./PhotoSource";
-export { default as List } from "./List";
+export { default as Typography } from "./typography";
+export { default as Header } from "./header";
+export { default as Paragraph } from "./paragraph";

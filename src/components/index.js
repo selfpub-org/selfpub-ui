@@ -8,6 +8,7 @@ export { default as Link } from "./link";
 export { default as Loader } from "./loader/loader";
 export { default as Textarea } from "./textarea";
 export { default as ThemeProviderWrapper } from "./theme";
+export { Typography, Header, Paragraph } from "./typography";
 export {
   Input,
   InputStatus,

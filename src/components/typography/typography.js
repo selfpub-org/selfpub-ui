@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 export default class Typography extends PureComponent {
   render() {
     const { tagName, children, ...rest } = this.props;
+    const TagName = tagName;
 
-    return <tagName {...rest}>{children}</tagName>;
+    return <TagName {...rest}>{children}</TagName>;
   }
 }
 

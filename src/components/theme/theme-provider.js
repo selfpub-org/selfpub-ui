@@ -1,22 +1,22 @@
 import React, { Children, Component } from "react";
 import PropTypes from "prop-types";
 import { injectGlobal, ThemeProvider } from "styled-components";
-import { mainTheme } from "../../components/ui-styles";
-import { createTheme } from "./base";
+import baseTheme from "./base";
 
 injectGlobal`
-  /* Дефолтные стили */
+  /* Default */
   * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     text-size-adjust: none;
+    font-family: ${baseTheme.fontFamily};
   }
   
-  /* Формы */
+  /* Forms */
   input, textarea, button {
     appearance: none;
-    font-family: ${mainTheme.systemFonts};
+    font-family: ${baseTheme.systemFonts};
     letter-spacing: -.1px;
   }
   
@@ -26,19 +26,17 @@ injectGlobal`
     margin: 0;
   }
   
-  /* Аккуратные таблицы */
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
   
-  /* Основные стили */
   html {
     -webkit-font-smoothing: antialiased;
   }
   
   body {
-    font-family: ${mainTheme.systemFonts};
+    font-family: ${baseTheme.systemFonts};
     font-size: 14px;
     letter-spacing: -.1px;
     line-height: 20px;
@@ -61,7 +59,6 @@ injectGlobal`
     display: none;
   }
   
-  /* Ссылки без дефолтного подчёркивания */
   a {
     text-decoration: none;
   }
@@ -79,7 +76,7 @@ export default class ThemeProviderWrapper extends Component {
     const { theme } = this.props;
 
     return (
-      <ThemeProvider theme={createTheme(theme)}>
+      <ThemeProvider theme={theme || baseTheme}>
         {Children.only(children)}
       </ThemeProvider>
     );
@@ -89,7 +86,7 @@ export default class ThemeProviderWrapper extends Component {
 ThemeProviderWrapper.propTypes = {
   /** Child `ThemeProvider` */
   children: PropTypes.node,
-  /** Theme компонента */
+  /** Theme */
   theme: PropTypes.oneOf(["base"]),
 };
 

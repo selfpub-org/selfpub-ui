@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Input } from "../../components";
 import { mainTheme } from "../../components/ui-styles";
 
 const BaseStyledTextarea = styled.textarea`
@@ -17,7 +16,6 @@ const BaseStyledTextarea = styled.textarea`
   resize: none;
   min-height: 150px;
 `;
-// const StyledTextarea = styled(Input).withComponent(BaseStyledTextarea);
 
 export default class Textarea extends PureComponent {
   render() {
