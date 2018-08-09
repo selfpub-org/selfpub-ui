@@ -14,6 +14,7 @@ export default class Button extends PureComponent {
       iconSize,
       loading,
       onClick,
+      type,
       ...rest
     } = this.props;
 
@@ -28,22 +29,25 @@ export default class Button extends PureComponent {
       </React.Fragment>
     );
 
-    if ("href" in rest && !!rest.href) {
+    const LinkButton = StyledButton.withComponent("a");
+    const StylesButton = StyledButton.withComponent("button");
+
+    if (!!rest.href && type === "link") {
       return (
-        <Link {...rest} onClick={this.handleClick}>
+        <LinkButton {...rest} onClick={this.handleClick}>
           {content}
-        </Link>
+        </LinkButton>
       );
     } else {
       return (
-        <StyledButton
+        <StylesButton
           onClick={onClick}
           tabIndex={loading ? -1 : 0}
-          type={htmlType || "button"}
+          htmlType={htmlType || "button"}
           {...rest}
         >
           {content}
-        </StyledButton>
+        </StylesButton>
       );
     }
   }
@@ -73,6 +77,8 @@ Button.propTypes = {
   href: PropTypes.string,
   /** set the original html type of button, see: MDN */
   htmlType: PropTypes.string,
+  /** element type for button */
+  type: PropTypes.oneOf(["button", "link"]),
   /** set the target of link, see: */
   target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top"]),
   /** themes of button */
@@ -97,4 +103,5 @@ Button.defaultProps = {
   size: "small",
   target: "_self",
   variation: "default",
+  type: "button",
 };

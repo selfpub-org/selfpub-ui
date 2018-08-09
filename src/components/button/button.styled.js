@@ -2,13 +2,15 @@ import styled, { css } from "styled-components";
 import { mainTheme } from "../../components/ui-styles";
 import { darken } from "../../utils/styled";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.div`
   // size and aligning
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   margin: 15px 0;
+  width: 100%;
+  border-style: solid;
 
   // base not modified
   outline: 0;
@@ -81,4 +83,3 @@ export const StyledButton = styled.button`
       cursor: default;
     `};
 `;
-

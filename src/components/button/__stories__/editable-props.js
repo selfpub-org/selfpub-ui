@@ -10,6 +10,7 @@ export default function() {
   const href = text("href", "");
   const target = select("target", targets, "_self");
   const htmlType = text("htmlType", "");
+  const type = select("type", { button: "button", link: "link" }, "button");
   const icon = text("icon", "");
 
   return (
@@ -21,6 +22,7 @@ export default function() {
         variation={select("variation", themes, "default")}
         size={select("Size", sizes, "small")}
         htmlType={htmlType ? htmlType : null}
+        type={type ? type : null}
         target={target ? target : null}
         icon={icon ? icon : null}
         iconSize={select("iconSize", iconSizes, "12")}

@@ -13,7 +13,7 @@ export default class ButtonWithLoadingExample extends Component {
           <h3>Buttons with loader</h3>
           <div style={{ display: "flex" }}>
             {Button.Themes.map(variation => (
-              <div style={{ width: 300, marginRight: 40 }} key={variation}>
+              <div style={{ minWidth: 300, marginRight: 40 }} key={variation}>
                 <h4>{`Variation: ${variation}`}</h4>
                 <Button
                   size={select("Size", sizes, "small")}
