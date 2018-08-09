@@ -1,4 +1,3 @@
-import { fontFamilies } from "./index";
 import { mainTheme } from "../../ui-styles";
 import typography from "./typography";
 
@@ -56,6 +55,11 @@ export default {
       height: "auto",
       icon: 10,
     },
+  },
+  disabled: {
+    color: mainTheme.color.white,
+    border: mainTheme.color.lighterCoal,
+    background: mainTheme.color.lighterCoal,
   },
   variations: {
     default: {

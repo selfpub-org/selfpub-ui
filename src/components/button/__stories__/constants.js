@@ -2,7 +2,6 @@ export const sizes = {
   small: "small",
   medium: "medium",
   big: "big",
-  null: "empty props",
 };
 
 export const themes = {
