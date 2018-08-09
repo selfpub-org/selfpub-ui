@@ -15,5 +15,5 @@ storiesOf("Buttons", module)
     "1. Width editable props",
     withInfo({ text: buttonsMdDocs, inline: true })(ButtonWithEditableProps),
   )
-  .add("2. All in one", () => <ButtonAllInOneExample />)
+  .add("2. All in one", ButtonAllInOneExample)
   .add("3. With loading", () => <ButtonWithLoadingExample />);
