@@ -3,7 +3,6 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import {
-  iconSizes,
   positions,
   themes,
   types,
@@ -21,26 +20,20 @@ storiesOf("Checkbox", module)
     withInfo({ text: buttonsMdDocs, inline: true })(() => {
       const checked = boolean("checked", false);
       const disabled = boolean("disabled", false);
-      const rounded = boolean("rounded", false);
       const iconPosition = select("iconPosition", positions);
       const id = text("id", "");
       const name = text("name", "checkbox-name");
-      const size = select("size", iconSizes, "24");
-      const theme = select("theme", themes, "default");
-      const type = select("type", types, "");
-      const onCheck = action("checkbox toggle");
+      const variation = select("variation", themes, "green");
+      const onCheck = eventData => action("checkbox toggle")(eventData);
       return (
         <ThemeProviderWrapper>
           <Checkbox
             checked={checked}
             disabled={disabled}
-            rounded={rounded}
             iconPosition={iconPosition}
             id={id}
             name={name}
-            size={size}
-            theme={theme}
-            type={type}
+            variation={variation}
             onCheck={onCheck}
           >
             Some text

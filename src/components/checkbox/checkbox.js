@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { themesMap } from "./checkbox.styled";
 import { ThemeProvider } from "styled-components";
 import {
+  StyledLabel,
   StyledCheckboxInput,
   StyledFakeCheckbox,
-  StyledInnerCheck,
+  StyledInput,
 } from "./checkbox.styled";
 import nanoid from "nanoid";
-import { StyledLabel } from "../input/input.styled";
 
 export default class Checkbox extends PureComponent {
   constructor(props) {
@@ -17,7 +17,6 @@ export default class Checkbox extends PureComponent {
     this.handleChange = ::this.handleChange;
     this.focus = ::this.focus;
     this.blur = ::this.blur;
-    this.id = props.id || nanoid();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,6 +24,8 @@ export default class Checkbox extends PureComponent {
       this.setState({
         checked: nextProps.checked,
       });
+
+      this.input.checked = nextProps.checked && "checked";
     }
   }
 
@@ -53,28 +54,26 @@ export default class Checkbox extends PureComponent {
     }
 
     onCheck({
+      event,
       target: {
         ...this.props,
         checked: event.target.checked,
       },
-      stopPropagation() {
-        event.stopPropagation();
-      },
-      preventDefault() {
-        event.preventDefault();
-      },
-      nativeEvent: event.nativeEvent,
     });
   }
 
   render() {
     const {
+      id,
       name,
       disabled,
       iconPosition,
       children,
-      theme,
+      variation,
       size,
+      theme,
+      checked,
+      type,
       ...rest
     } = this.props;
 
@@ -82,38 +81,34 @@ export default class Checkbox extends PureComponent {
       <React.Fragment>{children && <span>{children}</span>}</React.Fragment>
     );
 
-    const StyledInput = StyledCheckboxInput.withComponent("input");
+    const checkboxId = id || `checkbox-${nanoid(6)}`;
 
     return (
-      <ThemeProvider
-        theme={{
-          ...themesMap["green"],
-          size,
-          checked: this.state.checked,
-          rounded: this.props.rounded,
-        }}
+      <StyledLabel
+        {...rest}
+        htmlFor={checkboxId}
+        variation={variation}
+        theme={theme}
+        size={size}
+        disabled={disabled}
+        checked={checked}
       >
-        <StyledLabel htmlFor={this.id} {...rest}>
-          {iconPosition === "right" && content}
-          <StyledFakeCheckbox>
-            <StyledInput
-              id={this.id}
-              name={name}
-              ref={input => {
-                this.input = input;
-              }}
-              size={size}
-              type="checkbox"
-              disabled={disabled}
-              checked={this.state.checked}
-              onChange={this.handleChange}
-              value={this.state.checked}
-            />
-            <StyledInnerCheck />
-          </StyledFakeCheckbox>
-          {iconPosition === "left" && content}
-        </StyledLabel>
-      </ThemeProvider>
+        {iconPosition === "right" && content}
+        <StyledFakeCheckbox {...rest}>
+          <StyledInput
+            id={checkboxId}
+            name={name}
+            ref={input => {
+              this.input = input;
+            }}
+            type="checkbox"
+            onChange={this.handleChange}
+            checked={this.state.checked}
+            value={this.state.checked}
+          />
+        </StyledFakeCheckbox>
+        {iconPosition === "left" && content}
+      </StyledLabel>
     );
   }
 }
@@ -129,10 +124,8 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   /** Checkbox name */
   name: PropTypes.string,
-  /** Checkbox size */
-  size: PropTypes.string,
   /** Theme of checkbox */
-  theme: PropTypes.string,
+  variation: PropTypes.string,
   /** callback for event change checked state for checkbox */
   onCheck: PropTypes.func.isRequired,
 };
@@ -142,7 +135,6 @@ Checkbox.defaultProps = {
   disabled: false,
   iconPosition: "left",
   id: "",
-  name: "",
-  size: "24",
-  theme: "green",
+  name: "checkbox",
+  variation: "green",
 };

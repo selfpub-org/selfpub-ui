@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Checkbox from "../checkbox";
+import ThemeProviderWrapper from "../../theme/theme-provider";
 
 export default class CheckboxAllInOneExample extends Component {
   constructor() {
@@ -20,11 +21,11 @@ export default class CheckboxAllInOneExample extends Component {
     return undefined;
   }
 
-  onCheck1(e, checked) {
+  onCheck1({ event, target: { checked } }) {
     this.setState({ checked1: checked });
   }
 
-  onCheck2(e, checked) {
+  onCheck2({ event, target: { checked } }) {
     this.setState({ checked2: checked });
   }
 
@@ -38,62 +39,64 @@ export default class CheckboxAllInOneExample extends Component {
 
   render() {
     return (
-      <div>
-        <div style={{ display: "flex", marginBottom: 20 }}>
-          <Checkbox checked={this.isAllChecked} onCheck={this.onAllCheck}>
-            Выбрать все
-          </Checkbox>
-          {["default"].map(variation => (
-            <div style={{ maxWidth: 320, marginRight: 20 }} key={variation}>
-              <h4>variation: {variation}</h4>
-              <div style={{ marginTop: 20 }}>
-                <Checkbox
-                  checked={this.state.checked1}
-                  onCheck={this.onCheck1}
-                  theme={variation}
-                >
-                  Получать уведомления по почте
-                </Checkbox>
+      <ThemeProviderWrapper>
+        <React.Fragment>
+          <div style={{ display: "flex", marginBottom: 20 }}>
+            <Checkbox checked={this.isAllChecked} onCheck={this.onAllCheck}>
+              Выбрать все
+            </Checkbox>
+            {["green"].map(variation => (
+              <div style={{ maxWidth: 320, marginRight: 20 }} key={variation}>
+                <h4>variation: {variation}</h4>
+                <div style={{ marginTop: 20 }}>
+                  <Checkbox
+                    checked={this.state.checked1}
+                    onCheck={this.onCheck1}
+                    variation={variation}
+                  >
+                    Получать уведомления по почте
+                  </Checkbox>
+                </div>
+                <div style={{ marginTop: 20 }}>
+                  <Checkbox
+                    checked={this.state.checked2}
+                    onCheck={this.onCheck2}
+                    variation={variation}
+                  >
+                    Получать уведомления на мобильный
+                  </Checkbox>
+                </div>
+                <div style={{ marginTop: 20 }}>
+                  <Checkbox
+                    checked={true}
+                    disabled
+                    variation={variation}
+                    onCheck={() => {}}
+                  >
+                    Получать уведомления по почте
+                  </Checkbox>
+                </div>
+                <div style={{ marginTop: 20 }}>
+                  <Checkbox
+                    checked={this.state.checked2}
+                    onCheck={this.onCheck2}
+                    variation={variation}
+                    iconPosition="right"
+                  >
+                    Получать уведомления на мобильный
+                  </Checkbox>
+                </div>
               </div>
-              <div style={{ marginTop: 20 }}>
-                <Checkbox
-                  checked={this.state.checked2}
-                  onCheck={this.onCheck2}
-                  theme={variation}
-                >
-                  Получать уведомления на мобильный
-                </Checkbox>
-              </div>
-              <div style={{ marginTop: 20 }}>
-                <Checkbox
-                  checked={this.state.checked1}
-                  disabled
-                  theme={variation}
-                  onCheck={() => {}}
-                >
-                  Получать уведомления по почте
-                </Checkbox>
-              </div>
-              <div style={{ marginTop: 20 }}>
-                <Checkbox
-                  checked={this.state.checked2}
-                  onCheck={this.onCheck2}
-                  theme={variation}
-                  iconPosition="right"
-                >
-                  Получать уведомления на мобильный
-                </Checkbox>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div>
-          this.state.checked1: <b>{`${this.state.checked1}`}</b>
-        </div>
-        <div>
-          this.state.checked2: <b>{`${this.state.checked2}`}</b>
-        </div>
-      </div>
+            ))}
+          </div>
+          <div>
+            this.state.checked1: <b>{`${this.state.checked1}`}</b>
+          </div>
+          <div>
+            this.state.checked2: <b>{`${this.state.checked2}`}</b>
+          </div>
+        </React.Fragment>
+      </ThemeProviderWrapper>
     );
   }
 }
