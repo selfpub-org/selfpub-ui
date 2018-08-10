@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Selfpub UI
+# SelfPub UI
 
 ![GitHub](https://img.shields.io/github/license/mybook/selfpub-ui.svg)
 ![npm (scoped)](https://img.shields.io/npm/v/@selfpub/selfpub-ui.svg)
@@ -12,7 +12,7 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 
-[Selfpub](selfpub.ru) UI design system language and React-based components implementation.
+[SelfPub](https://selfpub.ru) UI design system language and React-based components implementation.
 
 ## Install
 
