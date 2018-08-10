@@ -116,7 +116,7 @@ export default {
     light: {
       color: mainTheme.color.coal,
       border: mainTheme.color.strongLighterCoal,
-      background: mainTheme.color.white,
+      background: "transparent",
       hover: {
         color: mainTheme.color.white,
         border: mainTheme.color.lighterCoal,
@@ -133,7 +133,7 @@ export default {
     lighter: {
       color: mainTheme.color.coal,
       border: mainTheme.color.lighterCoal,
-      background: mainTheme.color.white,
+      background: "transparent",
       hover: {
         color: mainTheme.color.coal,
         border: mainTheme.color.coal,
@@ -167,7 +167,7 @@ export default {
     danger: {
       color: mainTheme.color.red,
       border: mainTheme.color.red,
-      background: mainTheme.color.white,
+      background: "transparent",
       hover: {
         color: mainTheme.color.white,
         border: mainTheme.color.red,
