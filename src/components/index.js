@@ -17,3 +17,4 @@ export {
   InputWrapper,
 } from "./input";
 export { Table, Td, Tr } from "./table";
+export { Tab, Tabs } from "./tabs";
