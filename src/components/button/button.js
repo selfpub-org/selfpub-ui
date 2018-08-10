@@ -19,7 +19,7 @@ export default class Button extends PureComponent {
     } = this.props;
 
     const iconNode = !!icon ? (
-      <Icon type={icon} size={iconSize === "small" ? "18" : "26"} />
+      <Icon glyph={icon} size={iconSize} />
     ) : null;
     const loaderSize = iconSize ? iconSize : Icon.Size.Size12;
 
