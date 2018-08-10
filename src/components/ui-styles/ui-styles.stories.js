@@ -1,7 +1,7 @@
 /* global module */
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { mainTheme } from "../../components/ui-styles";
+import { mainTheme } from "./index";
 
 storiesOf("ui-styles", module).add("mainTheme", () => (
   <div

@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
-import { mainTheme } from "../../components/ui-styles";
+import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
 
 const StyledBaseTabelItem = styled.div`

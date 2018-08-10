@@ -1,0 +1,4 @@
+.out/
+.idea/
+
+jest-test-results.json

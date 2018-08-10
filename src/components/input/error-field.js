@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
-import { mainTheme } from "../ui-styles";
+import { mainTheme } from "../ui-styles/index";
 
 const StyledErrorField = styled.div`
   margin-top: 5px;

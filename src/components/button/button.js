@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Link, Icon } from "../../components";
-import { Size as IconSize } from "../../components/theme/base/constant";
+import { Link, Icon } from "../index";
+import { Size as IconSize } from "../theme/base/constant";
 import { StyledButton } from "./button.styled.js";
 import { arrayFromHash } from "../../utils/utils";
 

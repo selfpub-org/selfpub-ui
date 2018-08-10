@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { mainTheme } from "../../components/ui-styles";
+import { mainTheme } from "../ui-styles/index";
 
 const BaseStyledTextarea = styled.textarea`
   display: block;

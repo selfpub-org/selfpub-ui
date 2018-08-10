@@ -1,7 +1,7 @@
 import React, { Children, Component } from "react";
 import PropTypes from "prop-types";
 import { injectGlobal, ThemeProvider } from "styled-components";
-import baseTheme from "./base";
+import baseTheme from "./base/index";
 
 injectGlobal`
   /* Default */

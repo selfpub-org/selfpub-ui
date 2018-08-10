@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
-import { InlineSelect } from "../../components";
+import { InlineSelect } from "../index";
 
 const rangeOptions = [
   { text: "За последние 7 дней", value: "last7" },

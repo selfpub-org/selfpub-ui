@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { Button, ThemeProviderWrapper } from "../../../components";
+import { Button, ThemeProviderWrapper } from "../../index";
 
 export default function() {
   return (

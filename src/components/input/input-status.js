@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { mainTheme } from "../ui-styles";
+import { mainTheme } from "../ui-styles/index";
 
 export default class InputStatus extends PureComponent {
   render() {

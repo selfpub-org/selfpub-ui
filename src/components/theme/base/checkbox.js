@@ -1,4 +1,4 @@
-import { mainTheme } from "../../ui-styles";
+import { mainTheme } from "../../ui-styles/index";
 
 export default {
   animationDuration: 200,

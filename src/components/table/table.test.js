@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "enzyme";
 import toJson from "enzyme-to-json";
-import { Table, Tr, Td } from "../../components/table";
+import { Table, Tr, Td } from "./index";
 
 test("Table is rendered", () => {
   const table = render(

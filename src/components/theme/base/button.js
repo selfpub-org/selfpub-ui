@@ -1,4 +1,4 @@
-import { mainTheme } from "../../ui-styles";
+import { mainTheme } from "../../ui-styles/index";
 import typography from "./typography";
 
 export default {

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { mainTheme } from "../../components/ui-styles";
+import { mainTheme } from "../ui-styles/index";
 
 export const themesMap = {
   ["default"]: {

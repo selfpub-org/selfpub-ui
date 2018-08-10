@@ -1,8 +1,26 @@
 /* global require */
 /* global module */
-import { configure, addDecorator } from '@storybook/react';
-import { withKnobs } from "@storybook/addon-knobs";
+import React from "react";
 import backgrounds from '@storybook/addon-backgrounds';
+import { configure, addDecorator } from '@storybook/react';
+import { setOptions } from "@storybook/addon-options";
+import { withKnobs } from "@storybook/addon-knobs";
+
+setOptions({
+  name: 'Selfpub UI Design',
+  url: '#',
+  goFullScreen: false,
+  showStoriesPanel: true,
+  showAddonPanel: true,
+  addonPanelInRight: true,
+  sortStoriesByKind: true,
+});
+
+addDecorator((story) => (
+  <div style={{margin: "15px"}}>
+    {story()}
+  </div>
+));
 
 addDecorator(withKnobs);
 

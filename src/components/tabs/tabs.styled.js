@@ -1,4 +1,4 @@
-import { mainTheme } from "../ui-styles";
+import { mainTheme } from "../ui-styles/index";
 import styled, { css } from "styled-components";
 import { lighten } from "../../utils/styled";
 

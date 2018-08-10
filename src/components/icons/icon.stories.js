@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { number, select, boolean } from "@storybook/addon-knobs";
-import { InlineSelect } from "../../components";
+import { InlineSelect } from "../index";
 import Icon from "./icon";
 import PropTypes from "prop-types";
 

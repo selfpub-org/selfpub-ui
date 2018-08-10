@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { ThemeProviderWrapper, Input, FieldGroup } from "../../components";
+import { ThemeProviderWrapper, Input, FieldGroup } from "../index";
 
 export default class FieldGroupExample extends Component {
   constructor() {

@@ -1,8 +1,7 @@
 import React, { PureComponent } from "react";
-import { Loader } from "../index";
-import { Size } from "../../components/theme/base/constant";
-import { getStyledIcon } from "./icon.styled";
 import PropTypes from "prop-types";
+import { getStyledIcon } from "./icon.styled";
+import { Loader } from "../index";
 
 export default class Icon extends PureComponent {
   render() {
@@ -17,49 +16,42 @@ export default class Icon extends PureComponent {
   }
 }
 
-Icon.Color = {
-  DEFAULT: "",
-};
-
-Icon.Size = Size;
+Icon.Glyps = [
+  "arrow-bottom",
+  "pencil",
+  "delete",
+  "download",
+  "question",
+  "question-invert",
+  "radio",
+  "radio-checked",
+  "bookmark",
+  "triangle-bottom",
+  "success",
+  "error",
+  "triangle-top",
+  "arrow-up",
+  "digital-book",
+  "analog-book",
+  "cross",
+  "cross-red",
+  "checkbox",
+  "checkbox-checked",
+  "link",
+  "download",
+];
 
 Icon.propTypes = {
-  color: PropTypes.string,
-  glyph: PropTypes.oneOf([
-    "arrow-bottom",
-    "pencil",
-    "delete",
-    "download",
-    "question",
-    "question-invert",
-    "radio",
-    "radio-checked",
-    "bookmark",
-    "triangle-bottom",
-    "success",
-    "error",
-    "triangle-top",
-    "arrow-up",
-    "digital-book",
-    "analog-book",
-    "cross",
-    "cross-red",
-    "checkbox",
-    "checkbox-checked",
-    "link",
-    "download",
-  ]),
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Types of glyphs see: https://github.com/mybook/selfpub-ui/blob/master/src/components/icons/icon.js */
+  glyph: PropTypes.oneOf(Icon.Glyps),
+  /** Size of icon */
+  size: PropTypes.oneOf(["small", "big"]),
+  /** show loader use icon size */
   loading: PropTypes.bool,
 };
 
 Icon.defaultProps = {
-  color: Icon.Color.DEFAULT,
   glyph: "question",
-  height: Size.Size32,
-  width: Size.Size32,
-  loading: false,
   size: "small",
+  loading: false,
 };
