@@ -1,3 +1,18 @@
+<a name="1.0.0"></a>
+## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-08-08)
+
+### FIXES
+
+* Update docs (Readme.md, Changelog)
+
+<a name="1.0.0"></a>
+## [1.0.0](https://github.com/MyBook/selfpub-ui/compare/v0.18.2...v1.0.0) (2018-08-08)
+
+### Features
+
+* Refactoring icon component
+* Prepare for publishing at NPM see [@selfpub/selfpub-ui](https://www.npmjs.com/package/@selfpub/selfpub-ui)
+
 <a name="0.18.2"></a>
 ## [0.18.2](https://github.com/MyBook/selfpub-ui/compare/v0.0.0...v0.18.2) (2018-08-08)
 
