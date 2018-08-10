@@ -25,7 +25,7 @@ export default function() {
         type={type ? type : null}
         target={target ? target : null}
         icon={icon ? icon : null}
-        iconSize={select("iconSize", iconSizes, "12")}
+        iconSize={select("iconSize", { small: "small", big: "big" }, "small")}
         onClick={action("clicked")}
       >
         {text("Label (children)", "Some text")}

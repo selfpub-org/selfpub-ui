@@ -18,7 +18,9 @@ export default class Button extends PureComponent {
       ...rest
     } = this.props;
 
-    const iconNode = !!icon ? <Icon type={icon} size={iconSize} /> : null;
+    const iconNode = !!icon ? (
+      <Icon type={icon} size={iconSize === "small" ? "18" : "26"} />
+    ) : null;
     const loaderSize = iconSize ? iconSize : Icon.Size.Size12;
 
     const content = (
@@ -86,7 +88,7 @@ Button.propTypes = {
   /** set the icon of button, see: Icon component */
   icon: PropTypes.string,
   /** set the icon size, see: Icon component */
-  iconSize: PropTypes.oneOf(arrayFromHash(IconSize)),
+  iconSize: PropTypes.oneOf(["small", "big"]),
   /** set the loading status of button */
   loading: PropTypes.bool,
   /** size type for button */
@@ -99,7 +101,7 @@ Button.defaultProps = {
   href: null,
   htmlType: null,
   icon: null,
-  iconSize: IconSize.Size12,
+  iconSize: "small",
   size: "small",
   target: "_self",
   variation: "default",

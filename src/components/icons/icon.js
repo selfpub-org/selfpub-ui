@@ -1,36 +1,18 @@
 import React, { PureComponent } from "react";
 import { Loader } from "../index";
 import { Size } from "../../components/theme/base/constant";
-import { StyledIcon } from "./icon.styled";
+import { getStyledIcon } from "./icon.styled";
 import PropTypes from "prop-types";
 
 export default class Icon extends PureComponent {
   render() {
-    const {
-      size,
-      color,
-      loading = true,
-      glyph,
-      width,
-      height,
-      ...restProps
-    } = this.props;
-
-    const style =
-      width || height
-        ? { width, height, color }
-        : {
-            width: size,
-            height: size,
-            color,
-          };
-
-    const TagName = StyledIcon[glyph];
+    const { size, loading = true, glyph, ...restProps } = this.props;
+    const TagName = getStyledIcon(glyph, size);
 
     return loading ? (
-      <Loader size={size} />
+      <Loader size={size === "small" ? "18" : "26"} />
     ) : (
-      <TagName style={style} {...restProps} />
+      <TagName {...restProps} />
     );
   }
 }
@@ -51,6 +33,7 @@ Icon.propTypes = {
     "question",
     "question-invert",
     "radio",
+    "radio-checked",
     "bookmark",
     "triangle-bottom",
     "success",
@@ -60,7 +43,9 @@ Icon.propTypes = {
     "digital-book",
     "analog-book",
     "cross",
+    "cross-red",
     "checkbox",
+    "checkbox-checked",
     "link",
     "download",
   ]),
@@ -76,5 +61,5 @@ Icon.defaultProps = {
   height: Size.Size32,
   width: Size.Size32,
   loading: false,
-  size: Size.Size32,
+  size: "small",
 };

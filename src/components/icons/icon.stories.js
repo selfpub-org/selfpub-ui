@@ -7,14 +7,6 @@ import { InlineSelect } from "../../components";
 import Icon from "./icon";
 import PropTypes from "prop-types";
 
-const rangeOptions = [
-  { text: "За последние 7 дней", value: "last7" },
-  { text: "За последние 30 дней", value: "last30" },
-  { text: "За последние 90 дней", value: "last90" },
-  { text: "За предыдущий месяц", value: "lastMonth" },
-  { text: "За этот месяц", value: "thisMonth" },
-];
-
 const buttonsMdDocs = `
   description or documentation about my component, supports markdown
 `;
@@ -26,29 +18,34 @@ const iconTypes = {
   question: "question",
   "question-invert": "question-invert",
   radio: "radio",
+  "radio-checked": "radio-checked",
   bookmark: "bookmark",
   "triangle-bottom": "triangle-bottom",
   success: "success",
   error: "error",
   "triangle-top": "triangle-top",
   "arrow-up": "arrow-up",
-  "digital-book": "digital-book",
-  "analog-book": "analog-book",
+  "digital-book": "digital-book", // broken by size
+  "analog-book": "analog-book", // broken by size
   cross: "cross",
-  checkbox: "checkbox",
+  "cross-red": "cross-red",
+  checkbox: "checkbox", // broken by size
+  "checkbox-checked": "checkbox-checked", // broken by size
   link: "link",
   download: "download",
 };
 
 storiesOf("Icon", module).add(
   "1. Width editable props",
-  withInfo({ text: buttonsMdDocs, inline: true })(() => (
-    <Icon
-      size={number("size", 18)}
-      glyph={select("glyph", iconTypes, "question")}
-      height={number("height", 18)}
-      width={number("width", 18)}
-      loading={boolean("loading", false)}
-    />
-  )),
+  withInfo({ text: buttonsMdDocs, inline: true })(() => {
+    const size = select("size", { small: "small", big: "big" }, "small");
+    const glyph = select("glyph", iconTypes, "question");
+    return (
+      <Icon
+        size={size ? size : null}
+        glyph={glyph ? glyph : null}
+        loading={boolean("loading", false)}
+      />
+    );
+  }),
 );
