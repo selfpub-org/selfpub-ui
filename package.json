@@ -1,6 +1,6 @@
 {
   "name": "@selfpub/selfpub-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Design system implementation. Component library Selfpub",
   "homepage": "http://selfpub.ru/",
   "main": "src/components/index.js",
@@ -36,10 +36,6 @@
     "test:generate-output": "jest --json --outputFile=.out/jest-test-results.json",
     "test:watch": "jest --watch"
   },
-  "peerDependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
-  },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
     "@storybook/addon-backgrounds": "^3.4.10",
@@ -69,8 +65,7 @@
     "eslint-plugin-react": "^7.10.0",
     "file-loader": "^1.1.11",
     "jest": "^23.4.2",
-    "prettier": "^1.14.0",
-    "storybook-addon-jest": "^0.0.1"
+    "prettier": "^1.14.0"
   },
   "dependencies": {
     "nanoid": "^1.1.0",
