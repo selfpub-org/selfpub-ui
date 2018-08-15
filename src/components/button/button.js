@@ -1,11 +1,39 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Link, Icon } from "../index";
-import { Size as IconSize } from "../theme/base/constant";
 import { StyledButton } from "./button.styled.js";
-import { arrayFromHash } from "../../utils/utils";
+
+const LinkButton = StyledButton.withComponent("a");
+const StylesButton = StyledButton.withComponent("button");
 
 export default class Button extends PureComponent {
+  constructor() {
+    super();
+    this.onMouseOver = ::this.onMouseOver;
+    this.onMouseOut = ::this.onMouseOut;
+    this.onTouchStart = ::this.onTouchStart;
+    this.onTouchEnd = ::this.onTouchEnd;
+    this.state = {
+      isHovered: false,
+    };
+  }
+
+  onMouseOver() {
+    this.setState({ isHovered: true });
+  }
+
+  onMouseOut() {
+    this.setState({ isHovered: false });
+  }
+
+  onTouchStart() {
+    this.setState({ isHovered: true });
+  }
+
+  onTouchEnd() {
+    this.setState({ isHovered: false });
+  }
+
   render() {
     const {
       children,
@@ -19,9 +47,9 @@ export default class Button extends PureComponent {
     } = this.props;
 
     const iconNode = !!icon ? (
-      <Icon glyph={icon} size={iconSize} />
+      <Icon glyph={icon} hovered={this.state.isHovered} size={iconSize} />
     ) : null;
-    const loaderSize = iconSize ? iconSize : Icon.Size.Size12;
+    const loaderSize = iconSize ? iconSize : "small";
 
     const content = (
       <React.Fragment>
@@ -30,9 +58,6 @@ export default class Button extends PureComponent {
         {loading && <Icon type="loader" size={loaderSize} loading={loading} />}
       </React.Fragment>
     );
-
-    const LinkButton = StyledButton.withComponent("a");
-    const StylesButton = StyledButton.withComponent("button");
 
     if (!!rest.href && type === "link") {
       return (
@@ -46,6 +71,10 @@ export default class Button extends PureComponent {
           onClick={onClick}
           tabIndex={loading ? -1 : 0}
           htmlType={htmlType || "button"}
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}
+          onTouchStart={this.onTouchStart}
+          onTouchEnd={this.onTouchEnd}
           {...rest}
         >
           {content}

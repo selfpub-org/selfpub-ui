@@ -49,7 +49,7 @@ export default {
       fontWeight: "normal",
       borderWidth: 1,
       padding: "7px",
-      textTransform: "none",
+      textTransform: "uppercase",
       minWidth: "inherit",
       lineHeight: "inherit",
       height: "auto",

@@ -5,8 +5,8 @@ import { Loader } from "../index";
 
 export default class Icon extends PureComponent {
   render() {
-    const { size, loading = true, glyph, ...restProps } = this.props;
-    const TagName = getStyledIcon(glyph, size);
+    const { size, loading = true, glyph, hovered, ...restProps } = this.props;
+    const TagName = getStyledIcon(glyph, size, hovered);
 
     return loading ? (
       <Loader size={size === "small" ? "18" : "26"} />
@@ -48,10 +48,13 @@ Icon.propTypes = {
   size: PropTypes.oneOf(["small", "big"]),
   /** show loader use icon size */
   loading: PropTypes.bool,
+  /** Flag for adopt icon for hovered element */
+  hovered: PropTypes.bool,
 };
 
 Icon.defaultProps = {
   glyph: "question",
   size: "small",
   loading: false,
+  hovered: false,
 };

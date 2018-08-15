@@ -94,7 +94,8 @@ const iconSizes = {
   `,
 };
 
-export const getStyledIcon = (glyph, size) => {
+export const getStyledIcon = (glyph, size, hovered) => {
+  const currentStep = size === "small" ? spriteCell : spriteBigCell;
   if (glyph === "readings") {
     return styled.span`
       background: url(${openBookIcon}) no-repeat 0 2px;
@@ -106,7 +107,9 @@ export const getStyledIcon = (glyph, size) => {
     display: inline-flex;
     background-image: url("${iconsSprite}");
     background-position-x: ${icons[glyph][size].x}px;
-    background-position-y: ${icons[glyph][size].y}px;
+    background-position-y: ${
+      !hovered ? icons[glyph][size].y : icons[glyph][size].y - currentStep
+    }px;
     
     ${iconSizes[size]}
     
