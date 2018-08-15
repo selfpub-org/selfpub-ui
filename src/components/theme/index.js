@@ -1,2 +1,2 @@
 export { default } from "./theme-provider";
-export * as colors from "./base/colors";
+export { default as colors } from "./base/colors";
