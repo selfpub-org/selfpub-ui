@@ -23,7 +23,7 @@ export default {
   },
   sizes: {
     big: {
-      fontSize: 14,
+      fontSize: 17,
       fontWeight: 500,
       borderWidth: 2,
       padding: "14px 21px",
@@ -45,7 +45,7 @@ export default {
       icon: 10,
     },
     small: {
-      fontSize: 17,
+      fontSize: 12,
       fontWeight: "normal",
       borderWidth: 1,
       padding: "7px",
