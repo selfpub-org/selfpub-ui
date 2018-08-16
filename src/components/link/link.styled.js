@@ -1,40 +1,4 @@
 import styled, { css } from "styled-components";
-import { mainTheme } from "../ui-styles/index";
-
-export const themesMap = {
-  ["default"]: {
-    color: mainTheme.color.coal,
-    border: `rgba(59,57,63,.5)`,
-    hover: {
-      color: mainTheme.color.orange,
-      border: mainTheme.color.orange,
-    },
-  },
-  ["blue"]: {
-    color: mainTheme.color.blue,
-    border: `rgba(16,110,220,.5)`,
-    hover: {
-      color: mainTheme.color.orange,
-      border: mainTheme.color.orange,
-    },
-  },
-  ["grey"]: {
-    color: mainTheme.color.lighterCoal,
-    border: `rgba(16,110,220,.5)`,
-    hover: {
-      color: mainTheme.color.orange,
-      border: mainTheme.color.orange,
-    },
-  },
-  ["white"]: {
-    color: mainTheme.color.white,
-    border: `rgba(255,255,255,.5)`,
-    hover: {
-      color: mainTheme.color.orange,
-      border: mainTheme.color.orange,
-    },
-  },
-};
 
 export const StyledLink = styled.a`
   display: inline;
@@ -44,18 +8,20 @@ export const StyledLink = styled.a`
   text-decoration: none;
   border-width: 1px;
   width: fit-content;
-
-  color: ${props => props.theme.color};
+  font-size: ${props => props.theme.link.sizes[props.size].fontSize};
+  color: ${props => props.theme.link.variations[props.variation].color};
 
   :hover {
-    border-color: ${props => props.theme.hover.border};
-    color: ${props => props.theme.hover.color};
+    border-color: ${props =>
+      props.theme.link.variations[props.variation].hover.border};
+    color: ${props => props.theme.link.variations[props.variation].hover.color};
   }
 
   ${props =>
     props.type === "underline" &&
     css`
-      border-bottom: 1px solid ${props => props.theme.border};
+      border-bottom: 1px solid
+        ${props => props.theme.link.variations[props.variation].border};
     `};
 
   ${props =>
@@ -65,9 +31,8 @@ export const StyledLink = styled.a`
     `};
 
   ${props =>
-    props.type === "small" &&
+    props.size === "small" &&
     css`
-      font-size: 14px;
       font-style: italic;
       line-height: 15px;
 
