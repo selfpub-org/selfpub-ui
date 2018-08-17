@@ -1,4 +1,27 @@
-<a name="1.0.0"></a>
+<a name="1.1.0"></a>
+## [1.1.0](https://github.com/MyBook/selfpub-ui/compare/v1.0.2...v1.1.0) (2018-08-08)
+
+### Features
+
+* Expose color as module
+```js
+import { colors } from "@selfpub/selfpub-ui";
+```
+* Stabilize Button components API 
+* Add Docs for Button components
+* Stabilize Link components API
+* Add Link for Button components
+* Stabilize Icon components API
+
+
+<a name="1.0.2"></a>
+## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-08-08)
+
+### Fixes
+
+* Update end of life dependencies
+
+<a name="1.0.1"></a>
 ## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-08-08)
 
 ### FIXES
