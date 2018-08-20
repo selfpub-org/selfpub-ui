@@ -190,4 +190,4 @@ Please use our publicly visible [issues page](https://github.com/MyBook/selfpub-
 
 ## License
 
-`@selfpub/selfpub-ui` is [MIT](LICENSE) licensed.
+`@selfpub/selfpub-ui` is [MIT](https://github.com/MyBook/selfpub-ui/blob/master/LICENCE) licensed.
