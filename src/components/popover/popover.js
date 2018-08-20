@@ -1,6 +1,6 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import Icon from "../icons/icon";
+import Icon from "icons/icon";
 import {
   StyledPopoverContent,
   StyledPopoverContentFixer,
@@ -19,6 +19,15 @@ export default class Popover extends PureComponent {
     this.state = {
       open: this.props.open,
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.open !== this.state.open) {
+      this.setState({
+        ...this.state,
+        open: nextProps.open,
+      });
+    }
   }
 
   onMouseOver() {
@@ -40,10 +49,7 @@ export default class Popover extends PureComponent {
   render() {
     const { header, children, position } = this.props;
     const icon = (
-      <Icon
-        size="small"
-        glyph={this.state.open ? "question-invert" : "question"}
-      />
+      <Icon size="small" glyph="question" hovered={this.state.open} />
     );
     const contentLayout = children ? (
       <StyledPopoverContent>
@@ -73,6 +79,11 @@ Popover.propTypes = {
   header: PropTypes.string.isRequired,
   open: PropTypes.bool,
   position: PropTypes.oneOf(["left", "right"]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
 };
 
 Popover.defaultProps = {
