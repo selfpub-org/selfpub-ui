@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import Icon from "icons/icon";
+import { Icon } from "../index";
 import {
   StyledPopoverContent,
   StyledPopoverContentFixer,
