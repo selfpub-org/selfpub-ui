@@ -18,6 +18,8 @@ export const StyledLoader = styled.span`
   vertical-align: middle;
   border-radius: 50%;
   margin-left: 5px;
+  min-width: ${props => props.size}px;
+  min-height: ${props => props.size}px;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   animation: ${spin} 1s linear infinite;
