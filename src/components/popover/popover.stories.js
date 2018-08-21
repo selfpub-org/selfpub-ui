@@ -4,8 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { text, select, boolean } from "@storybook/addon-knobs";
 import PropTypes from "prop-types";
-import Popover from "./popover";
-import { ThemeProviderWrapper } from "index";
+import { ThemeProviderWrapper, Popover } from "index";
 
 const buttonsMdDocs = `
   Component dor display info and notes
