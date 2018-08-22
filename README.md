@@ -147,7 +147,7 @@ link.test.js
 __snapshots__/link.test.js.snap
 
 // for many tests
-__specs__/link.test.js
+__tests__/link.test.js
 
 // Story
 link.stories.js

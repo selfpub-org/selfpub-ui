@@ -5,7 +5,7 @@
   "homepage": "http://selfpub.ru/",
   "main": "src/components/index.js",
   "author": "selfpub.ru",
-  "url": "http://selfpub.ru/",
+  "url": "https://mybook.github.io/selfpub-ui/",
   "license": "MIT",
   "config": {
     "components": "./dist/components/index.js"
@@ -80,5 +80,9 @@
       "node_modules",
       "src/components"
     ]
-  }
+  },
+  "keywords": [
+    "react",
+    "ui"
+  ]
 }
