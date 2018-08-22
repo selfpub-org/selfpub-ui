@@ -1,5 +1,21 @@
+<a name="1.2.0"></a>
+## [1.2.0](https://github.com/MyBook/selfpub-ui/compare/v1.1.0...v1.2.0) (2018-22-08)
+
+### Features
+
+* Update Icon used in Popover
+* Update Popover Stories
+* Update package metadata
+* Update README.md
+
+### Fixes
+
+* Fix popover export
+* Fix loader size on overflow
+
+
 <a name="1.1.0"></a>
-## [1.1.0](https://github.com/MyBook/selfpub-ui/compare/v1.0.2...v1.1.0) (2018-08-08)
+## [1.1.0](https://github.com/MyBook/selfpub-ui/compare/v1.0.2...v1.1.0) (2018-17-08)
 
 ### Features
 
@@ -15,21 +31,21 @@ import { colors } from "@selfpub/selfpub-ui";
 
 
 <a name="1.0.2"></a>
-## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-08-08)
+## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-11-08)
 
 ### Fixes
 
 * Update end of life dependencies
 
 <a name="1.0.1"></a>
-## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-08-08)
+## [1.0.1](https://github.com/MyBook/selfpub-ui/compare/v1.0.0...v1.0.1) (2018-09-08)
 
 ### FIXES
 
 * Update docs (Readme.md, Changelog)
 
 <a name="1.0.0"></a>
-## [1.0.0](https://github.com/MyBook/selfpub-ui/compare/v0.18.2...v1.0.0) (2018-08-08)
+## [1.0.0](https://github.com/MyBook/selfpub-ui/compare/v0.18.2...v1.0.0) (2018-09-08)
 
 ### Features
 
