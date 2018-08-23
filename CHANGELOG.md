@@ -1,3 +1,10 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/MyBook/selfpub-ui/compare/v1.2.0...v1.2.1) (2018-23-08)
+
+### Fixes
+
+* Fix white background for primary-light button
+
 <a name="1.2.0"></a>
 ## [1.2.0](https://github.com/MyBook/selfpub-ui/compare/v1.1.0...v1.2.0) (2018-22-08)
 
