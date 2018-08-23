@@ -201,7 +201,7 @@ export default {
     "primary-light": {
       color: mainTheme.color.orange,
       border: mainTheme.color.orange,
-      background: mainTheme.color.white,
+      background: "transparent",
       hover: {
         color: mainTheme.color.white,
         border: mainTheme.color.orange,
