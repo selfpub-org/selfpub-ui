@@ -68,7 +68,7 @@ export default {
       background: 0,
       hover: {
         color: mainTheme.color.white,
-        border: mainTheme.color.lightCoal,
+        border: mainTheme.color.coal,
         background: mainTheme.color.coal,
       },
       active: {
