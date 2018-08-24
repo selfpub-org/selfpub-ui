@@ -14,6 +14,14 @@ export default {
   },
   variations: {
     default: {
+      color: "inherit",
+      border: `rgba(59,57,63,.5)`,
+      hover: {
+        color: colors.orange,
+        border: colors.orange,
+      },
+    },
+    coal: {
       color: colors.coal,
       border: `rgba(59,57,63,.5)`,
       hover: {

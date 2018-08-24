@@ -4,6 +4,21 @@ The link is a navigation element that indicates the ability to go to another pag
 
 > This component must have at the top level the definition of the component `<ThemeProviderWrapper />`
 
+### Default link
+
+For default link font color inherit from parent
+
+```jsx
+<ThemeProviderWrapper>
+    <div>
+        <Link href="#some-href">{emoji}</Link> {/* Link font color #000000  */}
+    </div>
+    <div style={{color: red}}>
+        <Link href="#some-href">{emoji}</Link> {/* Link font color red */}
+    </div>
+</ThemeProviderWrapper>
+```
+
 ### Base link
 
 The link can be anything: a picture, a smiley, an icon, a custom button button (for standard buttons you need to use the component `Button`)

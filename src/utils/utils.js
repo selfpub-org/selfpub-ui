@@ -17,3 +17,20 @@ export function arrayFromHash(dataHash) {
   });
   return accumulator;
 }
+
+export function hashFromArray(dataArray) {
+  if (
+    typeof dataArray !== "object" &&
+    (Array.isArray && !Array.isArray(dataArray))
+  ) {
+    throw new Error(
+      "[Selfpub] dataHash params at arrayFromHash must be type Array",
+    );
+  }
+
+  const hash = {};
+  dataArray.forEach(value => {
+    hash[value] = `${value}`;
+  });
+  return hash;
+}

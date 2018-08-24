@@ -14,9 +14,11 @@ export default class Link extends PureComponent {
   }
 }
 
-Link.Variations = ["default", "blue", "white", "grey"];
+Link.Variations = ["default", "coal", "blue", "white", "grey"];
 
 Link.Types = ["default", "underline", "pseudo", "small"];
+
+Link.Targets = ["_blank", "_parent", "_self", "_top"];
 
 Link.propTypes = {
   /** redirect url of link button */
@@ -24,13 +26,15 @@ Link.propTypes = {
   /** handler for click behavior */
   onClick: PropTypes.func,
   /** themes of link */
-  variation: PropTypes.string,
+  variation: PropTypes.oneOf(["default", "coal", "blue", "white", "grey"]),
   /** type of link */
   type: PropTypes.string,
   /** native html popup text  */
   title: PropTypes.string,
   /** type of size inherit or small */
   size: PropTypes.oneOf(["inherit", "small"]),
+  /** link HTMLTarget */
+  target: PropTypes.oneOf(["_blank", "_parent", "_self", "_top"]),
 };
 
 Link.defaultProps = {
@@ -39,4 +43,5 @@ Link.defaultProps = {
   type: "default",
   size: "inherit",
   title: "",
+  target: "_self",
 };
