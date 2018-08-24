@@ -1,3 +1,15 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/MyBook/selfpub-ui/compare/v1.2.1...v1.2.2) (2018-24-08)
+
+### Features
+
+* Add method hashFromArray
+* Make default link inherit parent color
+
+### Fixes
+
+* Fix border color on hover for default variation
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/MyBook/selfpub-ui/compare/v1.2.0...v1.2.1) (2018-23-08)
 
