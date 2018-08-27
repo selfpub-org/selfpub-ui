@@ -4,6 +4,7 @@
 ### Fixes
 
 * Make background transparent for default button
+* Fix url and homepage meta
 
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/MyBook/selfpub-ui/compare/v1.2.1...v1.2.2) (2018-24-08)
