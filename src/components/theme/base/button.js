@@ -65,7 +65,7 @@ export default {
     default: {
       color: mainTheme.color.coal,
       border: mainTheme.color.lightCoal,
-      background: 0,
+      background: "transparent",
       hover: {
         color: mainTheme.color.white,
         border: mainTheme.color.coal,

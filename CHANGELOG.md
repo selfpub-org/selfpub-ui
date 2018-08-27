@@ -1,3 +1,10 @@
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/MyBook/selfpub-ui/compare/v1.2.2...v1.2.3) (2018-27-08)
+
+### Fixes
+
+* Make background transparent for default button
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/MyBook/selfpub-ui/compare/v1.2.1...v1.2.2) (2018-24-08)
 
