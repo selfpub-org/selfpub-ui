@@ -19,4 +19,5 @@ export {
 } from "./input/index";
 export { Table, Td, Tr } from "./table/index";
 export { Tab, Tabs } from "./tabs/index";
+export { default as SearchBox } from "./search-box/index";
 export { colors } from "./theme/index";

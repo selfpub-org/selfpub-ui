@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
+import { Loader } from "index";
 
 export const StyledLabel = styled.label`
   font-size: 14px;
@@ -52,4 +53,23 @@ export const StyledInput = styled.input`
       border-color: ${mainTheme.color.red};
       background: ${lighten(mainTheme.color.red, 40)};
     `};
+`;
+
+export const InputContainer = styled.span`
+  position: relative;
+  display: inline-block;
+  width: 100%;
+`;
+
+export const LoaderContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 10px;
+  line-height: 100%;
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
