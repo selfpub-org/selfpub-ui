@@ -1,3 +1,11 @@
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/MyBook/selfpub-ui/compare/v1.2.3...v1.2.4) (2018-30-08)
+
+### Fixes
+
+* Set icon sprites as string encode
+* Fix checkbox icons
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://github.com/MyBook/selfpub-ui/compare/v1.2.2...v1.2.3) (2018-27-08)
 
