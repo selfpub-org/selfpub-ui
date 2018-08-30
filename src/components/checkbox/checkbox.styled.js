@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import svgSprite from "../../assets/icon-sprite.svg";
+import { iconsSprite } from "../../assets/icons-string";
 
 const mixinCheckboxPseudo = css`
   box-sizing: border-box;
@@ -73,7 +73,7 @@ export const StyledLabel = styled.label`
     margin: 0 5px;
     width: ${props => props.theme.checkbox.size}px;
     height: ${props => props.theme.checkbox.size}px;
-    background: url(${svgSprite}) 119px -37px;
+    background: url(${iconsSprite}) 119px -37px;
 
     ${props =>
       props.disabled &&
@@ -111,12 +111,12 @@ export const StyledLabel = styled.label`
 
         &:after {
           ${mixinCheckboxPseudo};
-          background: url(${svgSprite}) 119px -63px;
+          background: url(${iconsSprite}) 119px -63px;
 
           ${props =>
             props.disabled &&
             css`
-              background: url(${svgSprite}) 37px 1px;
+              background: url(${iconsSprite}) 37px 1px;
               border: 1px solid
                 ${props =>
                   props.theme.checkbox.variations[props.variation].disabled

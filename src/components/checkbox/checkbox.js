@@ -1,10 +1,7 @@
-import React, { PureComponent } from "react";
+import React, { Fragment, PureComponent } from "react";
 import PropTypes from "prop-types";
-import { themesMap } from "./checkbox.styled";
-import { ThemeProvider } from "styled-components";
 import {
   StyledLabel,
-  StyledCheckboxInput,
   StyledFakeCheckbox,
   StyledInput,
 } from "./checkbox.styled";
@@ -71,16 +68,11 @@ export default class Checkbox extends PureComponent {
       children,
       variation,
       size,
-      theme,
       checked,
-      type,
       ...rest
     } = this.props;
 
-    const content = (
-      <React.Fragment>{children && <span>{children}</span>}</React.Fragment>
-    );
-
+    const content = <Fragment>{children && <span>{children}</span>}</Fragment>;
     const checkboxId = id || `checkbox-${nanoid(6)}`;
 
     return (
@@ -88,10 +80,9 @@ export default class Checkbox extends PureComponent {
         {...rest}
         htmlFor={checkboxId}
         variation={variation}
-        theme={theme}
-        size={size}
         disabled={disabled}
         checked={checked}
+        size={size}
       >
         {iconPosition === "right" && content}
         <StyledFakeCheckbox {...rest}>
@@ -125,7 +116,7 @@ Checkbox.propTypes = {
   /** Checkbox name */
   name: PropTypes.string,
   /** Theme of checkbox */
-  variation: PropTypes.string,
+  variation: PropTypes.oneOf(["green"]),
   /** callback for event change checked state for checkbox */
   onCheck: PropTypes.func.isRequired,
 };
