@@ -1,111 +1,164 @@
-import React, { Fragment, PureComponent } from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import nanoid from "nanoid";
 import StyledRadio from "./radio.styled";
 
 export default class Radio extends StyledRadio {
   static propTypes = {
-    /** Checked state flag */
-    checked: PropTypes.bool,
-    /** Radio disable flag */
-    disabled: PropTypes.bool,
-    /** Radio Position */
-    iconPosition: PropTypes.oneOf(["left", "right"]),
-    /** Radio input ID */
+    /** The id of the input element. */
     id: PropTypes.string,
-    /** Radio name */
+    /** name of radio */
     name: PropTypes.string,
-    /** Theme of Radio */
-    variation: PropTypes.oneOf(["green"]),
-    /** callback for event change checked state for Radio */
-    onCheck: PropTypes.func.isRequired,
+    /** If true, the component is checked. */
+    checked: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    /** defaultChecked */
+    defaultChecked: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    /** If true, the switch will be disabled. */
+    disabled: PropTypes.bool,
+    /** The input component property type. */
+    type: PropTypes.string,
+    /** The value of the component. */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /**
+     * Callback fired when the radio is focused.
+     * Signature:
+     *   function(event: object) => void
+     *     - event: The event source of the callback. You can pull out the new value by accessing event.target.value.
+     */
+    onFocus: PropTypes.func,
+    /**
+     * Callback fired when the radio is blured.
+     * Signature:
+     *   function(event: object) => void
+     *     - event: The event source of the callback. You can pull out the new value by accessing event.target.value.
+     */
+    onBlur: PropTypes.func,
+    /**
+     * Callback fired when the radio is clicked.
+     * Signature:
+     *   function(event: object) => void
+     *     - event: The event source of the callback. You can pull out the new value by accessing event.target.value.
+     */
+    onClick: PropTypes.func,
+    /**
+     * Callback fired when the state is changed.
+     *
+     * Signature:
+     *   function(event: object, checked: boolean) => void
+     *     - event: The event source of the callback. You can pull out the new value by accessing event.target.value.
+     *     - checked: The checked value of the switch
+     */
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
-    checked: false,
-    disabled: false,
-    iconPosition: "left",
-    id: "",
     name: "radio",
-    variation: "green",
+    defaultChecked: false,
+    iconPosition: "left",
+    onFocus() {},
+    onBlur() {},
   };
 
   state = {
     checked: false,
   };
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
   }
 
   componentWillMount() {
-    const { checked } = this.props;
+    const {
+      props,
+      props: { checked: propsChecked, defaultChecked },
+    } = this;
+
+    const checked = "checked" in props ? propsChecked : defaultChecked;
 
     this.setState({ checked });
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
-    if (this.state.checked !== nextProps.checked) {
+    if ("checked" in nextProps) {
       this.setState({
         checked: nextProps.checked,
       });
-
-      this.input.checked = nextProps.checked;
     }
   }
 
+  focus() {
+    this.input.focus();
+  }
+
+  blur() {
+    this.input.blur();
+  }
+
   handleChange = event => {
-    const { onCheck, disabled, name, value } = this.props;
-    const { checked } = this.props;
+    const { checked } = event.target;
+    const {
+      props,
+      props: { disabled },
+    } = this.props;
 
     if (disabled) {
       return;
     }
 
-    this.setState(
-      { checked },
-      onCheck({
-        name,
-        value,
-        checked,
-        target: this.input,
-        event,
-      }),
-    );
+    if (!("checked" in props)) {
+      this.setState({ checked });
+    }
+
+    onChange && onChange(this.props.key);
+  };
+
+  saveInput = node => {
+    this.input = node;
   };
 
   render() {
-    const { id, name, disabled, iconPosition, children, ...rest } = this.props;
+    const {
+      id,
+      name,
+      disabled,
+      onClick,
+      onFocus,
+      onBlur,
+      value,
+      iconPosition,
+      children,
+      defaultChecked,
+      ...rest
+    } = this.props;
 
     const { checked } = this.state;
     const radioId = id || `radio-${nanoid(6)}`;
-
-    const content = <Fragment>{children && <span>{children}</span>}</Fragment>;
 
     const marker = (
       <Fragment>
         <Radio.Input
           id={radioId}
           name={name}
-          ref={input => {
-            this.input = input;
-          }}
-          autoComplete="off"
-          tabIndex="-1"
           type="radio"
-          value={this.props.value}
+          disabled={disabled}
+          checked={!!checked}
+          autoComplete="off"
+          onClick={onClick}
+          onFocus={onFocus}
+          onBlur={onBlur}
           onChange={this.handleChange}
-          checked={checked}
-          disabled={this.props.disabled}
+          ref={this.saveInput}
+          value={value}
+          {...rest}
         />
-        <Radio.FakeRadio checked={this.state.checked} {...rest} />
+        <Radio.FakeRadio checked={!!checked} disabled={disabled} {...rest} />
       </Fragment>
     );
 
     return (
       <Radio.Label {...rest} htmlFor={radioId} disabled={disabled}>
         {iconPosition === "left" && marker}
-        {content}
+        {children && <span>{children}</span>}
         {iconPosition === "right" && marker}
       </Radio.Label>
     );

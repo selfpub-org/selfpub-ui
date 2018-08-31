@@ -1,23 +1,10 @@
-import React from "react";
-import { PureComponent } from "react";
+import React, { PureComponent } from "react";
 import styled, { css } from "styled-components";
 import { iconsSprite } from "../../assets/icons-string";
 
-const mixinCheckboxPseudo = css`
-  box-sizing: border-box;
-  position: absolute;
-  display: block;
-  content: "";
-  top: 0;
-  left: 0;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-  height: 100%;
-`;
-
 export default class StyledRadio extends PureComponent {
   static Label = styled.label`
+    position: relative;
     font-size: 14px;
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.65);
@@ -28,6 +15,12 @@ export default class StyledRadio extends PureComponent {
     cursor: pointer;
     display: inline-block;
     user-select: none;
+
+    ${props =>
+      props.disabled &&
+      css`
+        cursor: default;
+      `};
   `;
 
   static Input = styled.input`
@@ -46,6 +39,12 @@ export default class StyledRadio extends PureComponent {
     vertical-align: middle;
     margin: 0;
     padding: 0;
+
+    ${props =>
+      props.disabled &&
+      css`
+        cursor: default;
+      `};
   `;
 
   static FakeRadio = styled.span`
@@ -71,11 +70,19 @@ export default class StyledRadio extends PureComponent {
       props.disabled &&
       css`
         cursor: default;
-        background: ${props => props.theme.radio.disabled.background};
-        border: 1px solid ${props => props.theme.radio.disabled.border};
+
+        :after {
+          cursor: default;
+          content: "";
+          background: rgba(0, 0, 0, 0.2);
+          width: 24px;
+          height: 24px;
+          display: block;
+          border-radius: 50%;
+        }
       `}
-    
-    // ewgw
+
+    // checked
     ${props =>
       props.checked &&
       css`

@@ -1,12 +1,12 @@
 /* global module */
 import React from "react";
+import PropTypes from "prop-types";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { text, select, boolean } from "@storybook/addon-knobs";
-import PropTypes from "prop-types";
-import { ThemeProviderWrapper, Radio } from "../index";
-import { positions, themes } from "checkbox/__stories__/editable-props";
 import { action } from "@storybook/addon-actions";
+import { text, select, boolean } from "@storybook/addon-knobs";
+import { hashFromArray } from "./../../utils/utils";
+import { ThemeProviderWrapper, Radio } from "../index";
 
 const buttonsMdDocs = `
   Component dor display info and notes
@@ -22,32 +22,108 @@ React.Fragment.propTypes = {
 };
 React.Fragment.displayName = "React.Fragment";
 
-storiesOf("Radio", module).add(
-  "1. Width editable props",
-  withInfo({
-    text: buttonsMdDocs,
-    inline: true,
-    propTablesExclude: [ThemeProviderWrapper],
-  })(() => {
-    const checked = boolean("checked", false);
-    const disabled = boolean("disabled", false);
-    const iconPosition = select("iconPosition", positions);
-    const id = text("id", "");
-    const name = text("name", "checkbox-name");
-    const variation = select("variation", themes, "green");
-    const onCheck = eventData => action("radio toggle")(eventData);
+class Test extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      disabled: false,
+      checked: null,
+      radioValue: "a",
+    };
+  }
 
+  handleChange = e => {
+    this.setState({
+      radioValue: e.target.value,
+    });
+  };
+
+  render() {
     return (
       <ThemeProviderWrapper>
-        <React.Fragment>
-          <Radio name="radio-name" onCheck={onCheck}>
-            Some text
-          </Radio>
-          <Radio name="radio-name" onCheck={onCheck} checked>
-            Some text
-          </Radio>
-        </React.Fragment>
+        <div style={{ margin: 20 }}>
+          <p>
+            <Radio
+              value="a"
+              checked={this.state.radioValue === "a"}
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            >
+              a-radio
+            </Radio>
+            <Radio
+              value="b"
+              checked={this.state.radioValue === "b"}
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            >
+              b-radio
+            </Radio>
+            <Radio
+              value="c"
+              checked={this.state.radioValue === "c"}
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            >
+              c-radio
+            </Radio>
+            <Radio
+              value="d"
+              checked={this.state.radioValue === "d"}
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            >
+              d-radio
+            </Radio>
+          </p>
+        </div>
       </ThemeProviderWrapper>
     );
-  }),
-);
+  }
+}
+
+storiesOf("Radio", module)
+  .add(
+    "1. Width editable props",
+    withInfo({
+      text: buttonsMdDocs,
+      inline: true,
+      propTablesExclude: [ThemeProviderWrapper],
+    })(() => {
+      const id = text("id", "");
+      const name = text("name", "Radio-name");
+      const checked = boolean("checked", false);
+      const disabled = boolean("disabled", false);
+      const iconPosition = select(
+        "iconPosition",
+        hashFromArray(["left", "right"]),
+      );
+      const onCheck = eventData => action("radio toggle")(eventData);
+
+      return (
+        <ThemeProviderWrapper>
+          <React.Fragment>
+            <Radio
+              id={id}
+              name={name}
+              value="a"
+              checked={checked}
+              onChange={onCheck}
+              disabled={disabled}
+              iconPosition={iconPosition}
+            >
+              a-radio
+            </Radio>
+          </React.Fragment>
+        </ThemeProviderWrapper>
+      );
+    }),
+  )
+  .add(
+    "2. Groups",
+    withInfo({
+      text: buttonsMdDocs,
+      inline: true,
+      propTablesExclude: [ThemeProviderWrapper, Test],
+    })(() => <Test />),
+  );
