@@ -14,5 +14,8 @@
     "react",
     "stage-0",
     "latest"
+  ],
+  "plugins": [
+    "transform-class-properties"
   ]
 }
