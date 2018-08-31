@@ -1,11 +1,10 @@
 /* global module */
 import React from "react";
+import PropTypes from "prop-types";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { text, select, boolean } from "@storybook/addon-knobs";
-import PropTypes from "prop-types";
-import { ThemeProviderWrapper } from "../index";
-import InfoBox from "info-box/info-box";
+import { boolean } from "@storybook/addon-knobs";
+import { ThemeProviderWrapper, InfoBox } from "../index";
 
 const buttonsMdDocs = `
   Component dor display info and notes

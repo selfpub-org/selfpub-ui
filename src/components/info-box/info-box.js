@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import StyledInfoBox from "info-box/info-box.styled";
 import PropTypes from "prop-types";
+import StyledInfoBox from "./info-box.styled";
 
 export default class InfoBox extends StyledInfoBox {
   static propTypes = {

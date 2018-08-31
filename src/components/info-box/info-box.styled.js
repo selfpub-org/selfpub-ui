@@ -1,8 +1,9 @@
-import { PureComponent } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
-import { Button, colors, Icon } from "index";
 import rgba from "polished/lib/color/rgba";
-import React from "react";
+import { Button } from "../index";
+import colors from "theme/base/colors";
+import Icon from "icons/icon";
 
 export default class StyledInfoBox extends PureComponent {
   static Container = styled.div`
@@ -52,7 +53,7 @@ export default class StyledInfoBox extends PureComponent {
     line-height: normal;
     font-size: 24px;
 
-    color: ${colors.coal};
+    color: #3b393f;
 
     margin-bottom: 10px;
   `;
@@ -64,7 +65,7 @@ export default class StyledInfoBox extends PureComponent {
     font-size: 17px;
     letter-spacing: -0.0174px;
 
-    color: ${colors.coal};
+    color: #3b393f;
   `;
 
   static CloseButton = styled.div`
