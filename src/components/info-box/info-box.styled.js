@@ -20,19 +20,36 @@ export default class StyledInfoBox extends PureComponent {
       props.theme.infoBox.variations[props.variation].background};
     border-color: ${props =>
       props.theme.infoBox.variations[props.variation].border};
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
   `;
 
   static Text = styled.div`
     width: 65%;
     min-height: 100%;
     padding: 26px 32px 32px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
   `;
 
   static ActionButton = styled(Button)`
     margin-bottom: 0;
 
+    @media (max-width: 767px) {
+      margin: 0;
+      max-width: 316px;
+    }
+
     :not(:last-child) {
       margin: 0;
+    }
+
+    span {
+      white-space: nowrap;
     }
   `;
 
@@ -45,6 +62,12 @@ export default class StyledInfoBox extends PureComponent {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      padding: 0 32px 32px 32px;
+      align-items: flex-start;
+    }
   `;
 
   static Header = styled.div`
@@ -52,10 +75,8 @@ export default class StyledInfoBox extends PureComponent {
     font-weight: 500;
     line-height: normal;
     font-size: 24px;
-
-    color: #3b393f;
-
     margin-bottom: 10px;
+    color: #3b393f;
   `;
 
   static Body = styled.div`
