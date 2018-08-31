@@ -1,6 +1,13 @@
 <a name="1.3.0"></a>
 ## [1.3.0](https://github.com/MyBook/selfpub-ui/compare/v1.2.4...v1.3.0) (2018-31-08)
 
+### Fix 
+
+* Fix info-box urls
+
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/MyBook/selfpub-ui/compare/v1.2.4...v1.3.0) (2018-31-08)
+
 ### Features
 
 * Add component info-box

@@ -2,8 +2,8 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import rgba from "polished/lib/color/rgba";
 import { Button } from "../index";
-import colors from "theme/base/colors";
-import Icon from "icons/icon";
+import colors from "./../theme/base/colors";
+import Icon from "./../icons/icon";
 
 export default class StyledInfoBox extends PureComponent {
   static Container = styled.div`
