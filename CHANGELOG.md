@@ -1,3 +1,22 @@
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/MyBook/selfpub-ui/compare/v1.2.4...v1.3.0) (2018-31-08)
+
+### Features
+
+* Add component info-box
+* Add component radio
+* Add component radio-button
+* Add Class properties transform for babel
+* Add notice abut must use  same version `styled-components`
+* Update styled components for version ^3.4.5
+* Exclude dist folder from test paths
+* Add polished at dependencies
+
+### Fix 
+
+* Fix peerDependencies for used packages
+* Fix fagoted focus state for textarea 
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://github.com/MyBook/selfpub-ui/compare/v1.2.3...v1.2.4) (2018-30-08)
 
