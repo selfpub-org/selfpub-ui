@@ -80,7 +80,12 @@ export default class Select extends StyledSelect {
           {optionsElements}
         </Select.Element>
         {text}
-        <Icon glyph="arrow-bottom" loading={false} hovered={false} size="big" />
+        <Icon
+          glyph="arrow-bottom"
+          loading={false}
+          hovered={false}
+          size="small"
+        />
       </Select.Container>
     );
   }
