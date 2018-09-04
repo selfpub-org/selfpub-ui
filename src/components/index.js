@@ -13,7 +13,7 @@ export { default as Link } from "./link/index";
 export { default as Loader } from "./loader/loader";
 export { default as Popover } from "./popover/index";
 export { default as Textarea } from "./textarea/index";
-export { default as ThemeProviderWrapper } from "./theme/index";
+export { ThemeProviderWrapper, colors } from "./theme/index";
 export { Typography, Header, Paragraph } from "./typography/index";
 export {
   Input,
@@ -24,4 +24,3 @@ export {
 } from "./input/index";
 export { Table, Td, Tr } from "./table/index";
 export { Tab, Tabs } from "./tabs/index";
-export { colors } from "./theme/index";
