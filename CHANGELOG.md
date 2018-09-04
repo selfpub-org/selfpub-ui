@@ -1,5 +1,5 @@
 <a name="1.4.0"></a>
-## [1.4.0](https://github.com/MyBook/selfpub-ui/compare/v1.3.1...v1.4.0) (2018-31-08)
+## [1.4.0](https://github.com/MyBook/selfpub-ui/compare/v1.3.1...v1.4.0) (2018-04-09)
 
 ### Features
 
