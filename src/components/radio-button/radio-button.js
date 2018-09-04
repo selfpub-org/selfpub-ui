@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import { Button, colors } from "./../index";
-import { StyledButton } from "button/button.styled";
+import { colors } from "./../index";
+import { StyledButton } from "../button/button.styled";
 
 export default class RadioButton extends Component {
   static propTypes = {
@@ -177,8 +177,6 @@ export default class RadioButton extends Component {
       onBlur,
       value,
       children,
-      header,
-      needIdentify,
       ...rest
     } = this.props;
 
