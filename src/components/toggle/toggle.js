@@ -19,7 +19,6 @@ export default class Toggle extends Component {
 
   static Wrapper = styled.div`
     display: flex;
-    justify-content: space-between;
   `;
 
   constructor(props) {
@@ -27,11 +26,11 @@ export default class Toggle extends Component {
   }
 
   get value() {
-    const { checkedIndex } = this.state;
+    const { activeButtonIndex } = this.state;
     const { children } = this.props;
 
     const child = children.find(
-      childElement => childElement.props.index === checkedIndex,
+      childElement => childElement.props.index === activeButtonIndex,
     );
 
     return (child && child.props.value) || "";
@@ -43,23 +42,23 @@ export default class Toggle extends Component {
     const index = children.findIndex(
       childElement => childElement.props.value === value,
     );
-    let checkedIndex;
+    let activeButtonIndex;
 
     // This is the case where it is not specified
     if (value === undefined) {
-      checkedIndex = -1;
+      activeButtonIndex = -1;
     } else {
       if (index > -1 && !children[index].props.disabled) {
-        checkedIndex = index;
+        activeButtonIndex = index;
       } else {
-        checkedIndex = this.getInitialCheckedIndex(children);
+        activeButtonIndex = this.getInitialCheckedIndex(children);
       }
     }
 
     // Set id for groups
-    this.groupId = id || `radio-group-${nanoid()}`;
+    this.groupId = id || `toggle-${nanoid()}`;
 
-    this.setState({ checkedIndex: checkedIndex });
+    this.setState({ activeButtonIndex });
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
@@ -73,22 +72,22 @@ export default class Toggle extends Component {
       return value === nextProps.value && !disabled;
     });
 
-    if (index !== -1 && index !== this.state.checkedIndex) {
-      this.setState({ checkedIndex: index });
+    if (index !== -1 && index !== this.state.activeButtonIndex) {
+      this.setState({ activeButtonIndex: index });
     }
   }
 
   getInitialCheckedIndex = children => {
-    let checkedIndex;
+    let activeButtonIndex;
 
     for (let i = 0; i < children.length; i++) {
       if (!children[i].props.disabled) {
-        checkedIndex = i;
+        activeButtonIndex = i;
         break;
       }
     }
 
-    return checkedIndex;
+    return activeButtonIndex;
   };
 
   onChange = radioIndex => {
@@ -102,18 +101,18 @@ export default class Toggle extends Component {
       return;
     }
 
-    this.setState({ checkedIndex: radioIndex });
+    this.setState({ activeButtonIndex: radioIndex });
 
     onChange && onChange(value);
   };
 
-  renderChild = (child, index, checked) => {
+  renderChild = (child, index, active) => {
     const { children } = this.props;
     const { onChange, ...rest } = child.props;
 
     const childrenProps = {
       index,
-      checked,
+      active,
       key: index,
       last: index === children.length - 1,
       onChange: () => this.onChange(index),
@@ -124,11 +123,11 @@ export default class Toggle extends Component {
   };
 
   render() {
-    const { checkedIndex } = this.state;
+    const { activeButtonIndex } = this.state;
     const { children, ...rest } = this.props;
 
     const clonedChildren = children.map((child, index) =>
-      this.renderChild(child, index, index === checkedIndex),
+      this.renderChild(child, index, index === activeButtonIndex),
     );
 
     return (

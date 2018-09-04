@@ -1,3 +1,10 @@
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/MyBook/selfpub-ui/compare/v1.4.0...v1.4.1) (2018-04-09)
+
+### Fix
+
+* Refactoring Toggle and ToggleOption component
+
 <a name="1.4.0"></a>
 ## [1.4.0](https://github.com/MyBook/selfpub-ui/compare/v1.3.1...v1.4.0) (2018-04-09)
 
