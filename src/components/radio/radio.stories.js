@@ -41,41 +41,39 @@ class Test extends React.Component {
   render() {
     return (
       <ThemeProviderWrapper>
-        <div style={{ margin: 20 }}>
-          <p>
-            <Radio
-              value="a"
-              checked={this.state.radioValue === "a"}
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            >
-              a-radio
-            </Radio>
-            <Radio
-              value="b"
-              checked={this.state.radioValue === "b"}
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            >
-              b-radio
-            </Radio>
-            <Radio
-              value="c"
-              checked={this.state.radioValue === "c"}
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            >
-              c-radio
-            </Radio>
-            <Radio
-              value="d"
-              checked={this.state.radioValue === "d"}
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            >
-              d-radio
-            </Radio>
-          </p>
+        <div>
+          <Radio
+            value="a"
+            checked={this.state.radioValue === "a"}
+            onChange={this.handleChange}
+            disabled={this.state.disabled}
+          >
+            a-radio
+          </Radio>
+          <Radio
+            value="b"
+            checked={this.state.radioValue === "b"}
+            onChange={this.handleChange}
+            disabled={this.state.disabled}
+          >
+            b-radio
+          </Radio>
+          <Radio
+            value="c"
+            checked={this.state.radioValue === "c"}
+            onChange={this.handleChange}
+            disabled={this.state.disabled}
+          >
+            c-radio
+          </Radio>
+          <Radio
+            value="d"
+            checked={this.state.radioValue === "d"}
+            onChange={this.handleChange}
+            disabled={this.state.disabled}
+          >
+            d-radio
+          </Radio>
         </div>
       </ThemeProviderWrapper>
     );

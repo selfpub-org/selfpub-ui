@@ -5,7 +5,7 @@ import { RadioGroup, Radio, ThemeProviderWrapper } from "../index";
 import React from "react";
 
 storiesOf("RadioGroup", module).add(
-  "Radio width radio-group",
+  "1. Width editable props",
   withInfo({
     text: "",
     inline: true,
@@ -17,11 +17,13 @@ storiesOf("RadioGroup", module).add(
           onChange={rest => action("change radio value")(rest)}
           id="test"
         >
-          <Radio value="a">a-radio</Radio>
-          <Radio value="b">b-radio</Radio>
-          <Radio value="c" disabled>
-            c-radio
+          <Radio value="a" disabled>
+            disabled a-radio
           </Radio>
+          <Radio value="b" defaultChecked>
+            b-radio
+          </Radio>
+          <Radio value="c">c-radio</Radio>
           <Radio value="d">d-radio</Radio>
         </RadioGroup>
       </ThemeProviderWrapper>

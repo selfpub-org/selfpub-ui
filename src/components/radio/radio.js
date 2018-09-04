@@ -73,7 +73,8 @@ export default class Radio extends StyledRadio {
       props: { checked: propsChecked, defaultChecked },
     } = this;
 
-    const checked = "checked" in props ? propsChecked : defaultChecked;
+    const checked =
+      "checked" in props && !defaultChecked ? propsChecked : defaultChecked;
 
     this.setState({ checked });
   }
@@ -151,7 +152,7 @@ export default class Radio extends StyledRadio {
           value={value}
           {...rest}
         />
-        <Radio.FakeRadio checked={!!checked} disabled={disabled} {...rest} />
+        <Radio.FakeRadio {...rest} checked={!!checked} disabled={disabled} />
       </Fragment>
     );
 

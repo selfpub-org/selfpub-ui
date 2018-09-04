@@ -4,11 +4,11 @@ export default {
   animationDuration: 200,
   borderRadius: 1,
   fontSize: 14,
-  size: 24,
+  size: 18,
   accent: mainTheme.color.green,
   fill: mainTheme.color.white,
   background: mainTheme.color.white,
-  base: mainTheme.color.lightCoal,
+  base: mainTheme.color.strongLighterCoal,
   hover: {
     accent: mainTheme.color.coal,
     fill: mainTheme.color.green,

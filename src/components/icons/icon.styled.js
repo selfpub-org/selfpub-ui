@@ -80,7 +80,7 @@ const icons = {
 const iconSizes = {
   small: css`
     background-size: 198px 88px;
-    margin: 0 2px;
+    margin: auto 2px;
     width: 18px;
     height: 18px;
   `,

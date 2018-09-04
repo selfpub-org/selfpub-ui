@@ -1,5 +1,23 @@
-<a name="1.3.0"></a>
-## [1.3.0](https://github.com/MyBook/selfpub-ui/compare/v1.2.4...v1.3.0) (2018-31-08)
+<a name="1.4.0"></a>
+## [1.4.0](https://github.com/MyBook/selfpub-ui/compare/v1.3.1...v1.4.0) (2018-31-08)
+
+### Features
+
+* Add component Toggle
+* Add component ToggleOptions
+* Add component Select
+* Update RadioGroup stories
+
+### Fix
+
+* Remove conflicted webpack dependencies
+* Fix icons vertical centering
+* Fix colors path export 
+* Fix radio checked and defaultChecked duplicated
+* Fix radio styles
+
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/MyBook/selfpub-ui/compare/v1.3.0...v1.3.1) (2018-31-08)
 
 ### Fix 
 
