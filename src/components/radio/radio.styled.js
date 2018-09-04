@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import styled, { css } from "styled-components";
-import { iconsSprite } from "../../assets/icons-string";
 
 export default class StyledRadio extends PureComponent {
   static Label = styled.label`
@@ -48,23 +47,42 @@ export default class StyledRadio extends PureComponent {
   `;
 
   static FakeRadio = styled.span`
-    font-size: ${props => props.theme.radio.fontSize}px;
     box-sizing: border-box;
-    padding: 0;
-    list-style: none;
-    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    width: ${props => props.size || props.theme.radio.size}px;
+    height: ${props => props.size || props.theme.radio.size}px;
+    border: 2px solid ${props => props.theme.radio.base};
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     outline: none;
-    display: inline-block;
-    line-height: 1;
-    position: relative;
+    padding: 0;
+    margin: auto 5px 2px;
+    border-radius: 50%;
+    flex: none;
     vertical-align: middle;
-    margin: 0 5px;
-    width: ${props => props.theme.radio.size}px;
-    height: ${props => props.theme.radio.size}px;
-    background-image: url(${iconsSprite});
-    background-position: 118px 0;
-    background-size: 260px;
+    transition-duration: 200ms;
+    transition-property: border-color, background-color, color;
+    
+    :after {
+      top: 0;
+      left: 0;
+      width: 60%;
+      right: 0;
+      bottom: 0;
+      height: 60%;
+      margin: auto;
+      content: "";
+      opacity: 0;
+      position: absolute;
+      transform: scale(0.9, 0.9);
+      box-sizing: border-box;
+      background-color: transparent;
+      border-radius: 50%;
+      transition-property: opacity, transform, background-color;
+      transition-duration: inherit;
+    }
 
     ${props =>
       props.disabled &&
@@ -72,13 +90,8 @@ export default class StyledRadio extends PureComponent {
         cursor: default;
 
         :after {
-          cursor: default;
-          content: "";
-          background: rgba(0, 0, 0, 0.2);
-          width: 24px;
-          height: 24px;
-          display: block;
-          border-radius: 50%;
+          opacity: 1;
+          background-color: ${props => props.theme.radio.base};
         }
       `}
 
@@ -86,9 +99,12 @@ export default class StyledRadio extends PureComponent {
     ${props =>
       props.checked &&
       css`
-        color: ${props => props.theme.radio.active.accent};
-        font-size: ${props => props.size}px;
-        background-position: 118px -24px;
+        border: 2px solid ${props => props.theme.radio.accent};
+
+        :after {
+          opacity: 1;
+          background-color: ${props => props.theme.radio.accent};
+        }
       `};
   `;
 }

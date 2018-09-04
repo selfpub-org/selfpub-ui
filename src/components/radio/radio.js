@@ -128,6 +128,7 @@ export default class Radio extends StyledRadio {
       value,
       iconPosition,
       children,
+      defaultChecked,
       ...rest
     } = this.props;
 
@@ -151,7 +152,7 @@ export default class Radio extends StyledRadio {
           value={value}
           {...rest}
         />
-        <Radio.FakeRadio checked={!!checked} disabled={disabled} {...rest} />
+        <Radio.FakeRadio {...rest} checked={!!checked} disabled={disabled} />
       </Fragment>
     );
 
