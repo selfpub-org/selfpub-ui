@@ -13,7 +13,11 @@ const buttonsMdDocs = `Checkbox with editable props`;
 storiesOf("Checkbox", module)
   .add(
     "1. Width editable props",
-    withInfo({ text: buttonsMdDocs, inline: true })(() => {
+    withInfo({
+      text: buttonsMdDocs,
+      inline: true,
+      propTablesExclude: [ThemeProviderWrapper],
+    })(() => {
       const checked = boolean("checked", false);
       const disabled = boolean("disabled", false);
       const iconPosition = select("iconPosition", positions);

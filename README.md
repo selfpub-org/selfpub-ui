@@ -7,12 +7,17 @@
 # SelfPub UI
 
 ![GitHub](https://img.shields.io/github/license/mybook/selfpub-ui.svg)
+[![node (scoped)](https://img.shields.io/node/v/@selfpub/selfpub-ui.svg)](https://www.npmjs.com/package/@selfpub/selfpub-ui)
 ![npm (scoped)](https://img.shields.io/npm/v/@selfpub/selfpub-ui.svg)
 [![framework: react](https://img.shields.io/badge/framework-react-blue.svg)](https://github.com/facebook/react/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 
 [SelfPub](https://selfpub.ru) UI design system language and React-based components implementation.
+
+# Notice
+
+In project used `styled-components` must use in project same version `styled-components`
 
 ## Browsers support
 
@@ -66,7 +71,7 @@ export default class App extends React.Component {
         onClick={() => console.log("click")}
       >
         Перейти в услуги
-      </StyledButton>
+      </Button>
     );
   }
 }

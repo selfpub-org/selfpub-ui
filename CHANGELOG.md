@@ -1,3 +1,62 @@
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/MyBook/selfpub-ui/compare/v1.4.0...v1.4.1) (2018-04-09)
+
+### Fix
+
+* Refactoring Toggle and ToggleOption component
+
+<a name="1.4.0"></a>
+## [1.4.0](https://github.com/MyBook/selfpub-ui/compare/v1.3.1...v1.4.0) (2018-04-09)
+
+### Features
+
+* Add component Toggle
+* Add component ToggleOptions
+* Add component Select
+* Update RadioGroup stories
+
+### Fix
+
+* Remove conflicted webpack dependencies
+* Fix icons vertical centering
+* Fix colors path export 
+* Fix radio checked and defaultChecked duplicated
+* Fix radio styles
+
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/MyBook/selfpub-ui/compare/v1.3.0...v1.3.1) (2018-31-08)
+
+### Fix 
+
+* Fix info-box urls
+
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/MyBook/selfpub-ui/compare/v1.2.4...v1.3.0) (2018-31-08)
+
+### Features
+
+* Add component info-box
+* Add component radio
+* Add component radio-button
+* Add Class properties transform for babel
+* Add notice abut must use  same version `styled-components`
+* Update styled components for version ^3.4.5
+* Exclude dist folder from test paths
+* Add polished at dependencies
+
+### Fix 
+
+* Fix peerDependencies for used packages
+* Fix fagoted focus state for textarea 
+
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/MyBook/selfpub-ui/compare/v1.2.3...v1.2.4) (2018-30-08)
+
+### Fixes
+
+* Set icon sprites as string encode
+* Fix checkbox icons
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://github.com/MyBook/selfpub-ui/compare/v1.2.2...v1.2.3) (2018-27-08)
 

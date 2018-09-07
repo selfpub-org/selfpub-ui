@@ -15,6 +15,10 @@ const BaseStyledTextarea = styled.textarea`
   height: 46px;
   resize: none;
   min-height: 150px;
+
+  :focus {
+    border-color: ${mainTheme.color.coal};
+  }
 `;
 
 export default class Textarea extends PureComponent {

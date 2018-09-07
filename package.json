@@ -1,6 +1,6 @@
 {
   "name": "@selfpub/selfpub-ui",
-  "version": "1.2.3",
+  "version": "1.4.1",
   "description": "Design system implementation. Component library Selfpub",
   "homepage": "https://mybook.github.io/selfpub-ui/",
   "main": "src/components/index.js",
@@ -72,10 +72,11 @@
   },
   "dependencies": {
     "nanoid": "^1.1.0",
+    "polished": "^2.0.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "styled-components": "^3.3.3"
+    "styled-components": "^3.4.5"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./src/utils/jest_setup.js",
