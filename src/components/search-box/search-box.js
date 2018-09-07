@@ -38,7 +38,7 @@ export default class SearchBox extends Component {
     this.inputName = `search-input-${nanoid(hashSize)}`;
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps, nextContext) {
     const { data, search } = nextProps;
 
     this.updateSearchString(search);

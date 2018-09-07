@@ -15,7 +15,7 @@ export default class SearchBoxExample extends Component {
       loading: true,
     });
 
-    fetch("http://localhost:3030/articles")
+    fetch("https://mock-server-wkquwnltbi.now.sh/articles")
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -37,7 +37,7 @@ export default class SearchBoxExample extends Component {
             data={this.state.data}
             onUpdate={this.handleChange}
             placeholder="Search for a string..."
-            dataUpdater="http://localhost:3030/articles?q=%s"
+            dataUpdater="https://mock-server-wkquwnltbi.now.sh/articles?q=%s"
             loading={this.state.loading}
           />
           <div style={{ maxHeight: "300px", overflowX: "scroll" }}>
