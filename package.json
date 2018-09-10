@@ -1,13 +1,13 @@
 {
   "name": "@selfpub/selfpub-ui",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Design system implementation. Component library Selfpub",
   "homepage": "https://mybook.github.io/selfpub-ui/",
-  "main": "src/components/index.js",
+  "main": "lib/index.js",
   "author": "selfpub.ru",
   "license": "MIT",
   "config": {
-    "components": "./dist/components/index.js"
+    "components": "./lib/index.js"
   },
   "engines": {
     "node": ">=9.1.1"
@@ -24,16 +24,22 @@
   },
   "readmeFilename": "README.md",
   "scripts": {
-    "build": "babel src/components --out-dir dist",
+    "start": "yarn build && yarn run storybook:dev",
+    "prebuild": "rm -rf lib",
+    "build": "cross-env BABEL_ENV=production babel src/components --out-dir lib",
+    "copy": "cp package.json .npmignore README.md lib",
     "deploy-storybook": "storybook-to-ghpages",
-    "prepublish": "npm run build",
-    "pub": "git push origin master && git push --tags && npm run publish",
-    "publish": "npm publish",
+    "prepub": "npm run build && yarn copy",
+    "pub": "cd lib && npm publish --access public",
     "storybook:build": "yarn run test:generate-output && build-storybook -c .storybook -o .out",
     "storybook:dev": "yarn run test:generate-output && start-storybook -p 9001 -c .storybook",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.out/jest-test-results.json",
     "test:watch": "jest --watch"
+  },
+  "peerDependencies": {
+    "react": "^15.3.0 || ^16.5.0",
+    "react-dom": "^15.3.0 || ^16.5.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
@@ -55,6 +61,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "6.26.0",
+    "cross-env": "^5.2.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
@@ -66,20 +73,20 @@
     "eslint-plugin-react": "^7.10.0",
     "file-loader": "^1.1.11",
     "jest": "^23.4.2",
-    "prettier": "^1.14.0"
+    "prettier": "^1.14.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
   },
   "dependencies": {
     "nanoid": "^1.1.0",
     "polished": "^2.0.3",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
     "styled-components": "^3.4.5"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./src/utils/jest_setup.js",
     "testPathIgnorePatterns": [
-      "<rootDir>/dist"
+      "<rootDir>/lib"
     ],
     "moduleDirectories": [
       "node_modules",

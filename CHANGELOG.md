@@ -1,3 +1,17 @@
+<a name="1.5.0"></a>
+## [1.5.0](https://github.com/MyBook/selfpub-ui/compare/v1.4.1...v1.5.0) (2018-10-09)
+
+### Features
+
+* Add SearchBox component
+* Add loading state for input
+* Add clear action for input
+* Flatten bundle and rework build
+* Move react and react-dom to dev-dep and peer-dep
+* Rework scripts for build
+* Update readme
+* Update changelog
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/MyBook/selfpub-ui/compare/v1.4.0...v1.4.1) (2018-04-09)
 

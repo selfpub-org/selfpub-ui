@@ -97,6 +97,8 @@ Steps to launch development environment:
 
 The following scripts are available via npm or yarn:
 
+* `yarn start` - Runs a build and run incremental build
+* `yarn pub` - Runs a build and prepare for publishing
 * `yarn deploy-storybook` - Runs a build and deploy stories at [https://mybook.github.io/selfpub-ui](https://mybook.github.io/selfpub-ui/)
 * `yarn storybook:build` - Run build static version without watching
 * `yarn storybook:dev` - Run build static version with watching and hot reloading
