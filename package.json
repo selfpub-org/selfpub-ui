@@ -30,7 +30,7 @@
     "copy": "cp package.json .npmignore README.md lib",
     "deploy-storybook": "storybook-to-ghpages",
     "prepub": "npm run build && yarn copy",
-    "pub": "cd lib && npm pack",
+    "pub": "cd lib && npm publish --access public",
     "storybook:build": "yarn run test:generate-output && build-storybook -c .storybook -o .out",
     "storybook:dev": "yarn run test:generate-output && start-storybook -p 9001 -c .storybook",
     "test": "jest",
