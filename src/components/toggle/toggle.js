@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import PropTypes from "prop-types";
-import nanoid from "nanoid";
 
 export default class Toggle extends Component {
   static propTypes = {
@@ -56,7 +55,7 @@ export default class Toggle extends Component {
     }
 
     // Set id for groups
-    this.groupId = id || `toggle-${nanoid()}`;
+    this.groupId = id || `toggle-${~~(Math.random() * 10000)}`;
 
     this.setState({ activeButtonIndex });
   }

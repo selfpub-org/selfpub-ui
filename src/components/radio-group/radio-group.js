@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import nanoid from "nanoid";
 
 export default class RadioGroup extends Component {
   static propTypes = {
@@ -51,7 +50,7 @@ export default class RadioGroup extends Component {
     }
 
     // Set id for groups
-    this.groupId = id || `radio-group-${nanoid()}`;
+    this.groupId = id || `radio-group-${~~(Math.random() * 10000)}`;
 
     this.setState({ checkedIndex: checkedIndex });
   }

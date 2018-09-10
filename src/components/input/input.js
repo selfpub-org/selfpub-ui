@@ -1,6 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { StyledInput } from "./input.styled";
 import PropTypes from "prop-types";
+import { Loader } from "./../index";
+import { InputContainer, LoaderContainer } from "./input.styled";
+import Icon from "icons/icon";
 
 export default class Input extends Component {
   constructor(props) {
@@ -26,23 +29,39 @@ export default class Input extends Component {
       theme, // eslint-disable-line no-unused-vars
       onChange, // eslint-disable-line no-unused-vars
       inputRef, // eslint-disable-line no-unused-vars
+      loading,
+      clearIcon,
+      clearAction,
       ...rest
     } = this.props;
     const id = this.props.id || this.props.labelText;
 
     return (
-      <StyledInput
-        id={id}
-        name={name}
-        value={value}
-        disabled={disabled}
-        ref={input => (this.input = input)}
-        tabIndex={0}
-        placeholder={placeholder}
-        onChange={this.onChangeHelper}
-        htmlType={this.state.type}
-        {...rest}
-      />
+      <InputContainer>
+        <StyledInput
+          id={id}
+          name={name}
+          value={value}
+          disabled={disabled}
+          ref={input => (this.input = input)}
+          tabIndex={0}
+          placeholder={placeholder}
+          onChange={this.onChangeHelper}
+          htmlType={this.state.type}
+          {...rest}
+        />
+        {loading && (
+          <LoaderContainer>
+            <Loader size="22" />
+          </LoaderContainer>
+        )}
+        {clearIcon &&
+          !loading && (
+            <LoaderContainer>
+              <Icon glyph="cross" size="small" onClick={clearAction} />
+            </LoaderContainer>
+          )}
+      </InputContainer>
     );
   }
 }

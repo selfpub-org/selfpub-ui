@@ -53,3 +53,22 @@ export const StyledInput = styled.input`
       background: ${lighten(mainTheme.color.red, 40)};
     `};
 `;
+
+export const InputContainer = styled.span`
+  position: relative;
+  display: inline-block;
+  width: 100%;
+`;
+
+export const LoaderContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: auto 10px auto auto;
+  line-height: 100%;
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
