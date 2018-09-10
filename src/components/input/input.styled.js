@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
-import { Loader } from "index";
 
 export const StyledLabel = styled.label`
   font-size: 14px;
@@ -65,7 +64,7 @@ export const LoaderContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  margin-right: 10px;
+  margin: auto 10px auto auto;
   line-height: 100%;
   height: 100%;
   width: 30px;

@@ -1,12 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { StyledInput } from "./input.styled";
 import PropTypes from "prop-types";
-import { Loader } from "index";
-import {
-  InputContainer,
-  LoaderContainer,
-  StyledLoader,
-} from "input/input.styled";
+import { Loader } from "./../index";
+import { InputContainer, LoaderContainer } from "./input.styled";
 import Icon from "icons/icon";
 
 export default class Input extends Component {
@@ -59,11 +55,12 @@ export default class Input extends Component {
             <Loader size="22" />
           </LoaderContainer>
         )}
-        {clearIcon && (
-          <LoaderContainer>
-            <Icon glyph="cross" size="small" onClick={clearAction} />
-          </LoaderContainer>
-        )}
+        {clearIcon &&
+          !loading && (
+            <LoaderContainer>
+              <Icon glyph="cross" size="small" onClick={clearAction} />
+            </LoaderContainer>
+          )}
       </InputContainer>
     );
   }
