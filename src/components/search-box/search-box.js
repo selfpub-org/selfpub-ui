@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Input } from "index";
+import { Input } from "./../index";
 import nanoid from "nanoid";
 import PropTypes from "prop-types";
 

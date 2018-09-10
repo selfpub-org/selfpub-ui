@@ -1,10 +1,10 @@
 /* global module */
 import React from "react";
+import PropTypes from "prop-types";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import PropTypes from "prop-types";
-import { ThemeProviderWrapper } from "index";
-import SearchBoxExample from "search-box/search-box-example";
+import { ThemeProviderWrapper } from "./../index";
+import SearchBoxExample from "./search-box-example";
 
 const buttonsMdDocs = `
   Component dor display info and notes
