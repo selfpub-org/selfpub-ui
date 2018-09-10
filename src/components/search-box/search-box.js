@@ -55,9 +55,11 @@ export default class SearchBox extends Component {
 
   reset = () => {
     const { onUpdate } = this.props;
-    const { data, search } = this.state;
+    const { data } = this.state;
 
     this.setState({ data, search: "", loading: false }, () => {
+      const { search } = this.state;
+
       onUpdate(data, search);
       this.getMatchedData(search);
     });
