@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Input } from "./../index";
-import nanoid from "nanoid";
 import PropTypes from "prop-types";
-
-const hashSize = 6;
+import { Input } from "./../index";
 
 export default class SearchBox extends Component {
   static defaultProps = {
@@ -33,9 +30,10 @@ export default class SearchBox extends Component {
     matchedData: [],
   };
 
-  constructor() {
-    super();
-    this.inputName = `search-input-${nanoid(hashSize)}`;
+  constructor(props) {
+    super(props);
+
+    this.inputName = `search-input-${~~(Math.random() * 10000)}`;
   }
 
   componentWillReceiveProps(nextProps, nextContext) {

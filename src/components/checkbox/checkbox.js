@@ -5,7 +5,6 @@ import {
   StyledFakeCheckbox,
   StyledInput,
 } from "./checkbox.styled";
-import nanoid from "nanoid";
 
 export default class Checkbox extends PureComponent {
   constructor(props) {
@@ -16,7 +15,7 @@ export default class Checkbox extends PureComponent {
     this.blur = ::this.blur;
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps, nextContext) {
     if ("checked" in nextProps && this.state.checked !== nextProps.checked) {
       this.setState({
         checked: nextProps.checked,
@@ -73,7 +72,7 @@ export default class Checkbox extends PureComponent {
     } = this.props;
 
     const content = <Fragment>{children && <span>{children}</span>}</Fragment>;
-    const checkboxId = id || `checkbox-${nanoid(6)}`;
+    const checkboxId = id || `checkbox-${~~(Math.random() * 10000)}`;
 
     return (
       <StyledLabel

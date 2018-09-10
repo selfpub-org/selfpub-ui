@@ -1,12 +1,11 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import nanoid from "nanoid";
 
 export default class Paragraph extends PureComponent {
   constructor() {
     super();
-    this.postfix = nanoid(6);
+    this.postfix = `${~~(Math.random() * 10000)}`;
   }
 
   render() {

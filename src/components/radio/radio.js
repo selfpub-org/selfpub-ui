@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import nanoid from "nanoid";
 import StyledRadio from "./radio.styled";
 
 export default class Radio extends StyledRadio {
@@ -133,7 +132,7 @@ export default class Radio extends StyledRadio {
     } = this.props;
 
     const { checked } = this.state;
-    const radioId = id || `radio-${nanoid(6)}`;
+    const radioId = id || `radio-${~~(Math.random() * 10000)}`;
 
     const marker = (
       <Fragment>

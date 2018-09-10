@@ -30,7 +30,7 @@
     "copy": "cp package.json .npmignore README.md lib",
     "deploy-storybook": "storybook-to-ghpages",
     "prepub": "npm run build && yarn copy",
-    "pub": "cd lib && npm publish --access public",
+    "pub": "cd lib && npm pack",
     "storybook:build": "yarn run test:generate-output && build-storybook -c .storybook -o .out",
     "storybook:dev": "yarn run test:generate-output && start-storybook -p 9001 -c .storybook",
     "test": "jest",
@@ -78,7 +78,6 @@
     "react-dom": "^16.5.0"
   },
   "dependencies": {
-    "nanoid": "^1.1.0",
     "polished": "^2.0.3",
     "prop-types": "^15.6.2",
     "styled-components": "^3.4.5"

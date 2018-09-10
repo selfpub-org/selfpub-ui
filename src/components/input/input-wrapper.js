@@ -1,8 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { StyledLabel } from "./input.styled";
-import styled, { css } from "styled-components";
-import nanoid from "nanoid";
 
 const StyledInputWrapper = styled.div`
   width: 100%;
@@ -11,7 +10,8 @@ const StyledInputWrapper = styled.div`
 export default class InputWrapper extends PureComponent {
   render() {
     const { id, label, labelPosition, children, ...rest } = this.props;
-    const inputId = id || nanoid();
+    const inputId = id || `${~~(Math.random() * 10000)}`;
+
     return (
       <React.Fragment>
         <StyledInputWrapper labelPosition={labelPosition} {...rest}>

@@ -11,6 +11,7 @@
 * Rework scripts for build
 * Update readme
 * Update changelog
+* replace nanoid to Math.random
 
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/MyBook/selfpub-ui/compare/v1.4.0...v1.4.1) (2018-04-09)

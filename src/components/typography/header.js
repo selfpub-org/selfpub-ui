@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import nanoid from "nanoid";
 
 const styles = {
   h1: styled.h1`
@@ -69,9 +68,10 @@ const styles = {
 };
 
 export default class Header extends PureComponent {
-  constructor() {
-    super();
-    this.postfix = nanoid(6);
+  constructor(props) {
+    super(props);
+
+    this.postfix = `${~~(Math.random() * 10000)}`;
   }
 
   render() {
