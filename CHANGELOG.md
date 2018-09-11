@@ -1,3 +1,10 @@
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/MyBook/selfpub-ui/compare/v1.5.0...v1.5.1) (2018-11-09)
+
+### Fix
+
+* Temporary remove flattens of package need rework 
+
 <a name="1.5.0"></a>
 ## [1.5.0](https://github.com/MyBook/selfpub-ui/compare/v1.4.1...v1.5.0) (2018-10-09)
 

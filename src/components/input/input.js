@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { StyledInput } from "./input.styled";
 import PropTypes from "prop-types";
-import { Loader } from "./../index";
+import { Loader, Icon } from "./../index";
 import { InputContainer, LoaderContainer } from "./input.styled";
-import Icon from "icons/icon";
 
 export default class Input extends Component {
   constructor(props) {
