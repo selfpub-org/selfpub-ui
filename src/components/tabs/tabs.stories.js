@@ -14,10 +14,18 @@ storiesOf("Tabs", module).add(
   "1. Width editable props",
   withInfo({ text: buttonsMdDocs, inline: true })(() => (
     <Tabs defaultActiveTabIndex={1}>
-      <Tab label="Статистика" onClick={action("Click tab Статистика")}>
+      <Tab
+        label="Статистика"
+        name="statistics"
+        onClick={action("Click tab Статистика")}
+      >
         Statistic
       </Tab>
-      <Tab label="Выплаты" onClick={action("Click tab Выплаты")}>
+      <Tab
+        label="Выплаты"
+        name="payments"
+        onClick={action("Click tab Выплаты")}
+      >
         Payments
       </Tab>
     </Tabs>
