@@ -55,6 +55,7 @@ export default class Input extends Component {
           </LoaderContainer>
         )}
         {clearIcon &&
+          !!value &&
           !loading && (
             <LoaderContainer>
               <Icon glyph="cross" size="small" onClick={clearAction} />
