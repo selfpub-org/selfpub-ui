@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyledInput } from "./input.styled";
+import { ClearButtonContainer, StyledInput } from "./input.styled";
 import PropTypes from "prop-types";
 import { Loader, Icon } from "./../index";
 import { InputContainer, LoaderContainer } from "./input.styled";
@@ -57,9 +57,9 @@ export default class Input extends Component {
         {clearIcon &&
           !!value &&
           !loading && (
-            <LoaderContainer>
+            <ClearButtonContainer>
               <Icon glyph="cross" size="small" onClick={clearAction} />
-            </LoaderContainer>
+            </ClearButtonContainer>
           )}
       </InputContainer>
     );

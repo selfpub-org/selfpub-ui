@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
+import { colors } from "./../index";
 
 export const StyledLabel = styled.label`
   font-size: 14px;
@@ -60,15 +61,32 @@ export const InputContainer = styled.span`
   width: 100%;
 `;
 
-export const LoaderContainer = styled.div`
+const InputIconContainer = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
   margin: auto 10px auto auto;
-  line-height: 100%;
-  height: 100%;
+  top: 9px;
+  height: 30px;
   width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 100%;
+`;
+
+export const LoaderContainer = styled(InputIconContainer)`
+  right: 4px;
+`;
+
+export const ClearButtonContainer = styled(InputIconContainer)`
+  right: 0;
+  cursor: pointer;
+  border-radius: 50%;
+
+  :hover {
+    background-color: ${colors.beige};
+  }
+
+  :active {
+    background-color: ${colors.gray};
+  }
 `;
