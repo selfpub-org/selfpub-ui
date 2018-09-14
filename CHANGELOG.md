@@ -5,6 +5,7 @@
 
 * Add routing by url for tabs component
 * Improve UI for clear button in input
+* Add logic denouncing and minimal symbol search
 
 ### Fix
 

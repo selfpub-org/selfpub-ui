@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { debounce } from "../../utils/utils";
 import { Input } from "./../index";
 
 export default class SearchBox extends Component {
@@ -7,6 +8,7 @@ export default class SearchBox extends Component {
     search: "",
     data: [],
     disabled: false,
+    minimalTextLength: 3,
     placeholder: "search...",
   };
 
@@ -33,6 +35,7 @@ export default class SearchBox extends Component {
   constructor(props) {
     super(props);
 
+    this.minimalValue = props.minimalTextLength;
     this.inputName = `search-input-${~~(Math.random() * 10000)}`;
   }
 
@@ -110,7 +113,16 @@ export default class SearchBox extends Component {
   };
 
   onType = (event, value) => {
-    this.updateSearchString(value, () => this.getMatchedData(value));
+    if (value.length < this.minimalValue) {
+      this.updateSearchString(value);
+    } else {
+      this.updateSearchString(
+        value,
+        debounce(() => {
+          this.getMatchedData(value);
+        }, 200),
+      );
+    }
   };
 
   render() {
