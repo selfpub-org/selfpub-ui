@@ -113,7 +113,9 @@ export default class SearchBox extends Component {
   };
 
   onType = (event, value) => {
-    if (value.length < this.minimalValue) {
+    if (value.length === 0) {
+      this.reset();
+    } else if (value.length < this.minimalValue) {
       this.updateSearchString(value);
     } else {
       this.updateSearchString(

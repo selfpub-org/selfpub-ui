@@ -1,5 +1,12 @@
+<a name="1.6.1"></a>
+## [1.6.1](https://github.com/MyBook/selfpub-ui/compare/v1.6.0...v1.6.1) (2018-17-09)
+
+### Fix
+
+* Call reset logic for Search-box component on remove search string from keyboard
+
 <a name="1.6.0"></a>
-## [1.6.0](https://github.com/MyBook/selfpub-ui/compare/v1.5.1...v1.6.0) (2018-14-09)
+## [1.6.0](https://github.com/MyBook/selfpub-ui/compare/v1.5.1...v1.6.0) (2018-17-09)
 
 ### Features
 
