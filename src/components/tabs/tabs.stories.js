@@ -3,11 +3,14 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
-import Tabs from "./tabs";
-import Tab from "./tab";
+import { Tabs, Tab } from "./../index";
 
 const buttonsMdDocs = `
-  description or documentation about my component, supports markdown
+*A component of navigation in the form of tabs. Usually used in conjunction with **\`<Tab />\`**.*
+
+**Routing by url**
+
+In component using tab routing by url. For target active tab may be used get param **\`currentTab\`**. For url **\`mysite.info/?currentTab=payments\`** be opened on load page tab with name **\`payments\`**.
 `;
 
 storiesOf("Tabs", module).add(
