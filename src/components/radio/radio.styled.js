@@ -47,6 +47,7 @@ export default class StyledRadio extends PureComponent {
   `;
 
   static FakeRadio = styled.span`
+    z-index: 1;
     box-sizing: border-box;
     display: inline-block;
     position: relative;
@@ -64,14 +65,22 @@ export default class StyledRadio extends PureComponent {
     vertical-align: middle;
     transition-duration: 200ms;
     transition-property: border-color, background-color, color;
-    
+
+    ${props =>
+      !props.disabled &&
+      css`
+        :hover {
+          border: 2px solid ${props => props.theme.radio.hover.accent};
+        }
+      `};
+
     :after {
       top: 0;
       left: 0;
-      width: 60%;
       right: 0;
       bottom: 0;
-      height: 60%;
+      width: 8px;
+      height: 8px;
       margin: auto;
       content: "";
       opacity: 0;
@@ -84,17 +93,6 @@ export default class StyledRadio extends PureComponent {
       transition-duration: inherit;
     }
 
-    ${props =>
-      props.disabled &&
-      css`
-        cursor: default;
-
-        :after {
-          opacity: 1;
-          background-color: ${props => props.theme.radio.base};
-        }
-      `}
-
     // checked
     ${props =>
       props.checked &&
@@ -104,6 +102,18 @@ export default class StyledRadio extends PureComponent {
         :after {
           opacity: 1;
           background-color: ${props => props.theme.radio.accent};
+        }
+      `};
+
+    ${props =>
+      props.disabled &&
+      css`
+        cursor: default;
+        border-color: ${props => props.theme.radio.disabled.border};
+        background-color: ${props => props.theme.radio.disabled.background};
+
+        :after {
+          background-color: ${props => props.theme.radio.disabled.accent};
         }
       `};
   `;
