@@ -1,3 +1,17 @@
+<a name="1.6.0"></a>
+## [1.6.0](https://github.com/MyBook/selfpub-ui/compare/v1.5.1...v1.6.0) (2018-14-09)
+
+### Features
+
+* Add routing by url for tabs component
+* Improve UI for clear button in input
+* Add logic denouncing and minimal symbol search
+
+### Fix
+
+* Hide clear icon for empty input
+* fix style for Icon (big size, glyph link)
+
 <a name="1.5.1"></a>
 ## [1.5.1](https://github.com/MyBook/selfpub-ui/compare/v1.5.0...v1.5.1) (2018-11-09)
 

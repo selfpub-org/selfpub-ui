@@ -1,6 +1,6 @@
 {
   "name": "@selfpub/selfpub-ui",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Design system implementation. Component library Selfpub",
   "homepage": "https://mybook.github.io/selfpub-ui/",
   "main": "src/components/index.js",
@@ -80,6 +80,7 @@
   "dependencies": {
     "polished": "^2.0.3",
     "prop-types": "^15.6.2",
+    "query-string": "^6.1.0",
     "styled-components": "^3.4.5"
   },
   "jest": {

@@ -73,7 +73,10 @@ const icons = {
     small: { x: -68, y: -40, backgroundSize: "215px 95px" },
     big: { x: -82, y: -68, backgroundSize: "205px 95px" },
   },
-  ["link"]: { small: { x: -(26 * 4), y: -36 }, big: { x: -(26 * 4), y: -36 } },
+  ["link"]: {
+    small: { x: -(26 * 4), y: -36 },
+    big: { x: 112, y: -52, backgroundSize: "240px 110px" },
+  },
   ["download"]: { small: { x: -54, y: 0 }, big: { x: -54, y: 0 } },
 };
 

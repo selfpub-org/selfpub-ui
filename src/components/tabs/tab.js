@@ -3,17 +3,35 @@ import PropTypes from "prop-types";
 import { StyledTabLabel } from "./tabs.styled";
 
 export default class Tab extends PureComponent {
+  static propTypes = {
+    /** Label for tab */
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+      .isRequired,
+    /** Index current tab in stack(Tabs) */
+    tabIndex: PropTypes.number,
+    /** Flag for active tab */
+    isActive: PropTypes.bool,
+    /** Callback calls on label click */
+    onClick: PropTypes.func,
+    /** Name of tab need for routing */
+    name: PropTypes.string.isRequired,
+  };
+
+  static defaultProps = {
+    isActive: null,
+    onClick: null,
+  };
+
   constructor(props) {
     super(props);
-    this.handlerClick = ::this.handlerClick;
   }
 
-  handlerClick(event) {
-    const { tabIndex, onClick } = this.props;
+  handlerClick = event => {
+    const { tabIndex, name, onClick } = this.props;
     event.preventDefault();
 
-    onClick && onClick(tabIndex);
-  }
+    onClick && onClick(tabIndex, name);
+  };
 
   render() {
     const { label, isActive } = this.props;
@@ -25,19 +43,3 @@ export default class Tab extends PureComponent {
     );
   }
 }
-
-Tab.propTypes = {
-  /** Label for tab */
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-  /** Index current tab in stack(Tabs) */
-  tabIndex: PropTypes.number,
-  /** Flag for active tab */
-  isActive: PropTypes.bool,
-  /** Callback calls on label click */
-  onClick: PropTypes.func,
-};
-
-Tab.defaultProps = {
-  isActive: null,
-  onClick: null,
-};
