@@ -70,7 +70,7 @@ class Test extends React.Component {
             value="d"
             checked={this.state.radioValue === "d"}
             onChange={this.handleChange}
-            disabled={this.state.disabled}
+            disabled={true}
           >
             d-radio
           </Radio>
