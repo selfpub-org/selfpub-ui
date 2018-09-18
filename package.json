@@ -78,6 +78,7 @@
     "react-dom": "^16.5.0"
   },
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "polished": "^2.0.3",
     "prop-types": "^15.6.2",
     "query-string": "^6.1.0",

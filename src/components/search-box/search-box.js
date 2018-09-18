@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import { debounce } from "../../utils/utils";
+import debounce from "lodash.debounce";
+import { isFunction, isPromise } from "../../utils/utils";
 import { Input } from "./../index";
 
 export default class SearchBox extends Component {
@@ -16,7 +17,7 @@ export default class SearchBox extends Component {
   static propTypes = {
     /** prepared data for first view */
     data: PropTypes.array,
-    /** callback called on update matched data */
+    /** callback called on update matched data [Must be Promise] */
     onUpdate: PropTypes.func.isRequired,
     /** placeholder in search box */
     placeholder: PropTypes.string,
@@ -30,7 +31,7 @@ export default class SearchBox extends Component {
   };
 
   state = {
-    loading: true,
+    loading: false,
     data: [],
     matchedData: [],
   };
@@ -42,19 +43,10 @@ export default class SearchBox extends Component {
     this.inputName = `search-input-${~~(Math.random() * 10000)}`;
   }
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    const { data, search } = nextProps;
-
-    this.updateSearchString(search);
-    this.setState({ ...this.state, data: data });
-  }
-
   componentWillMount() {
-    this.updateSearchString(this.props.search, () =>
-      this.getMatchedData(this.props.search),
-    );
+    const { data, search } = this.props;
 
-    this.setState({ ...this.state, data: this.props.data, search: "" });
+    this.setState({ data, search });
   }
 
   reset = () => {
@@ -69,64 +61,90 @@ export default class SearchBox extends Component {
     });
   };
 
-  updateSearchString = (search, cb = () => {}) => {
-    this.setState({ ...this.state, search }, () => cb(search));
+  updateSearchString = search => {
+    if (search.length > 0) {
+      this.setState({ search });
+    } else {
+      this.reset();
+    }
   };
 
   getMatchedData = search => {
     const { dataUpdater } = this.props;
-    const { matchedData } = this.state;
 
     if (!dataUpdater) {
       return;
     }
 
-    this.setState({
-      ...this.state,
-      loading: true,
-    });
-
     if (typeof dataUpdater === "string") {
       this.getMatchesByUrl(search);
-    } else if (typeof dataUpdater === "function") {
-      dataUpdater(search, matchedData, matchedData.length);
+    } else if (isFunction(dataUpdater) && isPromise(dataUpdater)) {
+      this.getMatchesByFunc(search);
     } else {
-      this.setState({
-        ...this.state,
-        loading: false,
-      });
+      this.setState({ loading: false });
     }
+  };
+
+  getMatchesByFunc = (func, search) => {
+    const { matchedData } = this.state;
+
+    this.setState({ loading: true }, () =>
+      func(search, matchedData, matchedData.length)
+        .then((data, search) => {
+          this.setState({ data, search, loading: false });
+        })
+        .catch(error => {
+          this.setState({ loading: false });
+
+          console.warn(error);
+        }),
+    );
   };
 
   getMatchesByUrl = search => {
     const { dataUpdater, onUpdate } = this.props;
     const url = dataUpdater.replace(/%s/g, search).replace(/ /g, "+");
 
+    if (!search) {
+      return;
+    }
+
+    this.setState({ loading: true });
+
     fetch(url)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          ...this.state,
           matchedData: data,
           loading: false,
         });
 
         onUpdate(data, search, data.length);
+      })
+      .catch(error => {
+        this.setState({ loading: false });
+        console.warn(error);
       });
   };
 
   onType = (event, value) => {
-    if (value.length === 0) {
-      this.reset();
-    } else if (value.length < this.minimalValue) {
-      this.updateSearchString(value);
-    } else {
-      this.updateSearchString(
-        value,
-        debounce(() => {
-          this.getMatchedData(value);
-        }, this.props.debounceTime),
-      );
+    this.updateSearchString(value);
+
+    this.debouncedOnType(value, this.getMatchedData);
+  };
+
+  debouncedOnType = (search, func) => {
+    const { debounceTime } = this.props;
+
+    this.debouncedEvent && this.debouncedEvent.cancel();
+
+    this.debouncedEvent = debounce(func, debounceTime, {
+      leading: false,
+      trailing: true,
+    });
+
+    if (search.length >= this.minimalValue) {
+      this.debouncedEvent(search);
     }
   };
 

@@ -35,13 +35,10 @@ export function hashFromArray(dataArray) {
   return hash;
 }
 
-export const debounce = (fn, time) => {
-  let timeout;
+export function isFunction(subject) {
+  return typeof subject === "function";
+}
 
-  return function() {
-    const functionCall = () => fn.apply(this, arguments);
-
-    clearTimeout(timeout);
-    timeout = setTimeout(functionCall, time);
-  };
-};
+export function isPromise(subject) {
+  return typeof subject.then === "function";
+}
