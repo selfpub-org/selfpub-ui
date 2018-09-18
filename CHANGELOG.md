@@ -1,3 +1,15 @@
+<a name="1.6.3"></a>
+## [1.6.3](https://github.com/MyBook/selfpub-ui/compare/v1.6.2...v1.6.3) (2018-18-09)
+
+### Features
+
+* Add utils function hex2rgba (not find in polished)
+* Add props for disable stretching button to container
+
+### Fix
+
+* Fix link underline styles
+
 <a name="1.6.2"></a>
 ## [1.6.2](https://github.com/MyBook/selfpub-ui/compare/v1.6.1...v1.6.2) (2018-18-09)
 
