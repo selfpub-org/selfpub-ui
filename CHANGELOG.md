@@ -1,10 +1,11 @@
 <a name="1.6.2"></a>
-## [1.6.2](https://github.com/MyBook/selfpub-ui/compare/v1.6.1...v1.6.2) (2018-17-09)
+## [1.6.2](https://github.com/MyBook/selfpub-ui/compare/v1.6.1...v1.6.2) (2018-18-09)
 
 ### Fix
 
 * Refactoring styles for radio button
 * Update docs for `<Tabs />` `<Tab />` components
+* Rework debounce of search in search-box component
 
 <a name="1.6.1"></a>
 ## [1.6.1](https://github.com/MyBook/selfpub-ui/compare/v1.6.0...v1.6.1) (2018-17-09)
