@@ -6,10 +6,13 @@ export const StyledLink = styled.a`
   cursor: pointer;
   transition: 0.2s;
   text-decoration: none;
-  border-width: 1px;
   width: fit-content;
   font-size: ${props => props.theme.link.sizes[props.size].fontSize};
   color: ${props => props.theme.link.variations[props.variation].color};
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: ${props =>
+    props.theme.link.variations[props.variation].border};
 
   :hover {
     border-color: ${props =>
@@ -20,14 +23,13 @@ export const StyledLink = styled.a`
   ${props =>
     props.type === "underline" &&
     css`
-      border-bottom: 1px solid
-        ${props => props.theme.link.variations[props.variation].border};
+      border-style: solid;
     `};
 
   ${props =>
     props.type === "pseudo" &&
     css`
-      border-bottom-style: dashed;
+      border-style: dashed;
     `};
 
   ${props =>

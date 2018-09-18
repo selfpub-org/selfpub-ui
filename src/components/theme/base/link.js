@@ -1,5 +1,6 @@
 import colors from "./colors";
 import typography from "./typography";
+import { hex2Rgba } from "../../../utils/styled";
 
 export default {
   fontFamily: typography.fontFamilies.system,
@@ -15,42 +16,42 @@ export default {
   variations: {
     default: {
       color: "inherit",
-      border: `rgba(59,57,63,.5)`,
+      border: "inherit",
       hover: {
         color: colors.orange,
-        border: colors.orange,
+        border: hex2Rgba(colors.orange, 0.5),
       },
     },
     coal: {
       color: colors.coal,
-      border: `rgba(59,57,63,.5)`,
+      border: hex2Rgba(colors.coal, 0.5),
       hover: {
         color: colors.orange,
-        border: colors.orange,
+        border: hex2Rgba(colors.orange, 0.5),
       },
     },
     blue: {
       color: colors.blue,
-      border: `rgba(16,110,220,.5)`,
+      border: hex2Rgba(colors.blue, 0.5),
       hover: {
         color: colors.orange,
-        border: colors.orange,
+        border: hex2Rgba(colors.orange, 0.5),
       },
     },
     grey: {
       color: colors.lighterCoal,
-      border: colors.lighterCoal,
+      border: hex2Rgba(colors.lighterCoal, 0.5),
       hover: {
         color: colors.orange,
-        border: colors.orange,
+        border: hex2Rgba(colors.orange, 0.5),
       },
     },
     white: {
       color: colors.white,
-      border: `rgba(255,255,255,.5)`,
+      border: hex2Rgba(colors.white, 0.5),
       hover: {
         color: colors.orange,
-        border: colors.orange,
+        border: hex2Rgba(colors.orange, 0.5),
       },
     },
   },
