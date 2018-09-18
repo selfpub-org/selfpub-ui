@@ -38,6 +38,7 @@ export default class SearchBoxExample extends Component {
             placeholder="Search for a string..."
             dataUpdater="https://mock-server-wkquwnltbi.now.sh/articles?q=%s"
             loading={this.state.loading}
+            debounceTime={2000}
           />
           <div style={{ maxHeight: "300px", overflowX: "scroll" }}>
             Find: {this.state.findCount}

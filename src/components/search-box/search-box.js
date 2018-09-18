@@ -5,11 +5,12 @@ import { Input } from "./../index";
 
 export default class SearchBox extends Component {
   static defaultProps = {
-    search: "",
     data: [],
+    search: "",
     disabled: false,
+    debounceTime: 800,
     minimalTextLength: 3,
-    placeholder: "search...",
+    placeholder: "Search...",
   };
 
   static propTypes = {
@@ -19,11 +20,13 @@ export default class SearchBox extends Component {
     onUpdate: PropTypes.func.isRequired,
     /** placeholder in search box */
     placeholder: PropTypes.string,
+    /** loading flag */
+    loading: PropTypes.bool,
     /** url for search with mark search word (%s) or function updater return array matched data*/
     dataUpdater: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
       .isRequired,
-    /** loading flag */
-    loading: PropTypes.bool,
+    /** debounced timeout */
+    debounceTime: PropTypes.number,
   };
 
   state = {
@@ -122,7 +125,7 @@ export default class SearchBox extends Component {
         value,
         debounce(() => {
           this.getMatchedData(value);
-        }, 200),
+        }, this.props.debounceTime),
       );
     }
   };
