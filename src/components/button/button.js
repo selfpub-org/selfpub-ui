@@ -122,6 +122,8 @@ Button.propTypes = {
   loading: PropTypes.bool,
   /** size type for button */
   size: PropTypes.oneOf(Button.Sizes),
+  /** flag for disabled stretched */
+  stretched: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -135,4 +137,5 @@ Button.defaultProps = {
   target: "_self",
   variation: "default",
   type: "button",
+  stretched: true,
 };

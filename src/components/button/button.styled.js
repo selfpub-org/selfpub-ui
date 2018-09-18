@@ -9,7 +9,6 @@ export const StyledButton = styled.div`
   align-items: center;
   justify-content: center;
   margin: 15px 0;
-  width: 100%;
   border-style: solid;
 
   // base not modified
@@ -35,6 +34,8 @@ export const StyledButton = styled.div`
   min-width: ${props => props.theme.button.sizes[props.size].minWidth};
   line-height: ${props => props.theme.button.sizes[props.size].lineHeight};
   height: ${props => props.theme.button.sizes[props.size].height};
+
+  ${props => props.stretched && "width: 100%;"};
 
   &:disabled {
     color: ${mainTheme.color.white};
