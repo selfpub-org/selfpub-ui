@@ -5,14 +5,15 @@ import backgrounds from '@storybook/addon-backgrounds';
 import { configure, addDecorator } from '@storybook/react';
 import { setOptions } from "@storybook/addon-options";
 import { withKnobs } from "@storybook/addon-knobs";
+import packageConf from "./../package";
 
 setOptions({
-  name: 'Selfpub UI Design',
-  url: '#',
+  name: `Selfpub UI Design v${packageConf.version}`,
+  url: 'https://github.com/MyBook/selfpub-ui/',
   goFullScreen: false,
   showStoriesPanel: true,
   showAddonPanel: true,
-  addonPanelInRight: true,
+  addonPanelInRight: false,
   sortStoriesByKind: true,
 });
 
