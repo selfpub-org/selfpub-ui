@@ -63,7 +63,10 @@ const icons = {
     big: { x: 0, y: -(spriteBigCell * 2) },
   },
   ["analog-book"]: { small: { x: -26, y: -36 }, big: { x: -26, y: -36 } },
-  ["cross"]: { small: { x: -57, y: -40 }, big: { x: -82, y: -60 } },
+  ["cross"]: {
+    small: { x: -57, y: -40, backgroundSize: "200px 88px" },
+    big: { x: -82, y: -60 },
+  },
   ["cross-red"]: { small: { x: -57, y: -67 }, big: { x: -82, y: -98 } },
   ["checkbox"]: {
     small: { x: -68, y: -40, backgroundSize: "215px 95px" },
@@ -83,7 +86,6 @@ const icons = {
 const iconSizes = {
   small: css`
     background-size: 198px 88px;
-    margin: auto 2px;
     width: 18px;
     height: 18px;
   `,
