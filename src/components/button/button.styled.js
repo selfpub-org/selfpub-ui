@@ -8,7 +8,6 @@ export const StyledButton = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: 15px 0;
   border-style: solid;
 
   // base not modified
@@ -28,12 +27,26 @@ export const StyledButton = styled.div`
   font-size: ${props => props.theme.button.sizes[props.size].fontSize}px;
   font-weight: ${props => props.theme.button.sizes[props.size].fontWeight};
   border-width: ${props => props.theme.button.sizes[props.size].borderWidth}px;
-  padding: ${props => props.theme.button.sizes[props.size].padding};
   text-transform: ${props =>
     props.theme.button.sizes[props.size].textTransform};
   min-width: ${props => props.theme.button.sizes[props.size].minWidth};
   line-height: ${props => props.theme.button.sizes[props.size].lineHeight};
   height: ${props => props.theme.button.sizes[props.size].height};
+  margin: 15px 0;
+  padding: ${props => props.theme.button.sizes[props.size].padding};
+  height: ${props => props.theme.button.sizes[props.size].height};
+  border-color: ${props =>
+    props.theme.button.variations[props.variation].border};
+
+  ${props =>
+    props.isIconButton &&
+    css`
+      padding: 0;
+      margin: 0;
+      border-radius: 50%;
+      border: 0;
+      height: 100%;
+    `};
 
   ${props => props.stretched && "width: 100%;"};
 
@@ -73,6 +86,8 @@ export const StyledButton = styled.div`
         props.theme.button.variations[props.variation].active.border,
         -15,
       )};
+    box-shadow: ${props =>
+      props.theme.button.variations[props.variation].active.shadow};
   }
 
   ${props =>
@@ -83,4 +98,9 @@ export const StyledButton = styled.div`
       border-color: ${mainTheme.color.lighterCoal};
       cursor: default;
     `};
+`;
+
+export const ContentWrapper = styled.span`
+  padding-right: 5px;
+  padding-left: 5px;
 `;
