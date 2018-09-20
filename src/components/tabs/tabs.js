@@ -18,6 +18,8 @@ export default class Tabs extends PureComponent {
       PropTypes.element,
       PropTypes.node,
     ]).isRequired,
+    /** Used for change tabs by number */
+    activeTabIndex: PropTypes.number,
     /** Used for open tabs by number onMount */
     defaultActiveTabIndex: PropTypes.number,
     /** Callback calls on change tab */
@@ -27,6 +29,7 @@ export default class Tabs extends PureComponent {
   static defaultProps = {
     wrapped: null,
     onChangeTab: null,
+    activeTabIndex: null,
     defaultActiveTabIndex: 0,
   };
 
@@ -34,14 +37,18 @@ export default class Tabs extends PureComponent {
     activeTabIndex: this.props.defaultActiveTabIndex,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     const currentTabName = this.getCurrentActiveTabName();
 
     this.updateCurrentActiveTab(currentTabName);
+  }
+
+  componentWillReceiveProps(newProps, nextContext) {
+    const { activeTabIndex } = newProps;
+
+    this.setState({
+      activeTabIndex,
+    });
   }
 
   getCurrentActiveTabName = () => {
@@ -106,7 +113,12 @@ export default class Tabs extends PureComponent {
   renderActiveTabContent() {
     const { children, wrapped = true } = this.props;
     const { activeTabIndex } = this.state;
-    const activeTabComponent = children[activeTabIndex].props.children;
+    const activeTabComponent =
+      children.length > activeTabIndex ? (
+        children[activeTabIndex].props.children
+      ) : (
+        <div>&nbsp;</div>
+      );
 
     if (children[activeTabIndex]) {
       return wrapped ? (
