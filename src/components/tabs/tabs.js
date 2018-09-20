@@ -34,11 +34,13 @@ export default class Tabs extends PureComponent {
   };
 
   state = {
-    activeTabIndex: this.props.defaultActiveTabIndex,
+    activeTabIndex: 0,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const currentTabName = this.getCurrentActiveTabName();
+
+    this.setState({ activeTabIndex: this.props.defaultActiveTabIndex });
 
     this.updateCurrentActiveTab(currentTabName);
   }
@@ -114,7 +116,7 @@ export default class Tabs extends PureComponent {
     const { children, wrapped = true } = this.props;
     const { activeTabIndex } = this.state;
     const activeTabComponent =
-      children.length > activeTabIndex ? (
+      children.length > activeTabIndex && children[activeTabIndex] ? (
         children[activeTabIndex].props.children
       ) : (
         <div>&nbsp;</div>
