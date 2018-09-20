@@ -17,7 +17,6 @@ export const StyledLoader = styled.span`
   display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
-  margin-left: 5px;
   min-width: ${props => props.size}px;
   min-height: ${props => props.size}px;
   width: ${props => props.size}px;
