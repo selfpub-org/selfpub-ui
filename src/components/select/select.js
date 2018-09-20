@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import StyledSelect from "./../select/select.styled";
 import { Icon } from "./../index";
+import { Container, Element, IconWrapper } from "./select.styled";
 
-export default class Select extends StyledSelect {
+export default class Select extends Component {
   static propTypes = {
     /** Callback on change select value */
     onChange: PropTypes.func,
@@ -20,6 +20,13 @@ export default class Select extends StyledSelect {
         ]).isRequired,
       }),
     ).isRequired,
+    stretch: PropTypes.bool,
+    loading: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    stretch: false,
+    loading: false,
   };
 
   state = {
@@ -27,16 +34,14 @@ export default class Select extends StyledSelect {
     options: [],
   };
 
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     this.setState({
       value: this.props.value,
       options: this.props.options,
     });
   }
+
+  saveRef = () => select => (this.select = select);
 
   setValue = value => {
     this.setState({
@@ -54,39 +59,47 @@ export default class Select extends StyledSelect {
     onChange && onChange(value, this.state.options);
   };
 
-  render() {
-    const { value, options } = this.state;
-    const text = options
-      .map(option => {
-        if (this.state.value === option.value) return option.text;
-      })
-      .join("");
+  getCurrentOption = options =>
+    options.find(option => {
+      return this.state.value.toString() === option.value.toString();
+    });
 
-    const optionsElements = options.map(option => (
-      <option key={option.text} value={option.value}>
-        {option.text}
+  getOptionsElements = options =>
+    options.map((option, index) => (
+      <option key={index} value={option.value}>
+        {option && option.text}
       </option>
     ));
 
+  render() {
+    const { stretch, loading } = this.props;
+    const { value, options } = this.state;
+
+    const optionsElements = this.getOptionsElements(options);
+    const currentOption = this.getCurrentOption(options);
+
     return (
-      <Select.Container
+      <Container
         onClick={() => this.select.click && this.select.click()}
+        stretch={stretch}
       >
-        <Select.Element
-          ref={select => (this.select = select)}
+        <Element
+          ref={this.saveRef()}
           onChange={this.onChangeHandler}
           value={value}
         >
           {optionsElements}
-        </Select.Element>
-        {text}
-        <Icon
-          glyph="arrow-bottom"
-          loading={false}
-          hovered={false}
-          size="small"
-        />
-      </Select.Container>
+        </Element>
+        {currentOption && currentOption.text}
+        <IconWrapper>
+          <Icon
+            glyph="arrow-bottom"
+            loading={loading}
+            hovered={false}
+            size="small"
+          />
+        </IconWrapper>
+      </Container>
     );
   }
 }
