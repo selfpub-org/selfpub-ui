@@ -20,7 +20,11 @@ export default class Select extends Component {
         ]).isRequired,
       }),
     ).isRequired,
+    /** Disabled flag */
+    disabled: PropTypes.bool,
+    /** flag for enable stretched */
     stretch: PropTypes.bool,
+    /** loading flag */
     loading: PropTypes.bool,
   };
 
@@ -72,7 +76,7 @@ export default class Select extends Component {
     ));
 
   render() {
-    const { stretch, loading } = this.props;
+    const { stretch, loading, disabled } = this.props;
     const { value, options } = this.state;
 
     const optionsElements = this.getOptionsElements(options);
