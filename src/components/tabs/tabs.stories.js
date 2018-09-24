@@ -3,6 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { number } from "@storybook/addon-knobs";
 import { Tabs, Tab } from "./../index";
 
 const buttonsMdDocs = `
@@ -16,7 +17,10 @@ In component using tab routing by url. For target active tab may be used get par
 storiesOf("Tabs", module).add(
   "1. Width editable props",
   withInfo({ text: buttonsMdDocs, inline: true })(() => (
-    <Tabs defaultActiveTabIndex={1}>
+    <Tabs
+      defaultActiveTabIndex={1}
+      activeTabIndex={number("activeTabIndex", 1)}
+    >
       <Tab
         label="Статистика"
         name="statistics"

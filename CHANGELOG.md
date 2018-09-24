@@ -1,3 +1,22 @@
+<a name="1.7.0"></a>
+## [1.7.0](https://github.com/MyBook/selfpub-ui/compare/v1.6.3...v1.7.0) (2018-20-09)
+
+### Features
+
+* Add icon button
+* Add default size for loader
+* Refactoring select component
+    * add streched by container
+    * refactoring logic of find item
+    * add logic for protect of corrupt values
+* Add logic for change tabActiveIndex
+* Add new type of vie for button
+
+### Fix
+
+* Fix style icon glyph cross
+* Refactoring logic clear button for input
+
 <a name="1.6.3"></a>
 ## [1.6.3](https://github.com/MyBook/selfpub-ui/compare/v1.6.2...v1.6.3) (2018-18-09)
 

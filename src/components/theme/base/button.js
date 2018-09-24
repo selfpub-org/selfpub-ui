@@ -130,6 +130,24 @@ export default {
         shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
       },
     },
+    beige: {
+      color: mainTheme.color.coal,
+      border: "transparent",
+      background: "transparent",
+      hover: {
+        color: mainTheme.color.coal,
+        border: "transparent",
+        background: mainTheme.color.beige,
+      },
+      active: {
+        border: "transparent",
+        background: mainTheme.color.gray,
+        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      },
+      focus: {
+        shadow: "none",
+      },
+    },
     lighter: {
       color: mainTheme.color.coal,
       border: mainTheme.color.lighterCoal,

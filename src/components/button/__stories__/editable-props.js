@@ -51,6 +51,7 @@ export default function() {
         target={target ? target : null}
         icon={glyph ? glyph : null}
         iconSize={iconSize ? iconSize : null}
+        stretched={boolean("stretched", false)}
         onClick={action("clicked")}
       >
         {text("Label (children)", "Some text")}

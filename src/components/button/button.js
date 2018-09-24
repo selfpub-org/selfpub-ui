@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Link, Icon } from "../index";
+import { Icon, Loader } from "../index";
+import { ContentWrapper } from "./button.styled";
 import { StyledButton } from "./button.styled.js";
 
 const LinkButton = StyledButton.withComponent("a");
@@ -46,16 +47,19 @@ export default class Button extends PureComponent {
       ...rest
     } = this.props;
 
+    // Temporary workaround
+    const isIconButton = icon && !children;
+    const hovered = isIconButton ? false : this.state.isHovered;
+
     const iconNode = !!icon ? (
-      <Icon glyph={icon} hovered={this.state.isHovered} size={iconSize} />
+      <Icon glyph={icon} hovered={hovered} size={iconSize} />
     ) : null;
-    const loaderSize = iconSize ? iconSize : "small";
 
     const content = (
       <React.Fragment>
-        {iconNode}
-        {children && <span>{children}</span>}
-        {loading && <Icon type="loader" size={loaderSize} loading={loading} />}
+        {((isIconButton && !loading) || !isIconButton) && iconNode}
+        {children && <ContentWrapper>{children}</ContentWrapper>}
+        {loading && <Loader />}
       </React.Fragment>
     );
 
@@ -75,6 +79,7 @@ export default class Button extends PureComponent {
           onMouseOut={this.onMouseOut}
           onTouchStart={this.onTouchStart}
           onTouchEnd={this.onTouchEnd}
+          isIconButton={isIconButton}
           {...rest}
         >
           {content}
@@ -94,14 +99,14 @@ Button.Themes = [
   "primary-light",
   "success",
   "black",
+  "beige",
 ];
 
 Button.Sizes = ["big", "medium", "small"];
 
 Button.propTypes = {
   /** children - label or content for button */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** disabled state of button */
   disabled: PropTypes.bool,
   /** redirect url of link button */

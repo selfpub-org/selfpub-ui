@@ -73,20 +73,6 @@ const InputIconContainer = styled.div`
   line-height: 100%;
 `;
 
-export const LoaderContainer = styled(InputIconContainer)`
-  right: 4px;
-`;
-
 export const ClearButtonContainer = styled(InputIconContainer)`
   right: 0;
-  cursor: pointer;
-  border-radius: 50%;
-
-  :hover {
-    background-color: ${colors.beige};
-  }
-
-  :active {
-    background-color: ${colors.gray};
-  }
 `;

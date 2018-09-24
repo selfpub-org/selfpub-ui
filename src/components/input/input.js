@@ -1,23 +1,70 @@
 import React, { Component } from "react";
-import { ClearButtonContainer, StyledInput } from "./input.styled";
 import PropTypes from "prop-types";
-import { Loader, Icon } from "./../index";
-import { InputContainer, LoaderContainer } from "./input.styled";
+import { Button } from "./../index";
+import {
+  ClearButtonContainer,
+  StyledInput,
+  InputContainer,
+} from "./input.styled";
 
 export default class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.onChangeHelper = ::this.onChangeHelper;
-    this.state = {
-      type: this.props.type,
-    };
-  }
+  static propTypes = {
+    /** The value entered in the field. */
+    value: PropTypes.any.isRequired,
+    /** Placeholder for input */
+    placeholder: PropTypes.string,
+    /** Disabled flags */
+    disabled: PropTypes.bool,
+    /** Field types */
+    type: PropTypes.oneOf([
+      "email",
+      "number",
+      "password",
+      "tel",
+      "text",
+      "url",
+    ]),
+    /** Input size */
+    size: PropTypes.oneOf(["small", "medium"]),
+    /** Input theme */
+    theme: PropTypes.oneOf(["default", "inset", "ghost"]),
+    /** Input name */
+    name: PropTypes.string,
+    /** Validation status */
+    status: PropTypes.oneOf(["error", "warning", "success", null]),
+    /** Focused state flag */
+    isFocused: PropTypes.bool,
+    /** By default, the input element is stretched to the full width of the parent container. */
+    stretch: PropTypes.oneOf(["auto", "fill"]),
+    /** Callback onChange return event и event.target.value */
+    onChange: PropTypes.func,
+    /** Callback onBlur */
+    onBlur: PropTypes.func,
+    /** Callback onFocus */
+    onFocus: PropTypes.func,
+    /** Callback onKeyUp */
+    onKeyUp: PropTypes.func,
+    /** Callback onKeyDown */
+    onKeyDown: PropTypes.func,
+  };
 
-  onChangeHelper(event) {
+  static defaultProps = {
+    placeholder: "",
+    type: "text",
+    status: null,
+    size: "medium",
+    theme: "default",
+  };
+
+  state = {
+    type: this.props.type,
+  };
+
+  onChangeHelper = event => {
     const { onChange } = this.props;
 
     onChange && onChange(event, event.target.value);
-  }
+  };
 
   render() {
     const {
@@ -49,60 +96,19 @@ export default class Input extends Component {
           htmlType={this.state.type}
           {...rest}
         />
-        {loading && (
-          <LoaderContainer>
-            <Loader size="22" />
-          </LoaderContainer>
-        )}
         {clearIcon &&
-          !!value &&
-          !loading && (
+          !!value && (
             <ClearButtonContainer>
-              <Icon glyph="cross" size="small" onClick={clearAction} />
+              <Button
+                icon="cross"
+                iconSize="small"
+                variation="beige"
+                onClick={clearAction}
+                loading={loading}
+              />
             </ClearButtonContainer>
           )}
       </InputContainer>
     );
   }
 }
-
-Input.propTypes = {
-  /** The value entered in the field. */
-  value: PropTypes.any.isRequired,
-  /** Placeholder for input */
-  placeholder: PropTypes.string,
-  /** Disabled flags */
-  disabled: PropTypes.bool,
-  /** Field types */
-  type: PropTypes.oneOf(["email", "number", "password", "tel", "text", "url"]),
-  /** Input size */
-  size: PropTypes.oneOf(["small", "medium"]),
-  /** Input theme */
-  theme: PropTypes.oneOf(["default", "inset", "ghost"]),
-  /** Input name */
-  name: PropTypes.string,
-  /** Validation status */
-  status: PropTypes.oneOf(["error", "warning", "success", null]),
-  /** Focused state flag */
-  isFocused: PropTypes.bool,
-  /** By default, the input element is stretched to the full width of the parent container. */
-  stretch: PropTypes.oneOf(["auto", "fill"]),
-  /** Callback onChange return event и event.target.value */
-  onChange: PropTypes.func,
-  /** Callback onBlur */
-  onBlur: PropTypes.func,
-  /** Callback onFocus */
-  onFocus: PropTypes.func,
-  /** Callback onKeyUp */
-  onKeyUp: PropTypes.func,
-  /** Callback onKeyDown */
-  onKeyDown: PropTypes.func,
-};
-
-Input.defaultProps = {
-  placeholder: "",
-  type: "text",
-  status: null,
-  size: "medium",
-  theme: "default",
-};
