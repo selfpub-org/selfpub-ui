@@ -1,5 +1,12 @@
+<a name="1.7.1"></a>
+## [1.7.1](https://github.com/MyBook/selfpub-ui/compare/v1.7.0...v1.7.1) (2018-24-09)
+
+### Fix
+
+* Fix style for popover in height container
+
 <a name="1.7.0"></a>
-## [1.7.0](https://github.com/MyBook/selfpub-ui/compare/v1.6.3...v1.7.0) (2018-20-09)
+## [1.7.0](https://github.com/MyBook/selfpub-ui/compare/v1.6.3...v1.7.0) (2018-24-09)
 
 ### Features
 

@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Icon } from "../index";
 import {
+  IconPopover,
   StyledPopoverContent,
   StyledPopoverContentFixer,
   StyledPopoverHeader,
@@ -21,7 +22,7 @@ export default class Popover extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps, nextContext) {
     if (nextProps.open !== this.state.open) {
       this.setState({
         ...this.state,
@@ -49,7 +50,9 @@ export default class Popover extends PureComponent {
   render() {
     const { header, children, position } = this.props;
     const icon = (
-      <Icon size="small" glyph="question" hovered={this.state.open} />
+      <IconPopover>
+        <Icon size="small" glyph="question" hovered={this.state.open} />
+      </IconPopover>
     );
     const contentLayout = children ? (
       <StyledPopoverContent>

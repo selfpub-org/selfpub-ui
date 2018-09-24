@@ -74,3 +74,11 @@ export const StyledPopoverWrapper = styled.div`
       }
     `};
 `;
+
+export const IconPopover = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2px;
+`;

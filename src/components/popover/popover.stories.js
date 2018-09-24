@@ -1,10 +1,10 @@
 /* global module */
-import React from "react";
+import React, { Fragment } from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { text, select, boolean } from "@storybook/addon-knobs";
 import PropTypes from "prop-types";
-import { ThemeProviderWrapper, Popover } from "index";
+import { ThemeProviderWrapper, Popover, Link } from "index";
 
 const buttonsMdDocs = `
   Component dor display info and notes
@@ -28,7 +28,7 @@ storiesOf("Popover", module).add(
     propTablesExclude: [ThemeProviderWrapper, React.Fragment],
   })(() => (
     <ThemeProviderWrapper>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div>
         <Popover
           header={text("header", "DOCX")}
           open={boolean("open", false)}
@@ -42,6 +42,16 @@ storiesOf("Popover", module).add(
             Самый распространенный формат текстовых файлов; используется в&nbsp;
             <a href="#some-hash">Microsoft Word</a>.
           </React.Fragment>
+        </Popover>
+        <Popover header="Вы получаете 25% от продаж" position="right">
+          <Fragment>
+            Формула, по&nbsp;которой рассчитывается размер роялти, предельно
+            проста: от&nbsp;розничной цены отнимается НДС и&nbsp;затем
+            рассчитывается процент роялти согласно выбранному пакету.{" "}
+            <Link href="#1" type="underline">
+              Подробнее
+            </Link>
+          </Fragment>
         </Popover>
       </div>
     </ThemeProviderWrapper>
