@@ -111,7 +111,9 @@ export default class SearchBox extends Component {
 
     this.setState({ loading: true });
 
-    fetch(url)
+    fetch(url, {
+      credentials: "same-origin",
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({

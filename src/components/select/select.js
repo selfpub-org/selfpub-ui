@@ -82,10 +82,12 @@ export default class Select extends Component {
       <Container
         onClick={() => this.select.click && this.select.click()}
         stretch={stretch}
+        disabled={disabled}
       >
         <Element
           ref={this.saveRef()}
           onChange={this.onChangeHandler}
+          disabled={disabled}
           value={value}
         >
           {optionsElements}
