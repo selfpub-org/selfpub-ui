@@ -24,6 +24,7 @@ storiesOf("Select/select", module).add(
           action("select change");
         }}
         stretch={boolean("stretch", false)}
+        disabled={boolean("disabled", false)}
       />
     </ThemeProviderWrapper>
   )),

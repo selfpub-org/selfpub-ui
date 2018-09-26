@@ -1,11 +1,11 @@
-import React, { PureComponent } from "react";
 import styled, { css } from "styled-components";
+import { colors } from "./../theme";
 
 export const Container = styled.div`
   display: inline-flex;
   position: relative;
   border-radius: 0;
-  border: 1px solid #9d9c9f;
+  border: 1px solid ${colors.lighterCoal};
   box-sizing: border-box;
   font-size: 17px;
   height: 46px;
@@ -19,7 +19,17 @@ export const Container = styled.div`
   align-items: center;
 
   &:focus {
-    border-color: ${props => props.theme.colors.coal};
+    border-color: ${colors.coal};
+  }
+
+  &:hover {
+    border-color: ${colors.coal};
+
+    ${props =>
+      props.disabled &&
+      css`
+        border-color: ${colors.gray};
+      `};
   }
 
   ${props =>
@@ -33,13 +43,15 @@ export const Container = styled.div`
   ${props =>
     props.disabled &&
     css`
-      border-color: ${props => props.theme.colors.gray};
+      border-color: ${colors.gray};
+      color: ${colors.lighterCoal};
+      cursor: default;
     `};
 
   ${props =>
     props.status === "error" &&
     css`
-      border-color: ${props => props.theme.colors.red};
+      border-color: ${colors.red};
     `};
 `;
 
@@ -51,9 +63,16 @@ export const Element = styled.select`
   font-size: 17px;
   opacity: 0;
   cursor: pointer;
+
+  ${props =>
+    props.disabled &&
+    css`
+      cursor: default;
+    `};
 `;
 
 export const IconWrapper = styled.div`
   height: 22px;
+  min-width: 18px;
   margin: auto 0 auto 12px;
 `;
