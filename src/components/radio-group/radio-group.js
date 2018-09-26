@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Radio } from "./../index";
 
 export default class RadioGroup extends Component {
   static propTypes = {
@@ -15,20 +16,10 @@ export default class RadioGroup extends Component {
 
   static defaultProps = { id: null, onChange: () => {} };
 
-  constructor(props) {
-    super(props);
-  }
-
-  get value() {
-    const { checkedIndex } = this.state;
-    const { children } = this.props;
-
-    const child = children.find(
-      childElement => childElement.props.index === checkedIndex,
-    );
-
-    return (child && child.props.value) || "";
-  }
+  state = {
+    checkedIndex: 0,
+    value: "",
+  };
 
   componentWillMount() {
     const { children, value, id } = this.props;
@@ -84,33 +75,29 @@ export default class RadioGroup extends Component {
     return checkedIndex;
   };
 
-  onChange = radioIndex => {
-    const { onChange, children } = this.props;
-    const child = children[radioIndex];
-    const {
-      props: { value = "" },
-    } = child;
+  onChange = (checkedIndex, value) => {
+    const { onChange, value: groupValue } = this.props;
+    const { value: prevValue } = this.state;
 
-    if (!child) {
-      return;
+    if (!groupValue || value !== prevValue) {
+      this.setState({ checkedIndex, value });
     }
 
-    this.setState({ checkedIndex: radioIndex });
-
-    onChange && onChange(value);
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   renderChild = (child, index, checked) => {
     const { children } = this.props;
-    const { onChange, ...rest } = child.props;
 
     const childrenProps = {
+      name: this.props.name,
       index,
       checked,
       key: index,
       last: index === children.length - 1,
-      onChange: () => this.onChange(index),
-      ...rest,
+      onChange: value => this.onChange(index, value),
     };
 
     return React.cloneElement(child, childrenProps);
@@ -118,11 +105,15 @@ export default class RadioGroup extends Component {
 
   render() {
     const { checkedIndex } = this.state;
-    const { children, ...rest } = this.props;
+    const { children, onChange, ...rest } = this.props;
 
-    const clonedChildren = children.map((child, index) =>
-      this.renderChild(child, index, index === checkedIndex),
-    );
+    const clonedChildren = React.Children.map(children, (child, index) => {
+      if (child.type === Radio) {
+        return this.renderChild(child, index, index === checkedIndex);
+      } else {
+        return child;
+      }
+    });
 
     return (
       <div id={this.groupId} {...rest}>

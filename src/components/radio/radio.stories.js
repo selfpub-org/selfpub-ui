@@ -32,10 +32,8 @@ class Test extends React.Component {
     };
   }
 
-  handleChange = e => {
-    this.setState({
-      radioValue: e.target.value,
-    });
+  handleChange = radioValue => {
+    this.setState({ radioValue });
   };
 
   render() {

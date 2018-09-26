@@ -25,6 +25,9 @@ storiesOf("RadioGroup", module).add(
           </Radio>
           <Radio value="c">c-radio</Radio>
           <Radio value="d">d-radio</Radio>
+          <Radio value="d1">d-radio</Radio>
+          <Radio value="d2">d-radio</Radio>
+          <Radio value="d3">d-radio</Radio>
         </RadioGroup>
       </ThemeProviderWrapper>
     );
