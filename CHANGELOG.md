@@ -1,4 +1,17 @@
 <a name="1.7.1"></a>
+## [1.7.2][1.7.2] (2018-26-09)
+
+### Fix
+
+* Add multiple state for selects components  [issue #13][#13]
+
+### Fix
+
+* Refactoring radio and radio-group component  [issue #25][#25]
+   - Fix onChange Radio event call
+   - Fix multiple event onChange for RadioGroup
+
+<a name="1.7.1"></a>
 ## [1.7.1](https://github.com/MyBook/selfpub-ui/compare/v1.7.0...v1.7.1) (2018-24-09)
 
 ### Fix
@@ -250,5 +263,9 @@ import { colors } from "@selfpub/selfpub-ui";
 * Add Typography components `<Header/>`, `<Paragraph/>`, `<Typograpgy/>` [\[source\]](https://github.com/MyBook/selfpub-ui/tree/master/src/components/typography)
 * Add ThemeProvider components `<ThemeProvider/>` [\[source\]](https://github.com/MyBook/selfpub-ui/tree/master/src/components/typography)
 
+
+[#13]: https://github.com/MyBook/selfpub-ui/issues/13
+[#25]: https://github.com/MyBook/selfpub-ui/issues/25
+[1.7.2]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.1...v1.7.2)
 
 
