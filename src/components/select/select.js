@@ -98,12 +98,14 @@ export default class Select extends Component {
         </Element>
         {currentOption && currentOption.text}
         <IconWrapper>
-          <Icon
-            glyph="arrow-bottom"
-            loading={loading}
-            hovered={false}
-            size="small"
-          />
+          {!disabled && (
+            <Icon
+              glyph="arrow-bottom"
+              loading={loading}
+              hovered={false}
+              size="small"
+            />
+          )}
         </IconWrapper>
       </Container>
     );

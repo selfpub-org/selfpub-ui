@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-import StyledRadio from "./radio.styled";
+import { FakeRadio, Input, Label } from "./radio.styled";
 
-export default class Radio extends StyledRadio {
+export default class Radio extends Component {
   static propTypes = {
     /** The id of the input element. */
     id: PropTypes.string,
@@ -62,8 +62,11 @@ export default class Radio extends StyledRadio {
     checked: false,
   };
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
+
+    this.defaultId = `radio-${~~(Math.random() * 10000)}`;
+    this.handleChange = ::this.handleChange;
   }
 
   componentWillMount() {
@@ -86,30 +89,21 @@ export default class Radio extends StyledRadio {
     }
   }
 
-  focus() {
-    this.input.focus();
-  }
-
-  blur() {
-    this.input.blur();
-  }
-
   handleChange = event => {
-    const { checked } = event.target;
-    const {
-      props,
-      props: { disabled },
-    } = this.props;
+    const { checked, value } = event.target;
+    const { disabled, onChange } = this.props;
 
     if (disabled) {
       return;
     }
 
-    if (!("checked" in props)) {
+    if (!("checked" in this.props)) {
       this.setState({ checked });
     }
 
-    onChange && onChange(this.props.key);
+    if (onChange && !onChange.nativeEvent) {
+      onChange(value);
+    }
   };
 
   saveInput = node => {
@@ -121,46 +115,41 @@ export default class Radio extends StyledRadio {
       id,
       name,
       disabled,
-      onClick,
-      onFocus,
-      onBlur,
       value,
       iconPosition,
       children,
+      onChange,
       defaultChecked,
       ...rest
     } = this.props;
 
     const { checked } = this.state;
-    const radioId = id || `radio-${~~(Math.random() * 10000)}`;
+    const radioId = id || this.defaultId;
 
     const marker = (
       <Fragment>
-        <Radio.Input
+        <Input
           id={radioId}
           name={name}
           type="radio"
           disabled={disabled}
           checked={!!checked}
           autoComplete="off"
-          onClick={onClick}
-          onFocus={onFocus}
-          onBlur={onBlur}
           onChange={this.handleChange}
           ref={this.saveInput}
           value={value}
           {...rest}
         />
-        <Radio.FakeRadio {...rest} checked={!!checked} disabled={disabled} />
+        <FakeRadio {...rest} checked={!!checked} disabled={disabled} />
       </Fragment>
     );
 
     return (
-      <Radio.Label {...rest} htmlFor={radioId} disabled={disabled}>
+      <Label {...rest} htmlFor={radioId} disabled={disabled}>
         {iconPosition === "left" && marker}
         {children && <span>{children}</span>}
         {iconPosition === "right" && marker}
-      </Radio.Label>
+      </Label>
     );
   }
 }
