@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Radio } from "./../index";
 
 export default class RadioGroup extends Component {
   static propTypes = {
@@ -108,11 +107,7 @@ export default class RadioGroup extends Component {
     const { children, onChange, ...rest } = this.props;
 
     const clonedChildren = React.Children.map(children, (child, index) => {
-      if (child.type === Radio) {
-        return this.renderChild(child, index, index === checkedIndex);
-      } else {
-        return child;
-      }
+      return this.renderChild(child, index, index === checkedIndex);
     });
 
     return (

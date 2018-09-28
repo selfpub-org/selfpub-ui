@@ -1,4 +1,11 @@
-<a name="1.7.1"></a>
+<a name="1.7.3"></a>
+## [1.7.3][1.7.3] (2018-28-09)
+
+### Fix
+
+* Fix ignore logic radioGroup fo styled radio items  [issue #27][#27]
+
+<a name="1.7.2"></a>
 ## [1.7.2][1.7.2] (2018-27-09)
 
 ### Fix
@@ -266,6 +273,8 @@ import { colors } from "@selfpub/selfpub-ui";
 
 [#13]: https://github.com/MyBook/selfpub-ui/issues/13
 [#25]: https://github.com/MyBook/selfpub-ui/issues/25
+[#27]: https://github.com/MyBook/selfpub-ui/issues/27
 [1.7.2]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.1...v1.7.2)
+[1.7.3]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.2...v1.7.3)
 
 
