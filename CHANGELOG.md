@@ -1,3 +1,10 @@
+<a name="1.7.4"></a>
+## [1.7.4][1.7.4] (2018-01-10)
+
+### Fix
+
+* Add handler for update select component on update props [issue #29][#29]
+
 <a name="1.7.3"></a>
 ## [1.7.3][1.7.3] (2018-28-09)
 
@@ -274,7 +281,9 @@ import { colors } from "@selfpub/selfpub-ui";
 [#13]: https://github.com/MyBook/selfpub-ui/issues/13
 [#25]: https://github.com/MyBook/selfpub-ui/issues/25
 [#27]: https://github.com/MyBook/selfpub-ui/issues/27
+[#29]: https://github.com/MyBook/selfpub-ui/issues/29
 [1.7.2]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.1...v1.7.2)
 [1.7.3]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.2...v1.7.3)
+[1.7.4]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.3...v1.7.4)
 
 

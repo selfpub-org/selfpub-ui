@@ -45,6 +45,18 @@ export default class Select extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps, nextContext) {
+    const { value, options } = nextProps;
+    const { prevValue, prevOptions } = this.state;
+
+    if (value !== prevValue || options !== prevOptions) {
+      this.setState({
+        value,
+        options,
+      });
+    }
+  }
+
   saveRef = () => select => (this.select = select);
 
   setValue = value => {

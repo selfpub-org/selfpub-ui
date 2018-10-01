@@ -1,6 +1,6 @@
 {
   "name": "@selfpub/selfpub-ui",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Design system implementation. Component library Selfpub",
   "homepage": "https://mybook.github.io/selfpub-ui/",
   "main": "src/components/index.js",
