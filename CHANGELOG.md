@@ -1,5 +1,5 @@
 <a name="1.7.5"></a>
-## [1.7.5][https://github.com/MyBook/selfpub-ui/compare/v1.7.4...v1.7.5] (2018-04-10)
+## [1.7.5](https://github.com/MyBook/selfpub-ui/compare/v1.7.4...v1.7.5) (2018-04-10)
 
 ### Fix
 
