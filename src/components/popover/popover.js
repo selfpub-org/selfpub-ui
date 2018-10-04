@@ -79,7 +79,7 @@ export default class Popover extends PureComponent {
 }
 
 Popover.propTypes = {
-  header: PropTypes.string.isRequired,
+  header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   open: PropTypes.bool,
   position: PropTypes.oneOf(["left", "right"]),
   children: PropTypes.oneOfType([

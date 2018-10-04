@@ -1,19 +1,29 @@
+<a name="1.7.5"></a>
+## [1.7.5][https://github.com/MyBook/selfpub-ui/compare/v1.7.4...v1.7.5] (2018-04-10)
+
+### Fix
+
+* Fixed prop-type typings for popover for use simple component [issue #30][#30]
+
+
 <a name="1.7.4"></a>
-## [1.7.4][1.7.4] (2018-01-10)
+## [1.7.4](https://github.com/MyBook/selfpub-ui/compare/v1.7.2...v1.7.3) (2018-01-10)
 
 ### Fix
 
 * Add handler for update select component on update props [issue #29][#29]
 
+
 <a name="1.7.3"></a>
-## [1.7.3][1.7.3] (2018-28-09)
+## [1.7.3](https://github.com/MyBook/selfpub-ui/compare/v1.7.2...v1.7.3) (2018-28-09)
 
 ### Fix
 
 * Fix ignore logic radioGroup fo styled radio items  [issue #27][#27]
 
+
 <a name="1.7.2"></a>
-## [1.7.2][1.7.2] (2018-27-09)
+## [1.7.2](https://github.com/MyBook/selfpub-ui/compare/v1.7.1...v1.7.2) (2018-27-09)
 
 ### Fix
 
@@ -25,12 +35,14 @@
    - Fix onChange Radio event call
    - Fix multiple event onChange for RadioGroup
 
+
 <a name="1.7.1"></a>
 ## [1.7.1](https://github.com/MyBook/selfpub-ui/compare/v1.7.0...v1.7.1) (2018-24-09)
 
 ### Fix
 
 * Fix style for popover in height container
+
 
 <a name="1.7.0"></a>
 ## [1.7.0](https://github.com/MyBook/selfpub-ui/compare/v1.6.3...v1.7.0) (2018-24-09)
@@ -51,6 +63,7 @@
 * Fix style icon glyph cross
 * Refactoring logic clear button for input
 
+
 <a name="1.6.3"></a>
 ## [1.6.3](https://github.com/MyBook/selfpub-ui/compare/v1.6.2...v1.6.3) (2018-18-09)
 
@@ -63,6 +76,7 @@
 
 * Fix link underline styles
 
+
 <a name="1.6.2"></a>
 ## [1.6.2](https://github.com/MyBook/selfpub-ui/compare/v1.6.1...v1.6.2) (2018-18-09)
 
@@ -72,12 +86,14 @@
 * Update docs for `<Tabs />` `<Tab />` components
 * Rework debounce of search in search-box component
 
+
 <a name="1.6.1"></a>
 ## [1.6.1](https://github.com/MyBook/selfpub-ui/compare/v1.6.0...v1.6.1) (2018-17-09)
 
 ### Fix
 
 * Call reset logic for Search-box component on remove search string from keyboard
+
 
 <a name="1.6.0"></a>
 ## [1.6.0](https://github.com/MyBook/selfpub-ui/compare/v1.5.1...v1.6.0) (2018-17-09)
@@ -93,12 +109,14 @@
 * Hide clear icon for empty input
 * fix style for Icon (big size, glyph link)
 
+
 <a name="1.5.1"></a>
 ## [1.5.1](https://github.com/MyBook/selfpub-ui/compare/v1.5.0...v1.5.1) (2018-11-09)
 
 ### Fix
 
 * Temporary remove flattens of package need rework 
+
 
 <a name="1.5.0"></a>
 ## [1.5.0](https://github.com/MyBook/selfpub-ui/compare/v1.4.1...v1.5.0) (2018-10-09)
@@ -115,12 +133,14 @@
 * Update changelog
 * replace nanoid to Math.random
 
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/MyBook/selfpub-ui/compare/v1.4.0...v1.4.1) (2018-04-09)
 
 ### Fix
 
 * Refactoring Toggle and ToggleOption component
+
 
 <a name="1.4.0"></a>
 ## [1.4.0](https://github.com/MyBook/selfpub-ui/compare/v1.3.1...v1.4.0) (2018-04-09)
@@ -140,12 +160,14 @@
 * Fix radio checked and defaultChecked duplicated
 * Fix radio styles
 
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/MyBook/selfpub-ui/compare/v1.3.0...v1.3.1) (2018-31-08)
 
 ### Fix 
 
 * Fix info-box urls
+
 
 <a name="1.3.0"></a>
 ## [1.3.0](https://github.com/MyBook/selfpub-ui/compare/v1.2.4...v1.3.0) (2018-31-08)
@@ -166,6 +188,7 @@
 * Fix peerDependencies for used packages
 * Fix fagoted focus state for textarea 
 
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://github.com/MyBook/selfpub-ui/compare/v1.2.3...v1.2.4) (2018-30-08)
 
@@ -174,6 +197,7 @@
 * Set icon sprites as string encode
 * Fix checkbox icons
 
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://github.com/MyBook/selfpub-ui/compare/v1.2.2...v1.2.3) (2018-27-08)
 
@@ -181,6 +205,7 @@
 
 * Make background transparent for default button
 * Fix url and homepage meta
+
 
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/MyBook/selfpub-ui/compare/v1.2.1...v1.2.2) (2018-24-08)
@@ -194,12 +219,14 @@
 
 * Fix border color on hover for default variation
 
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/MyBook/selfpub-ui/compare/v1.2.0...v1.2.1) (2018-23-08)
 
 ### Fixes
 
 * Fix white background for primary-light button
+
 
 <a name="1.2.0"></a>
 ## [1.2.0](https://github.com/MyBook/selfpub-ui/compare/v1.1.0...v1.2.0) (2018-22-08)
@@ -282,8 +309,4 @@ import { colors } from "@selfpub/selfpub-ui";
 [#25]: https://github.com/MyBook/selfpub-ui/issues/25
 [#27]: https://github.com/MyBook/selfpub-ui/issues/27
 [#29]: https://github.com/MyBook/selfpub-ui/issues/29
-[1.7.2]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.1...v1.7.2)
-[1.7.3]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.2...v1.7.3)
-[1.7.4]: (https://github.com/MyBook/selfpub-ui/compare/v1.7.3...v1.7.4)
-
 

@@ -43,7 +43,15 @@ storiesOf("Popover", module).add(
             <a href="#some-hash">Microsoft Word</a>.
           </React.Fragment>
         </Popover>
-        <Popover header="Вы получаете 25% от продаж" position="right">
+        <Popover
+          header={
+            <Fragment>
+              Имя владельца карты
+              <sup>*</sup>
+            </Fragment>
+          }
+          position="right"
+        >
           <Fragment>
             Формула, по&nbsp;которой рассчитывается размер роялти, предельно
             проста: от&nbsp;розничной цены отнимается НДС и&nbsp;затем
