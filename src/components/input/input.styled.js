@@ -1,19 +1,18 @@
 import styled, { css } from "styled-components";
 import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
-import { colors } from "./../index";
 
 export const StyledLabel = styled.label`
   font-size: 14px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.65);
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
   list-style: none;
   cursor: pointer;
   display: inline-block;
   user-select: none;
+  margin: 0 0 5px;
 `;
 
 export const StyledInput = styled.input`

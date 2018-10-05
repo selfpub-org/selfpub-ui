@@ -1,3 +1,10 @@
+<a name="1.7.6"></a>
+## [1.7.6][https://github.com/MyBook/selfpub-ui/compare/v1.7.5...v1.7.6] (2018-04-10)
+
+### Fix
+
+* Fixed bottom margin for input label [issue #31][#31]
+
 <a name="1.7.5"></a>
 ## [1.7.5][https://github.com/MyBook/selfpub-ui/compare/v1.7.4...v1.7.5] (2018-04-10)
 
@@ -309,4 +316,6 @@ import { colors } from "@selfpub/selfpub-ui";
 [#25]: https://github.com/MyBook/selfpub-ui/issues/25
 [#27]: https://github.com/MyBook/selfpub-ui/issues/27
 [#29]: https://github.com/MyBook/selfpub-ui/issues/29
+[#30]: https://github.com/MyBook/selfpub-ui/issues/30
+[#31]: https://github.com/MyBook/selfpub-ui/issues/31
 
