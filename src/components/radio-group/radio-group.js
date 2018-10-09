@@ -46,18 +46,21 @@ export default class RadioGroup extends Component {
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
-    const children = this.props.children;
+    const { children } = this.props;
+    const { value } = nextProps;
 
     const index = children.findIndex(childElement => {
       const {
-        props: { value, disabled },
+        props: { value: childValue, disabled },
       } = childElement;
 
-      return value === nextProps.value && !disabled;
+      return childValue === `${value}` && !disabled;
     });
 
     if (index !== -1 && index !== this.state.checkedIndex) {
-      this.setState({ checkedIndex: index });
+      this.setState({ checkedIndex: index }, () => {
+        this.onChange(this.state.checkedIndex, value);
+      });
     }
   }
 
