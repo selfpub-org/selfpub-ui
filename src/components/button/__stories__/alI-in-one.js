@@ -32,6 +32,12 @@ export default function() {
               ))}
             </div>
           ))}
+          <div style={{ width: 300, marginRight: 40 }}>
+            <h4>Button with array</h4>
+            <Button size="big" variation="primary" onClick={action("clicked")}>
+              {["some", " text"]}
+            </Button>
+          </div>
         </div>
       </React.Fragment>
     </ThemeProviderWrapper>

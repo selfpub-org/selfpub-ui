@@ -106,7 +106,11 @@ Button.Sizes = ["big", "medium", "small"];
 
 Button.propTypes = {
   /** children - label or content for button */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.array,
+  ]),
   /** disabled state of button */
   disabled: PropTypes.bool,
   /** redirect url of link button */
