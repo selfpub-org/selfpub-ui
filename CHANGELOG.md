@@ -1,3 +1,11 @@
+<a name="1.7.7"></a>
+## [1.7.7](https://github.com/MyBook/selfpub-ui/compare/v1.7.6...v1.7.7) (2018-09-10)
+
+### Fix
+
+* Fix button children prop-types for conditional field [issue #32][#32]
+* Fix external control RadioGroup [issue #33][#33]
+
 <a name="1.7.6"></a>
 ## [1.7.6](https://github.com/MyBook/selfpub-ui/compare/v1.7.5...v1.7.6) (2018-04-10)
 
@@ -318,4 +326,6 @@ import { colors } from "@selfpub/selfpub-ui";
 [#29]: https://github.com/MyBook/selfpub-ui/issues/29
 [#30]: https://github.com/MyBook/selfpub-ui/issues/30
 [#31]: https://github.com/MyBook/selfpub-ui/issues/31
+[#32]: https://github.com/MyBook/selfpub-ui/issues/32
+[#33]: https://github.com/MyBook/selfpub-ui/issues/33
 
