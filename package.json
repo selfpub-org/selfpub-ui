@@ -1,10 +1,10 @@
 {
   "name": "@selfpub/selfpub-ui",
-  "version": "1.7.9",
+  "version": "1.8.0",
   "description": "Design system implementation. Component library Selfpub",
   "homepage": "https://mybook.github.io/selfpub-ui/",
   "main": "src/components/index.js",
-  "author": "selfpub.ru",
+  "author": "Ilya Reshetnikov <inbox@devxom.tech>",
   "license": "MIT",
   "config": {
     "components": "src/components/index.js"
@@ -31,36 +31,32 @@
     "deploy-storybook": "storybook-to-ghpages",
     "prepub": "npm run build",
     "pub": "npm publish --access public",
-    "storybook:build": "yarn run test:generate-output && build-storybook -c .storybook -o .out",
-    "storybook:dev": "yarn run test:generate-output && start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o .out",
+    "storybook:dev": "start-storybook -p 9001 -c .storybook",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.out/jest-test-results.json",
     "test:watch": "jest --watch"
   },
   "peerDependencies": {
-    "react": "^15.3.0 || ^16.5.0",
-    "react-dom": "^15.3.0 || ^16.5.0"
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-backgrounds": "^3.4.10",
-    "@storybook/addon-info": "^3.4.8",
-    "@storybook/addon-jest": "^3.4.10",
-    "@storybook/addon-knobs": "^3.4.8",
-    "@storybook/addon-options": "^3.4.10",
-    "@storybook/addon-viewport": "^3.4.8",
-    "@storybook/react": "^3.4.8",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.1.2",
+    "@selfpub/babel-preset": "^1.0.0",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-backgrounds": "^3.4.11",
+    "@storybook/addon-info": "^3.4.11",
+    "@storybook/addon-jest": "^3.4.11",
+    "@storybook/addon-knobs": "^3.4.11",
+    "@storybook/addon-options": "^3.4.11",
+    "@storybook/addon-viewport": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
+    "@storybook/react": "3.4.11",
     "@storybook/storybook-deployer": "^2.3.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-jest": "^23.4.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "6.26.0",
+    "babel-core": "^7.0.0-bridge",
+    "babel-jest": "^23.6.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -75,7 +71,8 @@
     "jest": "^23.4.2",
     "prettier": "^1.14.0",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react-dom": "^16.5.0",
+    "webpack": "^4.20.2"
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
@@ -92,10 +89,19 @@
     "moduleDirectories": [
       "node_modules",
       "src/components"
-    ]
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "keywords": [
     "react",
-    "ui"
+    "react-component",
+    "component",
+    "components",
+    "design",
+    "ui",
+    "selfpub",
+    "styled-components"
   ]
 }

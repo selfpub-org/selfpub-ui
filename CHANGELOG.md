@@ -1,4 +1,13 @@
 <a name="1.7.9"></a>
+## [1.7.9](https://github.com/MyBook/selfpub-ui/compare/v1.7.8...v1.7.9) (2018-11-10) Now with Babel 7
+
+### Feature
+
+* Move to Babel 7
+* Move to @selfpub/babel-preset
+
+
+<a name="1.7.9"></a>
 ## [1.7.9](https://github.com/MyBook/selfpub-ui/compare/v1.7.8...v1.7.9) (2018-11-10)
 
 ### Fix
