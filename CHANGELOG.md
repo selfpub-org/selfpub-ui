@@ -1,3 +1,14 @@
+<a name="1.7.8"></a>
+## [1.7.8](https://github.com/MyBook/selfpub-ui/compare/v1.7.7...v1.7.8) (2018-11-10)
+
+### Fix
+
+* Fix logic input label on click activate focus on input
+
+### Features
+* Add opacity for disabled radio item
+
+
 <a name="1.7.7"></a>
 ## [1.7.7](https://github.com/MyBook/selfpub-ui/compare/v1.7.6...v1.7.7) (2018-09-10)
 
@@ -5,6 +16,7 @@
 
 * Fix button children prop-types for conditional field [issue #32][#32]
 * Fix external control RadioGroup [issue #33][#33]
+
 
 <a name="1.7.6"></a>
 ## [1.7.6](https://github.com/MyBook/selfpub-ui/compare/v1.7.5...v1.7.6) (2018-04-10)
