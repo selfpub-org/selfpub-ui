@@ -85,7 +85,7 @@ export default class Input extends Component {
     return (
       <InputContainer>
         <StyledInput
-          id={id}
+          htmlId={id}
           name={name}
           value={value}
           disabled={disabled}

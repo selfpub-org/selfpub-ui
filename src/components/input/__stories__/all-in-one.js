@@ -108,11 +108,11 @@ export class InputExample extends Component {
                   </InputStatus>
                 </InputWrapper>
                 <InputWrapper
+                  disabled
                   label="Input disabled"
                   style={{ marginBottom: "10px" }}
                 >
                   <Input
-                    disabled
                     type="text"
                     value={this.state.value}
                     onChange={this.onChange}
@@ -222,9 +222,8 @@ export class InputExample extends Component {
               />
             </InputStatus>
           </InputWrapper>
-          <InputWrapper label="Input disabled" inline={true}>
+          <InputWrapper label="Input disabled" inline={true} disabled>
             <Input
-              disabled
               type="text"
               value={this.state.value}
               onChange={this.onChange}

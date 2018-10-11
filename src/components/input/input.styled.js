@@ -2,17 +2,29 @@ import styled, { css } from "styled-components";
 import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
 
-export const StyledLabel = styled.label`
+const colorMap = {
+  error: mainTheme.color.red,
+  warning: mainTheme.color.yellow,
+  success: mainTheme.color.green,
+  null: "transparent",
+};
+
+export const Label = styled.label`
   font-size: 14px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.65);
   box-sizing: border-box;
   padding: 0;
   list-style: none;
-  cursor: pointer;
   display: inline-block;
   user-select: none;
   margin: 0 0 5px;
+
+  ${props =>
+    !props.disabled &&
+    css`
+      cursor: pointer;
+    `};
 `;
 
 export const StyledInput = styled.input`
@@ -74,4 +86,14 @@ const InputIconContainer = styled.div`
 
 export const ClearButtonContainer = styled(InputIconContainer)`
   right: 0;
+`;
+
+export const StyledInputWrapper = styled.div`
+  width: 100%;
+`;
+
+export const StyledMessage = type => styled.div`
+  margin-top: 5px;
+  font-size: 14px;
+  color: ${colorMap[type]};
 `;

@@ -1,34 +1,38 @@
-import React, { PureComponent } from "react";
-import styled from "styled-components";
+import React, { Fragment, cloneElement, Children } from "react";
 import PropTypes from "prop-types";
-import { mainTheme } from "../ui-styles/index";
+import { StyledMessage } from "./input.styled";
 
-export default class InputStatus extends PureComponent {
-  render() {
-    const { type, message, children } = this.props;
+export default function InputStatus({
+  id,
+  type = "null",
+  message = "",
+  children,
+  disabled = null,
+}) {
+  const inputId = id || `input-${~~(Math.random() * 10000)}`;
 
-    const colorMap = {
-      error: mainTheme.color.red,
-      warning: mainTheme.color.yellow,
-      success: mainTheme.color.green,
-      null: "transparent",
-    };
+  const clonedChildren = Children.map(children, (child, index) => {
+    return cloneElement(child, {
+      disabled,
+      ...children.props,
+      id: inputId,
+      key: index,
+    });
+  });
 
-    const StyledMessage = styled.div`
-      margin-top: 5px;
-      font-size: 14px;
-      color: ${colorMap[type]};
-    `;
+  const Message = StyledMessage(type);
 
-    return (
-      <div>
-        {children}
-        {message && type !== "null" ? (
-          <StyledMessage type={type}>{message}</StyledMessage>
-        ) : null}
-      </div>
-    );
-  }
+  return (
+    <Fragment>
+      {clonedChildren}
+      {message &&
+        type !== "null" && (
+          <Message type={type} disabled={disabled}>
+            {message}
+          </Message>
+        )}
+    </Fragment>
+  );
 }
 
 InputStatus.propTypes = {
