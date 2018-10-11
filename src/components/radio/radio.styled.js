@@ -116,3 +116,11 @@ export const FakeRadio = styled.span`
       }
     `};
 `;
+
+export const Text = styled.span`
+  ${props =>
+    props.disabled &&
+    css`
+      opacity: 0.5;
+    `};
+`;

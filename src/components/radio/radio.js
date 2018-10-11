@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-import { FakeRadio, Input, Label } from "./radio.styled";
+import { FakeRadio, Input, Label, Text } from "./radio.styled";
 
 export default class Radio extends Component {
   static propTypes = {
@@ -147,7 +147,7 @@ export default class Radio extends Component {
     return (
       <Label {...rest} htmlFor={radioId} disabled={disabled}>
         {iconPosition === "left" && marker}
-        {children && <span>{children}</span>}
+        {children && <Text disabled={disabled}>{children}</Text>}
         {iconPosition === "right" && marker}
       </Label>
     );
