@@ -1,17 +1,17 @@
-import React, { PureComponent } from "react";
-import { StyledLabel } from "./input.styled";
+import React, { PureComponent, Fragment } from "react";
+import { Label } from "./input.styled";
 
 export default class LabelWrapper extends PureComponent {
   render() {
     const { id, children, rest, labelText } = this.props;
     const elemId = id || labelText;
     return (
-      <React.Fragment>
-        <StyledLabel htmlFor={elemId} {...rest}>
+      <Fragment>
+        <Label htmlFor={elemId} {...rest}>
           {this.props.labelText}
           {children}
-        </StyledLabel>
-      </React.Fragment>
+        </Label>
+      </Fragment>
     );
   }
 }
