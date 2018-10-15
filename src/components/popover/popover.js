@@ -1,95 +1,113 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Icon } from "../index";
 import {
   IconPopover,
-  StyledPopoverContent,
-  StyledPopoverContentFixer,
-  StyledPopoverHeader,
-  StyledPopoverWrapper,
+  Content,
+  ContentFixer,
+  Header,
+  PopoverWrapper,
 } from "./popover.styled";
 
-export default class Popover extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.onMouseOver = ::this.onMouseOver;
-    this.onMouseOut = ::this.onMouseOut;
-    this.onTouchStart = ::this.onTouchStart;
-    this.onTouchEnd = ::this.onTouchEnd;
+const PopoverElement = PopoverWrapper.withComponent("div");
 
-    this.state = {
-      open: this.props.open,
-    };
-  }
+export default class Popover extends Component {
+  state = {
+    isOpen: false,
+  };
+
+  static propTypes = {
+    header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    isOpen: PropTypes.bool,
+    position: PropTypes.oneOf(["left", "right", "none"]),
+    children: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element,
+      PropTypes.node,
+    ]),
+  };
+
+  static defaultProps = {
+    header: "",
+    position: "left",
+  };
 
   componentWillReceiveProps(nextProps, nextContext) {
-    if (nextProps.open !== this.state.open) {
+    if (nextProps.isOpen !== this.state.isOpen) {
       this.setState({
         ...this.state,
-        open: nextProps.open,
+        isOpen: nextProps.isOpen,
       });
     }
   }
 
-  onMouseOver() {
-    this.setState({ open: true });
-  }
+  onTouchStart = () => this.toggle();
 
-  onMouseOut() {
-    this.setState({ open: false });
-  }
+  onTouchEnd = () => this.toggle();
 
-  onTouchStart() {
-    this.setState({ open: true });
-  }
+  toggle = () => {
+    if (this.state.isOpen) {
+      this.close();
+    } else {
+      this.open();
+    }
+  };
 
-  onTouchEnd() {
-    this.setState({ open: false });
-  }
+  open = () => {
+    if (this.state.isOpen) {
+      return;
+    }
+
+    const { onOpen } = this.props;
+
+    this.setState({ isOpen: true }, () => {
+      onOpen && onOpen();
+    });
+  };
+
+  close = () => {
+    if (!this.state.isOpen) {
+      return;
+    }
+
+    const { onClose } = this.props;
+
+    this.setState({ isOpen: false }, () => {
+      onClose && onClose();
+    });
+  };
 
   render() {
-    const { header, children, position } = this.props;
+    const { header, children, position, className } = this.props;
+    const { isOpen } = this.state;
+
     const icon = (
       <IconPopover>
-        <Icon size="small" glyph="question" hovered={this.state.open} />
+        <Icon size="small" glyph="question" hovered={isOpen} />
       </IconPopover>
     );
-    const contentLayout = children ? (
-      <StyledPopoverContent>
-        <StyledPopoverContentFixer />
+
+    const contentLayout = children && (
+      <Content>
+        <ContentFixer isOpen={isOpen} />
         {children}
-      </StyledPopoverContent>
-    ) : null;
+      </Content>
+    );
 
     return (
-      <StyledPopoverWrapper
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}
-        onTouchStart={this.onTouchStart}
-        onTouchEnd={this.onTouchEnd}
-        open={this.state.open}
+      <PopoverElement
+        onMouseEnter={this.open}
+        onMouseLeave={this.close}
+        onTouchStart={this.toggle}
+        onTouchEnd={this.toggle}
+        isOpen={isOpen}
+        className={className}
       >
         {position === "left" && icon}
         {contentLayout}
-        <StyledPopoverHeader>{header}</StyledPopoverHeader>
+        {!!header ? <Header>{header}</Header> : ""}
         {position === "right" && icon}
-      </StyledPopoverWrapper>
+      </PopoverElement>
     );
   }
 }
-
-Popover.propTypes = {
-  header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-  open: PropTypes.bool,
-  position: PropTypes.oneOf(["left", "right"]),
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
-};
-
-Popover.defaultProps = {
-  position: null,
-  open: false,
-};
