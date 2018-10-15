@@ -17,9 +17,10 @@ export default class Popover extends Component {
   };
 
   static propTypes = {
+    open: PropTypes.bool,
     header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    isOpen: PropTypes.bool,
-    position: PropTypes.oneOf(["left", "right", "none"]),
+    position: PropTypes.oneOf(["left", "right", "single"]),
+    trigger: PropTypes.oneOf(["hovered", "click", "focus"]),
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element,
@@ -30,13 +31,14 @@ export default class Popover extends Component {
   static defaultProps = {
     header: "",
     position: "left",
+    trigger: "hovered",
   };
 
   componentWillReceiveProps(nextProps, nextContext) {
-    if (nextProps.isOpen !== this.state.isOpen) {
+    if (nextProps.open !== this.state.open) {
       this.setState({
         ...this.state,
-        isOpen: nextProps.isOpen,
+        open: nextProps.open,
       });
     }
   }
@@ -46,7 +48,7 @@ export default class Popover extends Component {
   onTouchEnd = () => this.toggle();
 
   toggle = () => {
-    if (this.state.isOpen) {
+    if (this.state.open) {
       this.close();
     } else {
       this.open();
@@ -54,59 +56,106 @@ export default class Popover extends Component {
   };
 
   open = () => {
-    if (this.state.isOpen) {
+    if (this.state.open) {
       return;
     }
 
     const { onOpen } = this.props;
 
-    this.setState({ isOpen: true }, () => {
+    this.setState({ open: true }, () => {
       onOpen && onOpen();
     });
   };
 
   close = () => {
-    if (!this.state.isOpen) {
+    if (!this.state.open) {
       return;
     }
 
     const { onClose } = this.props;
 
-    this.setState({ isOpen: false }, () => {
+    this.setState({ open: false }, () => {
       onClose && onClose();
     });
   };
 
-  render() {
-    const { header, children, position, className } = this.props;
-    const { isOpen } = this.state;
+  getActionPropsByType = type => {
+    const actions = {
+      click: {
+        onClick: this.toggle,
+        onTouchStart: this.toggle,
+        onTouchEnd: this.toggle,
+      },
+      hovered: {
+        onMouseEnter: this.open,
+        onMouseLeave: this.close,
+        onTouchStart: this.open,
+        onTouchEnd: this.close,
+      },
+      focus: {
+        onFocus: this.open,
+        onBlur: this.close,
+      },
+    };
 
-    const icon = (
-      <IconPopover>
-        <Icon size="small" glyph="question" hovered={isOpen} />
-      </IconPopover>
+    return actions[type];
+  };
+
+  getIcon = open => (
+    <IconPopover key={Math.random()}>
+      <Icon size="small" glyph="question" hovered={open} />
+    </IconPopover>
+  );
+
+  getPopoverLayout = ({ open, position, header, children }) => {
+    let layout = [];
+
+    const icon = this.getIcon(open);
+    const headerContent = !!header ? (
+      <Header key={Math.random()}>{header}</Header>
+    ) : (
+      ""
     );
 
     const contentLayout = children && (
-      <Content>
-        <ContentFixer isOpen={isOpen} />
+      <Content key={Math.random()}>
+        <ContentFixer open={open} />
         {children}
       </Content>
     );
 
+    if (position === "left") {
+      layout = [icon, contentLayout, headerContent];
+    } else if (position === "right") {
+      layout = [contentLayout, headerContent, icon];
+    } else {
+      layout = [contentLayout, icon];
+    }
+
+    return layout;
+  };
+
+  render() {
+    const { open } = this.state;
+    const { header, children, position, className, trigger } = this.props;
+
+    const actionProps = this.getActionPropsByType(trigger);
+
+    const layout = this.getPopoverLayout({
+      open,
+      position,
+      header,
+      children,
+    });
+
     return (
       <PopoverElement
-        onMouseEnter={this.open}
-        onMouseLeave={this.close}
-        onTouchStart={this.toggle}
-        onTouchEnd={this.toggle}
-        isOpen={isOpen}
+        {...actionProps}
+        open={open}
         className={className}
+        position={position}
       >
-        {position === "left" && icon}
-        {contentLayout}
-        {!!header ? <Header>{header}</Header> : ""}
-        {position === "right" && icon}
+        {layout}
       </PopoverElement>
     );
   }

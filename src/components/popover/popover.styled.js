@@ -28,6 +28,7 @@ export const PopoverWrapper = styled.div`
     display: inline-block;
     vertical-align: bottom;
     line-height: 1.2;
+    user-select: none;
   }
 
   ${Content} {
@@ -50,11 +51,13 @@ export const PopoverWrapper = styled.div`
     transition: all 0.2s;
     z-index: 10;
     opacity: 0;
+    visibility: hidden;
 
     ${props =>
-      props.isOpen &&
+      props.open &&
       css`
         opacity: 1;
+        visibility: visible;
       `};
 
     ${ContentFixer} {
@@ -85,6 +88,21 @@ export const PopoverWrapper = styled.div`
     display: inline-flex;
     justify-content: flex-end;
     align-items: flex-end;
-    padding-left: 2px;
-  }
+
+    ${props => {
+      if (props.position === "left") {
+        return css`
+          padding-right: 4px;
+        `;
+      } else if (props.position === "right") {
+        return css`
+          padding-left: 4px;
+        `;
+      } else {
+        return css`
+          padding-right: 4px;
+          padding-left: 4px;
+        `;
+      }
+    }};
 `;
