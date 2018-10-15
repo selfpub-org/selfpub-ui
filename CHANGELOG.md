@@ -1,3 +1,11 @@
+<a name="1.8.0"></a>
+## [1.8.0](https://github.com/MyBook/selfpub-ui/compare/v1.7.9...v1.8.0) (2018-15-10)
+
+### Fix
+
+* Re-write popover logic and view styles
+
+
 <a name="1.7.9"></a>
 ## [1.7.9](https://github.com/MyBook/selfpub-ui/compare/v1.7.8...v1.7.9) (2018-11-10)
 
