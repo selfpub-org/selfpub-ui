@@ -1,10 +1,10 @@
 import React, { Children, Component } from "react";
 import PropTypes from "prop-types";
-import { injectGlobal, ThemeProvider } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+
 import baseTheme from "./base/index";
 
-injectGlobal`
-  /* Default */
+const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     padding: 0;
@@ -12,29 +12,28 @@ injectGlobal`
     text-size-adjust: none;
     font-family: ${baseTheme.fontFamily};
   }
-  
-  /* Forms */
+
   input, textarea, button {
     appearance: none;
     font-family: ${baseTheme.systemFonts};
     letter-spacing: -.1px;
   }
-  
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
-  
+
   html {
     -webkit-font-smoothing: antialiased;
   }
-  
+
   body {
     font-family: ${baseTheme.systemFonts};
     font-size: 14px;
@@ -42,23 +41,23 @@ injectGlobal`
     line-height: 20px;
     min-width: 1220px;
   }
-  
+
   template {
     display: none;
   }
-  
+
   details {
     display: block;
   }
-  
+
   summary {
     display: list-item;
   }
-  
+
   [hidden] {
     display: none;
   }
-  
+
   a {
     text-decoration: none;
   }
@@ -77,7 +76,10 @@ export default class ThemeProviderWrapper extends Component {
 
     return (
       <ThemeProvider theme={theme || baseTheme}>
-        {Children.only(children)}
+        <>
+          <GlobalStyle />
+          {Children.only(children)}
+        </>
       </ThemeProvider>
     );
   }

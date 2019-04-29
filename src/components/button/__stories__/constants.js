@@ -1,9 +1,3 @@
-export const sizes = {
-  small: "small",
-  medium: "medium",
-  big: "big",
-};
-
 export const themes = {
   default: "default",
   primary: "primary",
@@ -14,26 +8,22 @@ export const themes = {
   danger: "danger",
   black: "black",
   "primary-light": "primary-light",
-  null: "empty props",
 };
 
-export const targets = {
-  _blank: "_blank",
-  _parent: "_parent",
-  _self: "_self",
-  _top: "_top",
+export const iconTypes = {
+  "baseline-keyboard_arrow_right-24px": "arrowIcon",
+  "baseline-phone-24px": "phoneIcon",
+  "baseline-check-24px": "checkIcon",
+  "baseline-close-24px": "closeIcon",
+  "baseline-warning-24px": "warningIcon",
 };
 
-export const iconSizes = {
-  "12": "Size12",
-  "14": "Size14",
-  "16": "Size16",
-  "18": "Size18",
-  "24": "Size24",
-  "32": "Size32",
-  "40": "Size40",
-  "48": "Size48",
-  "64": "Size64",
-  "96": "Size96",
-  "128": "Size128",
+export const appearanceTypes = {
+  flat: "flat",
+  raised: "raised",
+};
+
+export const buttonTypes = {
+  button: "button",
+  link: "link",
 };

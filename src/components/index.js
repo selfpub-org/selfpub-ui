@@ -9,7 +9,7 @@ export { default as Icon } from "./icons/index";
 export { default as InlineSelect } from "./inline-select/index";
 export { default as Select } from "./select/index";
 export { default as Link } from "./link/index";
-export { default as Loader } from "./loader/loader";
+export { default as Loader } from "./loader/index";
 export { default as Popover } from "./popover/index";
 export { default as Textarea } from "./textarea/index";
 export { ThemeProviderWrapper, colors } from "./theme/index";

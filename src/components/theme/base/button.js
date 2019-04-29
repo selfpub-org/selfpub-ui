@@ -1,236 +1,358 @@
 import { mainTheme } from "../../ui-styles/index";
 import typography from "./typography";
 
-export default {
-  fontFamily: typography.fontFamilies.system,
-  fontWeight: 500,
-  letterSpacing: 1.3,
-  textTransform: "uppercase",
-  borderRadius: 1,
-  mobile: {
+const disabled = {
+  background: "rgba(180,180,180, 0.3)",
+  borderWidth: 2,
+  borderColor: "transparent",
+  color: "rgba(160,160,160,0.7)",
+};
+
+const common = {
+  base: {
+    fontFamily: typography.fontFamilies.system,
     fontWeight: 500,
-    letterSpacing: 1.4,
-    sizes: {
-      medium: {
-        fontSize: 13,
-        height: 55,
-      },
-      small: {
-        fontSize: 13,
-        height: 45,
-      },
-    },
+    letterSpacing: 1.3,
+    textTransform: "uppercase",
+    borderRadius: 0,
+    fontSize: "14px",
   },
-  sizes: {
-    big: {
-      fontSize: 17,
-      fontWeight: 500,
-      borderWidth: 2,
-      padding: "14px 21px",
-      textTransform: "uppercase",
-      minWidth: "192px",
-      lineHeight: "17px",
-      height: "48px",
-      icon: 10,
-    },
-    medium: {
-      fontSize: 14,
-      fontWeight: 500,
-      borderWidth: 2,
-      padding: "inherit",
-      textTransform: "uppercase",
-      minWidth: "192px",
-      lineHeight: "36px",
-      height: "40px",
-      icon: 10,
-    },
-    small: {
-      fontSize: 12,
-      fontWeight: "normal",
-      borderWidth: 1,
-      padding: "7px",
-      textTransform: "uppercase",
-      minWidth: "inherit",
-      lineHeight: "inherit",
-      height: "auto",
-      icon: 10,
-    },
-  },
-  disabled: {
-    color: mainTheme.color.white,
-    border: mainTheme.color.lighterCoal,
-    background: mainTheme.color.lighterCoal,
-  },
-  variations: {
-    default: {
+  default: {
+    passive: {
       color: mainTheme.color.coal,
-      border: mainTheme.color.lightCoal,
+      borderWidth: 2,
+      borderColor: mainTheme.color.lightCoal,
       background: "transparent",
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.coal,
-        background: mainTheme.color.coal,
-      },
-      active: {
-        background: mainTheme.color.coal,
-        border: mainTheme.color.coal,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+    },
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.coal,
+    },
+    active: {
+      background: mainTheme.color.coal,
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  primary: {
+    passive: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.orange,
+      background: mainTheme.color.orange,
+    },
+
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.coal,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.coal,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  success: {
+    passive: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.green,
+      background: mainTheme.color.green,
+    },
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.green,
+      background: mainTheme.color.green,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.green,
+      background: mainTheme.color.green,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 180, 0, 0.40)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  light: {
+    passive: {
+      color: mainTheme.color.coal,
+      borderWidth: 2,
+      borderColor: mainTheme.color.strongLighterCoal,
+      background: "transparent",
+    },
+    hover: {
+      ...disabled,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.lighterCoal,
+      background: mainTheme.color.lighterCoal,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  beige: {
+    passive: {
+      color: mainTheme.color.coal,
+      borderWidth: 2,
+      borderColor: "transparent",
+      background: "transparent",
+    },
+    hover: {
+      color: mainTheme.color.coal,
+      borderWidth: 2,
+      borderColor: "transparent",
+      background: mainTheme.color.beige,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: "transparent",
+      background: mainTheme.color.gray,
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    focus: {
+      shadow: "none",
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  lighter: {
+    passive: {
+      color: mainTheme.color.coal,
+      borderWidth: 2,
+      borderColor: mainTheme.color.lighterCoal,
+      background: "transparent",
+    },
+    hover: {
+      color: mainTheme.color.coal,
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.white,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.white,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  white: {
+    passive: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.white,
+      background: "transparent",
+    },
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.coal,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.white,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  danger: {
+    passive: {
+      color: mainTheme.color.red,
+      borderWidth: 2,
+      borderColor: mainTheme.color.red,
+      background: "transparent",
+    },
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.red,
+      background: mainTheme.color.red,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.red,
+      background: mainTheme.color.red,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(180, 0, 0, 0.40)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  black: {
+    passive: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.coal,
+      background: mainTheme.color.coal,
+    },
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.orange,
+      background: mainTheme.color.orange,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.orange,
+      background: mainTheme.color.orange,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(0, 0, 0, 0.39)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+  "primary-light": {
+    passive: {
+      color: mainTheme.color.orange,
+      borderWidth: 2,
+      borderColor: mainTheme.color.orange,
+      background: "transparent",
+    },
+    hover: {
+      color: mainTheme.color.white,
+      borderWidth: 2,
+      borderColor: mainTheme.color.orange,
+      background: mainTheme.color.orange,
+    },
+    active: {
+      borderWidth: 2,
+      borderColor: mainTheme.color.orange,
+      background: mainTheme.color.orange,
+    },
+    focus: {
+      shadow: `0 1px 8px 0 rgba(154, 154, 154, 0.65)`,
+    },
+    disabled: {
+      ...disabled,
+    },
+  },
+};
+
+const raisedStyles = {
+  borderWidth: 2,
+  borderColor: "transparent",
+  shadow:
+    "0 1px 1px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12),inset 0 1px 0 rgba(255,255,255,0.15), inset 0 0 16px rgba(0,0,0,0.04)",
+};
+
+export default {
+  flat: {
+    ...common,
+  },
+  raised: {
+    ...common,
+    base: {
+      ...common.base,
+      borderRadius: "3px",
+    },
+    default: {
+      ...common.default,
+      passive: {
+        ...common.default.passive,
+        ...raisedStyles,
       },
     },
     primary: {
-      color: mainTheme.color.white,
-      border: mainTheme.color.orange,
-      background: mainTheme.color.orange,
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.coal,
-        background: mainTheme.color.coal,
-      },
-      active: {
-        border: mainTheme.color.coal,
-        background: mainTheme.color.coal,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      ...common.primary,
+      passive: {
+        ...common.primary.passive,
+        ...raisedStyles,
       },
     },
+
     success: {
-      color: mainTheme.color.white,
-      border: mainTheme.color.green,
-      background: mainTheme.color.green,
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.green,
-        background: mainTheme.color.green,
-      },
-      active: {
-        border: mainTheme.color.green,
-        background: mainTheme.color.green,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(29, 181, 29, 0.65)`,
+      ...common.success,
+      passive: {
+        ...common.success.passive,
+        ...raisedStyles,
       },
     },
+
     light: {
-      color: mainTheme.color.coal,
-      border: mainTheme.color.strongLighterCoal,
-      background: "transparent",
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.lighterCoal,
-        background: mainTheme.color.lighterCoal,
-      },
-      active: {
-        border: mainTheme.color.lighterCoal,
-        background: mainTheme.color.lighterCoal,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      ...common.light,
+      passive: {
+        ...common.light.passive,
+        ...raisedStyles,
       },
     },
-    beige: {
-      color: mainTheme.color.coal,
-      border: "transparent",
-      background: "transparent",
-      hover: {
-        color: mainTheme.color.coal,
-        border: "transparent",
-        background: mainTheme.color.beige,
-      },
-      active: {
-        border: "transparent",
-        background: mainTheme.color.gray,
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
-      },
-      focus: {
-        shadow: "none",
-      },
-    },
+
     lighter: {
-      color: mainTheme.color.coal,
-      border: mainTheme.color.lighterCoal,
-      background: "transparent",
-      hover: {
-        color: mainTheme.color.coal,
-        border: mainTheme.color.coal,
-        background: mainTheme.color.white,
-      },
-      active: {
-        border: mainTheme.color.coal,
-        background: mainTheme.color.white,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      ...common.lighter,
+      passive: {
+        ...common.lighter.passive,
+        ...raisedStyles,
       },
     },
+
     white: {
-      color: mainTheme.color.white,
-      border: mainTheme.color.white,
-      background: "transparent",
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.coal,
-        background: mainTheme.color.coal,
-      },
-      active: {
-        border: mainTheme.color.coal,
-        background: mainTheme.color.white,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      ...common.white,
+      passive: {
+        ...common.white.passive,
+        ...raisedStyles,
       },
     },
+
     danger: {
-      color: mainTheme.color.red,
-      border: mainTheme.color.red,
-      background: "transparent",
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.red,
-        background: mainTheme.color.red,
-      },
-      active: {
-        border: mainTheme.color.red,
-        background: mainTheme.color.red,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(197, 50, 50, 0.65)`,
+      ...common.danger,
+      passive: {
+        ...common.danger.passive,
+        ...raisedStyles,
       },
     },
+
     black: {
-      color: mainTheme.color.white,
-      border: mainTheme.color.coal,
-      background: mainTheme.color.coal,
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.orange,
-        background: mainTheme.color.orange,
-      },
-      active: {
-        border: mainTheme.color.orange,
-        background: mainTheme.color.orange,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      ...common.black,
+      passive: {
+        ...common.black.passive,
+        ...raisedStyles,
       },
     },
+
     "primary-light": {
-      color: mainTheme.color.orange,
-      border: mainTheme.color.orange,
-      background: "transparent",
-      hover: {
-        color: mainTheme.color.white,
-        border: mainTheme.color.orange,
-        background: mainTheme.color.orange,
-      },
-      active: {
-        border: mainTheme.color.orange,
-        background: mainTheme.color.orange,
-      },
-      focus: {
-        shadow: `0 2px 11px 0 rgba(154, 154, 154, 0.65)`,
+      ...common["primary-light"],
+      passive: {
+        ...common["primary-light"].passive,
+        ...raisedStyles,
       },
     },
   },

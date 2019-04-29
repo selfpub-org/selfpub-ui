@@ -1,15 +1,17 @@
 import React, { PureComponent } from "react";
+
 import { StyledLoader } from "./loader.styled";
 
 export default class Loader extends PureComponent {
   static defaultProps = {
-    size: "18",
+    className: "",
+    size: "14",
     alt: "Loader",
   };
 
   render() {
-    const { size, alt } = this.props;
+    const { className, size, alt } = this.props;
 
-    return <StyledLoader alt={alt} size={size} />;
+    return <StyledLoader className={className} alt={alt} size={size} />;
   }
 }
