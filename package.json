@@ -35,7 +35,8 @@
     "storybook:dev": "start-storybook -p 9001 -c .storybook",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.out/jest-test-results.json",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint:js": "eslint --ext .js **/src/**/*.js"
   },
   "peerDependencies": {
     "react": "^16.5.1",
@@ -56,6 +57,7 @@
     "@storybook/react": "3.4.11",
     "@storybook/storybook-deployer": "^2.3.0",
     "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.3.0",
