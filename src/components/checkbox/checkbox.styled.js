@@ -79,33 +79,29 @@ export const StyledLabel = styled.label`
       props.disabled &&
       css`
         cursor: default;
-        background: ${props =>
-          props.theme.checkbox.variations[props.variation].disabled.background};
+        background: ${props.theme.checkbox.variations[props.variation].disabled
+          .background};
         border: 1px solid
-          ${props =>
-            props.theme.checkbox.variations[props.variation].disabled.border};
+          ${props.theme.checkbox.variations[props.variation].disabled.border};
       `} ${props =>
       props.checked &&
       css`
-        color: ${props =>
-          props.theme.checkbox.variations[props.variation].active.accent};
-        font-size: ${props => props.size}px;
+        color: ${props.theme.checkbox.variations[props.variation].active
+          .accent};
+        font-size: ${props.size}px;
 
         &:before {
           ${mixinCheckboxPseudo};
 
-          background: ${props =>
-            props.theme.checkbox.variations[props.variation].active.background};
+          background: ${props.theme.checkbox.variations[props.variation].active
+            .background};
           border: 1px solid
-            ${props =>
-              props.theme.checkbox.variations[props.variation].active.border};
+            ${props.theme.checkbox.variations[props.variation].active.border};
 
-          ${props =>
-            props.disabled &&
+          ${props.disabled &&
             css`
-              background: ${props =>
-                props.theme.checkbox.variations[props.variation].disabled
-                  .background};
+              background: ${props.theme.checkbox.variations[props.variation]
+                .disabled.background};
             `};
         }
 
@@ -113,14 +109,12 @@ export const StyledLabel = styled.label`
           ${mixinCheckboxPseudo};
           background: url(${iconsSprite}) 119px -63px;
 
-          ${props =>
-            props.disabled &&
+          ${props.disabled &&
             css`
               background: url(${iconsSprite}) 37px 1px;
               border: 1px solid
-                ${props =>
-                  props.theme.checkbox.variations[props.variation].disabled
-                    .border};
+                ${props.theme.checkbox.variations[props.variation].disabled
+                  .border};
             `};
         }
       `};

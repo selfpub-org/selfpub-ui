@@ -9,7 +9,7 @@ const warningIcon = "baseline-warning-24px";
 
 export default function() {
   return (
-    <React.Fragment>
+    <>
       <h3>All buttons</h3>
       <div style={{ display: "flex" }}>
         {Object.keys(themes).map(variation => (
@@ -62,6 +62,6 @@ export default function() {
           </div>
         ))}
       </div>
-    </React.Fragment>
+    </>
   );
 }

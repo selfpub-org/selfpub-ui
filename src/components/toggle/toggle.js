@@ -24,17 +24,6 @@ export default class Toggle extends Component {
     super(props);
   }
 
-  get value() {
-    const { activeButtonIndex } = this.state;
-    const { children } = this.props;
-
-    const child = children.find(
-      childElement => childElement.props.index === activeButtonIndex,
-    );
-
-    return (child && child.props.value) || "";
-  }
-
   componentWillMount() {
     const { children, value, id } = this.props;
 
@@ -46,12 +35,10 @@ export default class Toggle extends Component {
     // This is the case where it is not specified
     if (value === undefined) {
       activeButtonIndex = -1;
+    } else if (index > -1 && !children[index].props.disabled) {
+      activeButtonIndex = index;
     } else {
-      if (index > -1 && !children[index].props.disabled) {
-        activeButtonIndex = index;
-      } else {
-        activeButtonIndex = this.getInitialCheckedIndex(children);
-      }
+      activeButtonIndex = this.getInitialCheckedIndex(children);
     }
 
     // Set id for groups
@@ -88,6 +75,17 @@ export default class Toggle extends Component {
 
     return activeButtonIndex;
   };
+
+  get value() {
+    const { activeButtonIndex } = this.state;
+    const { children } = this.props;
+
+    const child = children.find(
+      childElement => childElement.props.index === activeButtonIndex,
+    );
+
+    return (child && child.props.value) || "";
+  }
 
   onChange = radioIndex => {
     const { onChange, children } = this.props;

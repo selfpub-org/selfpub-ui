@@ -2,10 +2,9 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { number, select, boolean } from "@storybook/addon-knobs";
-import { InlineSelect } from "../index";
+import { select, boolean } from "@storybook/addon-knobs";
+
 import Icon from "./icon";
-import PropTypes from "prop-types";
 
 const buttonsMdDocs = `
   description or documentation about my component, supports markdown
@@ -40,6 +39,7 @@ storiesOf("Icon", module).add(
   withInfo({ text: buttonsMdDocs, inline: true })(() => {
     const size = select("size", { small: "small", big: "big" }, "small");
     const glyph = select("glyph", iconTypes, "question");
+
     return (
       <Icon
         size={size ? size : null}

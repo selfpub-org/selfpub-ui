@@ -15,6 +15,7 @@ export function arrayFromHash(dataHash) {
   Object.keys(dataHash).forEach(key => {
     accumulator.push(dataHash[key]);
   });
+
   return accumulator;
 }
 
@@ -32,6 +33,7 @@ export function hashFromArray(dataArray) {
   dataArray.forEach(value => {
     hash[value] = `${value}`;
   });
+
   return hash;
 }
 

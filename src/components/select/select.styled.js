@@ -35,7 +35,7 @@ export const Container = styled.div`
   ${props =>
     props.isFocused &&
     css`
-      border-color: ${props => props.theme.colors.coal};
+      border-color: ${props.theme.colors.coal};
     `};
 
   ${props => props.stretch && "width: 100%;"};

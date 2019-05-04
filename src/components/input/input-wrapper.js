@@ -20,6 +20,7 @@ export default function InputWrapper({
       id: inputId,
       key: index,
     };
+
     return cloneElement(child, newProps);
   });
 

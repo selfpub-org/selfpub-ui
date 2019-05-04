@@ -47,6 +47,7 @@ Textarea.propTypes = {
   onFocus: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyDown: PropTypes.func,
+  variation: PropTypes.string,
 };
 
 Textarea.defaultProps = {

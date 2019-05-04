@@ -64,7 +64,7 @@ export class Td extends PureComponent {
     `;
 
     return (
-        <StyledTd onClick={onClick} style={style}>
+      <StyledTd onClick={onClick} style={style}>
         {children}
       </StyledTd>
     );

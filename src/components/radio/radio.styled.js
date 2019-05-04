@@ -69,7 +69,7 @@ export const FakeRadio = styled.span`
     !props.disabled &&
     css`
       :hover {
-        border: 2px solid ${props => props.theme.radio.hover.accent};
+        border: 2px solid ${props.theme.radio.hover.accent};
       }
     `};
 
@@ -96,11 +96,11 @@ export const FakeRadio = styled.span`
   ${props =>
     props.checked &&
     css`
-      border: 2px solid ${props => props.theme.radio.accent};
+      border: 2px solid ${props.theme.radio.accent};
 
       :after {
         opacity: 1;
-        background-color: ${props => props.theme.radio.accent};
+        background-color: ${props.theme.radio.accent};
       }
     `};
 
@@ -108,11 +108,11 @@ export const FakeRadio = styled.span`
     props.disabled &&
     css`
       cursor: default;
-      border-color: ${props => props.theme.radio.disabled.border};
-      background-color: ${props => props.theme.radio.disabled.background};
+      border-color: ${props.theme.radio.disabled.border};
+      background-color: ${props.theme.radio.disabled.background};
 
       :after {
-        background-color: ${props => props.theme.radio.disabled.accent};
+        background-color: ${props.theme.radio.disabled.accent};
       }
     `};
 `;

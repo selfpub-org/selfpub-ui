@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-
 import OwnIcon from "../icon";
 import LoaderOwned from "../loader";
 

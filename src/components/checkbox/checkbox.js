@@ -7,13 +7,7 @@ import {
 } from "./checkbox.styled";
 
 export default class Checkbox extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { checked: props.checked };
-    this.handleChange = ::this.handleChange;
-    this.focus = ::this.focus;
-    this.blur = ::this.blur;
-  }
+  state = { checked: this.props.checked };
 
   componentWillReceiveProps(nextProps, nextContext) {
     if ("checked" in nextProps && this.state.checked !== nextProps.checked) {
@@ -25,15 +19,15 @@ export default class Checkbox extends PureComponent {
     }
   }
 
-  focus() {
+  focus = () => {
     this.input.focus();
-  }
+  };
 
-  blur() {
+  blur = () => {
     this.input.blur();
-  }
+  };
 
-  handleChange(event) {
+  _onChange = event => {
     const { onCheck, disabled, checked } = this.props;
     if (disabled) {
       return;
@@ -56,7 +50,7 @@ export default class Checkbox extends PureComponent {
         checked: event.target.checked,
       },
     });
-  }
+  };
 
   render() {
     const {
@@ -92,7 +86,7 @@ export default class Checkbox extends PureComponent {
               this.input = input;
             }}
             type="checkbox"
-            onChange={this.handleChange}
+            onChange={this._onChange}
             checked={this.state.checked}
             value={this.state.checked}
           />

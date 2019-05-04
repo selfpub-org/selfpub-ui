@@ -36,7 +36,7 @@
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.out/jest-test-results.json",
     "test:watch": "jest --watch",
-    "lint:js": "eslint --ext .js **/src/**/*.js"
+    "lint:js": "eslint --ext .js ./src/components/**/*.js"
   },
   "peerDependencies": {
     "react": "^16.5.1",

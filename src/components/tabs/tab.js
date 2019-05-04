@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+
 import { StyledTabLabel } from "./tabs.styled";
 
 export default class Tab extends PureComponent {
@@ -26,7 +27,7 @@ export default class Tab extends PureComponent {
     super(props);
   }
 
-  handlerClick = event => {
+  _onClick = event => {
     const { tabIndex, name, onClick } = this.props;
     event.preventDefault();
 
@@ -37,7 +38,7 @@ export default class Tab extends PureComponent {
     const { label, isActive } = this.props;
 
     return (
-      <StyledTabLabel isActive={isActive} onClick={this.handlerClick}>
+      <StyledTabLabel isActive={isActive} onClick={this._onClick}>
         {label}
       </StyledTabLabel>
     );

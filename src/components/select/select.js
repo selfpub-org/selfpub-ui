@@ -57,22 +57,14 @@ export default class Select extends Component {
     }
   }
 
-  saveRef = () => select => (this.select = select);
+  saveRef = () => select => {
+    this.select = select;
+  };
 
   setValue = value => {
     this.setState({
       value,
     });
-  };
-
-  onChangeHandler = event => {
-    const {
-      target: { value },
-    } = event;
-    const { onChange } = this.props;
-
-    this.setValue(value);
-    onChange && onChange(value, this.state.options);
   };
 
   getCurrentOption = options =>
@@ -86,6 +78,16 @@ export default class Select extends Component {
         {option && option.text}
       </option>
     ));
+
+  _onChangeHandler = event => {
+    const {
+      target: { value },
+    } = event;
+    const { onChange } = this.props;
+
+    this.setValue(value);
+    onChange && onChange(value, this.state.options);
+  };
 
   render() {
     const { stretch, loading, disabled } = this.props;
@@ -102,7 +104,7 @@ export default class Select extends Component {
       >
         <Element
           ref={this.saveRef()}
-          onChange={this.onChangeHandler}
+          onChange={this._onChangeHandler}
           disabled={disabled}
           value={value}
         >

@@ -57,9 +57,13 @@ export default class FieldGroup extends PureComponent {
       <StyledFieldGroup style={style}>
         {React.Children.map(children, child => {
           let groupPosition = "middle";
-          if (i === 1) groupPosition = "start";
-          else if (i === count) groupPosition = "end";
+          if (i === 1) {
+            groupPosition = "start";
+          } else if (i === count) {
+            groupPosition = "end";
+          }
           i++;
+
           return React.cloneElement(child, {
             ...props,
             disabled,

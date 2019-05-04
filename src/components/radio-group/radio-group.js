@@ -31,12 +31,10 @@ export default class RadioGroup extends Component {
     // This is the case where it is not specified
     if (value === undefined) {
       checkedIndex = -1;
+    } else if (index > -1 && !children[index].props.disabled) {
+      checkedIndex = index;
     } else {
-      if (index > -1 && !children[index].props.disabled) {
-        checkedIndex = index;
-      } else {
-        checkedIndex = this.getInitialCheckedIndex(children);
-      }
+      checkedIndex = this.getInitialCheckedIndex(children);
     }
 
     // Set id for groups

@@ -1,16 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 import { StyledInlineSelect, StyledSelectElem } from "./inline-select.styled";
 
-export default class InlineSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onChangeHandler = ::this.onChangeHandler;
-    this.state = {
-      value: "",
-      options: [],
-    };
-  }
+export default class InlineSelect extends Component {
+  state = {
+    value: "",
+    options: [],
+  };
 
   componentDidMount() {
     this.setState({
@@ -25,7 +22,7 @@ export default class InlineSelect extends React.Component {
     });
   }
 
-  onChangeHandler(event) {
+  _onChangeHandler = event => {
     const {
       target: { value },
     } = event;
@@ -33,13 +30,15 @@ export default class InlineSelect extends React.Component {
 
     this.setValue(value);
     onChange && onChange(value, this.state.options);
-  }
+  };
 
   render() {
     const { value, options } = this.state;
     const text = options
       .map(option => {
-        if (this.state.value === option.value) return option.text;
+        if (this.state.value === option.value) {
+          return option.text;
+        }
       })
       .join("");
     const optionsElements = options.map(option => (
@@ -53,8 +52,10 @@ export default class InlineSelect extends React.Component {
         onClick={() => this.select.click && this.select.click()}
       >
         <StyledSelectElem
-          ref={select => (this.select = select)}
-          onChange={this.onChangeHandler}
+          ref={select => {
+            this.select = select;
+          }}
+          onChange={this._onChangeHandler}
           value={value}
         >
           {optionsElements}

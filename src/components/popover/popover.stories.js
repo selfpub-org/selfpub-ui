@@ -72,6 +72,7 @@ storiesOf("Popover", module)
         "hovered",
       );
       const isOpen = boolean("open", false);
+
       return (
         <ThemeProviderWrapper>
           <div>

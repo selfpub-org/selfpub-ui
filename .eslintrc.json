@@ -1,6 +1,6 @@
 {
-  "plugins": ["prettier"],
-  "extends": "prettier",
+  "extends": ["prettier"],
+  "plugins": ["prettier", "react", "jsx-a11y", "import"],
   "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": [
@@ -31,6 +31,102 @@
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "array-callback-return": 0,
     "import/no-extraneous-dependencies": 0,
-    "max-len": 0
+    "max-len": 0,
+
+    "no-nested-ternary": 0,
+    "arrow-body-style": 0,
+    "curly": ["error", "all"],
+    "class-methods-use-this": 0,
+    "brace-style": "error",
+    "default-case": ["error", { "commentPattern": "^default\\sis\\sredundant" }],
+    "key-spacing": "error",
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "no-constant-condition": "error",
+    "no-continue": 0,
+    "no-else-return": ["error", { "allowElseIf": true }],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "no-shadow": "warn",
+    "no-trailing-spaces": "error",
+    "no-useless-escape": 0,
+    "one-var": ["error", "never"],
+    "padded-blocks": ["error", "never"],
+    "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],
+    "prefer-destructuring": 0,
+    "rest-spread-spacing": ["error", "never"],
+
+    "import/prefer-default-export": 0,
+
+    "react/no-array-index-key": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prefer-es6-class": ["error", "always"],
+    "react/require-default-props": 0,
+
+    "react/sort-comp": [
+      "error",
+      {
+        "order": ["static-methods", "lifecycle", "everything-else", "private", "listeners", "rendering"],
+        "groups": {
+          "lifecycle": [
+            "displayName",
+            "propTypes",
+            "defaultProps",
+            "contextTypes",
+            "childContextTypes",
+            "mixins",
+            "statics",
+            "state",
+            "getDefaultProps",
+            "getDerivedStateFromProps",
+            "getInitialState",
+            "constructor",
+            "getChildContext",
+            "componentWillMount",
+            "UNSAFE_componentWillMount",
+            "componentDidMount",
+            "componentWillReceiveProps",
+            "UNSAFE_componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "UNSAFE_componentWillUpdate",
+            "getSnapshotBeforeUpdate",
+            "componentDidUpdate",
+            "componentDidCatch",
+            "componentWillUnmount"
+          ],
+          "rendering": ["/^render.+$/", "render"],
+          "listeners": ["/^_on[A-Z]\\w*$/", "/^_onRef[A-Z]\\w*$/"],
+          "private": ["/^_\\w+"]
+        }
+      }
+    ],
+
+    "react/jsx-handler-names": [
+      "error",
+      {
+        "eventHandlerPrefix": "_on",
+        "eventHandlerPropPrefix": "(on|ref|inner)"
+      }
+    ],
+    "react/jsx-key": "error",
+
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-filename-extension": 0,
+    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
+    "no-return-assign": ["error", "always"],
+    "no-lonely-if": "error",
+    "import/order": ["error", { "groups": [["builtin", "external", "internal"]] }],
+    "no-console": 0
   }
 }

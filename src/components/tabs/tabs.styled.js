@@ -1,5 +1,6 @@
-import { mainTheme } from "../ui-styles/index";
 import styled, { css } from "styled-components";
+
+import { mainTheme } from "../ui-styles/index";
 import { lighten } from "../../utils/styled";
 
 export const StyledContainer = styled.div`

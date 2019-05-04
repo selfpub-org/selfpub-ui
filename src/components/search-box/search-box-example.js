@@ -62,17 +62,18 @@ export default class SearchBoxExample extends Component {
     loading: false,
   };
 
-  handleChange = (matchedData, searchString, findCount) => {
+  _onChange = (matchedData, searchString, findCount) => {
     this.setState({ matchedData, findCount });
   };
 
   render() {
     const { matchedData, findCount } = this.state;
+
     return (
       <ThemeProviderWrapper>
         <Fragment>
           <SearchBox
-            onUpdate={this.handleChange}
+            onUpdate={this._onChange}
             placeholder="Search for a string..."
             dataUpdater="https://mock-server-wkquwnltbi.now.sh/articles?q=%s"
             loading={this.state.loading}

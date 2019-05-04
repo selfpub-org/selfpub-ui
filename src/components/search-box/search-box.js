@@ -28,6 +28,9 @@ export default class SearchBox extends Component {
       .isRequired,
     /** debounced timeout */
     debounceTime: PropTypes.number,
+    search: PropTypes.string,
+    disabled: PropTypes.bool,
+    minimalTextLength: PropTypes.number,
   };
 
   state = {
@@ -85,11 +88,11 @@ export default class SearchBox extends Component {
     }
   };
 
-  getMatchesByFunc = (func, search) => {
+  getMatchesByFunc = (func, mainSearch) => {
     const { matchedData } = this.state;
 
     this.setState({ loading: true }, () =>
-      func(search, matchedData, matchedData.length)
+      func(mainSearch, matchedData, matchedData.length)
         .then((data, search) => {
           this.setState({ data, search, loading: false });
         })
@@ -132,12 +135,6 @@ export default class SearchBox extends Component {
       });
   };
 
-  onType = (event, value) => {
-    this.updateSearchString(value);
-
-    this.debouncedOnType(value, this.getMatchedData);
-  };
-
   debouncedOnType = (search, func) => {
     const { debounceTime } = this.props;
 
@@ -153,6 +150,12 @@ export default class SearchBox extends Component {
     }
   };
 
+  _onType = (event, value) => {
+    this.updateSearchString(value);
+
+    this.debouncedOnType(value, this.getMatchedData);
+  };
+
   render() {
     const { search, disabled, loading } = this.state;
     const { placeholder } = this.props;
@@ -164,13 +167,13 @@ export default class SearchBox extends Component {
           disabled={disabled}
           loading={loading}
           name={this.inputName}
-          onChange={this.onType}
+          onChange={this._onType}
           placeholder={placeholder}
           size="small"
           theme="default"
           type="text"
           value={search}
-          clearAction={::this.reset}
+          clearAction={this.reset}
           clearIcon
         />
       </Fragment>

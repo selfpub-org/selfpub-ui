@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 import { Icon } from "../index";
 import {
   IconPopover,
@@ -12,10 +13,6 @@ import {
 const PopoverElement = PopoverWrapper.withComponent("div");
 
 export default class Popover extends Component {
-  state = {
-    isOpen: false,
-  };
-
   static propTypes = {
     open: PropTypes.bool,
     header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
@@ -32,6 +29,10 @@ export default class Popover extends Component {
     header: "",
     position: "left",
     trigger: "hovered",
+  };
+
+  state = {
+    isOpen: false,
   };
 
   componentWillReceiveProps(nextProps, nextContext) {

@@ -29,4 +29,3 @@ storiesOf("Select/inline-select", module).add(
     />
   )),
 );
-

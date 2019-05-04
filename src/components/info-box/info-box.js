@@ -38,7 +38,7 @@ export default class InfoBox extends StyledInfoBox {
     show: true,
   };
 
-  closeInfoBox = () => {
+  _onCloseInfoBox = () => {
     this.setState({ show: false });
   };
 
@@ -88,7 +88,7 @@ export default class InfoBox extends StyledInfoBox {
               </InfoBox.Actions>
             )}
             {closeButton && (
-              <InfoBox.CloseButton onClick={this.closeInfoBox}>
+              <InfoBox.CloseButton onClick={this._onCloseInfoBox}>
                 <InfoBox.Cross glyph="cross" size="small" />
               </InfoBox.CloseButton>
             )}

@@ -60,7 +60,7 @@ export default class Input extends Component {
     type: this.props.type,
   };
 
-  onChangeHelper = event => {
+  _onChangeHelper = event => {
     const { onChange } = this.props;
 
     onChange && onChange(event, event.target.value);
@@ -89,10 +89,12 @@ export default class Input extends Component {
           name={name}
           value={value}
           disabled={disabled}
-          ref={input => (this.input = input)}
+          ref={input => {
+            this.input = input;
+          }}
           tabIndex={0}
           placeholder={placeholder}
-          onChange={this.onChangeHelper}
+          onChange={this._onChangeHelper}
           htmlType={this.state.type}
           {...rest}
         />

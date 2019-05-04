@@ -32,7 +32,7 @@ class Test extends React.Component {
     };
   }
 
-  handleChange = radioValue => {
+  _onChange = radioValue => {
     this.setState({ radioValue });
   };
 
@@ -43,7 +43,7 @@ class Test extends React.Component {
           <Radio
             value="a"
             checked={this.state.radioValue === "a"}
-            onChange={this.handleChange}
+            onChange={this._onChange}
             disabled={this.state.disabled}
           >
             a-radio
@@ -51,7 +51,7 @@ class Test extends React.Component {
           <Radio
             value="b"
             checked={this.state.radioValue === "b"}
-            onChange={this.handleChange}
+            onChange={this._onChange}
             disabled={this.state.disabled}
           >
             b-radio
@@ -59,7 +59,7 @@ class Test extends React.Component {
           <Radio
             value="c"
             checked={this.state.radioValue === "c"}
-            onChange={this.handleChange}
+            onChange={this._onChange}
             disabled={this.state.disabled}
           >
             c-radio
@@ -67,7 +67,7 @@ class Test extends React.Component {
           <Radio
             value="d"
             checked={this.state.radioValue === "d"}
-            onChange={this.handleChange}
+            onChange={this._onChange}
             disabled={true}
           >
             d-radio

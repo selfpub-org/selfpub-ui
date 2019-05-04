@@ -3,39 +3,37 @@ import Checkbox from "../checkbox";
 import ThemeProviderWrapper from "../../theme/theme-provider";
 
 export default class CheckboxAllInOneExample extends Component {
-  constructor() {
-    super();
-    this.state = {
-      checked1: true,
-      checked2: false,
-    };
-    this.onCheck1 = ::this.onCheck1;
-    this.onCheck2 = ::this.onCheck2;
-    this.onAllCheck = ::this.onAllCheck;
-  }
+  state = {
+    checked1: true,
+    checked2: false,
+  };
+
   get isAllChecked() {
-    if (this.state.checked1 === true && this.state.checked2 === true)
+    if (this.state.checked1 === true && this.state.checked2 === true) {
       return true;
-    if (this.state.checked1 === false && this.state.checked2 === false)
+    }
+    if (this.state.checked1 === false && this.state.checked2 === false) {
       return false;
+    }
+
     return undefined;
   }
 
-  onCheck1({ event, target: { checked } }) {
+  onCheck1 = ({ event, target: { checked } }) => {
     this.setState({ checked1: checked });
-  }
+  };
 
-  onCheck2({ event, target: { checked } }) {
+  onCheck2 = ({ event, target: { checked } }) => {
     this.setState({ checked2: checked });
-  }
+  };
 
-  onAllCheck() {
+  onAllCheck = () => {
     const checked = this.isAllChecked === false;
     this.setState({
       checked1: checked,
       checked2: checked,
     });
-  }
+  };
 
   render() {
     return (

@@ -17,7 +17,6 @@ class Button extends PureComponent {
       loading,
       stretched,
     } = this.props;
-    console.log(this.props);
 
     const hasIcon = !isNil(iconName);
     const hasTitle = !!title;
@@ -178,7 +177,7 @@ Button.defaultProps = {
   type: "button",
   iconRight: false,
   variation: "default",
-  appearance: "flat",
+  appearance: "raised",
   disabled: false,
   loading: false,
   stretched: true,

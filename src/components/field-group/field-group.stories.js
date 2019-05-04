@@ -4,17 +4,13 @@ import { withInfo } from "@storybook/addon-info";
 import { ThemeProviderWrapper, Input, FieldGroup } from "../index";
 
 export default class FieldGroupExample extends Component {
-  constructor() {
-    super();
-    this.state = {
-      value: "",
-    };
-    this.setValue = ::this.setValue;
-  }
+  state = {
+    value: "",
+  };
 
-  setValue(e, value) {
+  _onChange = (e, value) => {
     this.setState({ value });
-  }
+  };
 
   render() {
     return (
@@ -27,13 +23,13 @@ export default class FieldGroupExample extends Component {
                 <Input
                   type="text"
                   placeholder="placeholder"
-                  onChange={this.setValue}
+                  onChange={this._onChange}
                   value={this.state.value}
                 />
                 <Input
                   type="text"
                   placeholder="placeholder"
-                  onChange={this.setValue}
+                  onChange={this._onChange}
                   value={this.state.value}
                 />
               </FieldGroup>
@@ -42,13 +38,13 @@ export default class FieldGroupExample extends Component {
                 <Input
                   type="text"
                   placeholder="placeholder"
-                  onChange={this.setValue}
+                  onChange={this._onChange}
                   value={this.state.value}
                 />
                 <Input
                   type="text"
                   placeholder="placeholder"
-                  onChange={this.setValue}
+                  onChange={this._onChange}
                   value={this.state.value}
                 />
               </FieldGroup>

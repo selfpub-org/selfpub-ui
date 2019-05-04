@@ -48,6 +48,7 @@ export default class Radio extends Component {
      *     - checked: The checked value of the switch
      */
     onChange: PropTypes.func,
+    iconPosition: PropTypes.syring,
   };
 
   static defaultProps = {
@@ -64,9 +65,7 @@ export default class Radio extends Component {
 
   constructor(props) {
     super(props);
-
     this.defaultId = `radio-${~~(Math.random() * 10000)}`;
-    this.handleChange = ::this.handleChange;
   }
 
   componentWillMount() {
@@ -89,7 +88,11 @@ export default class Radio extends Component {
     }
   }
 
-  handleChange = event => {
+  saveInput = node => {
+    this.input = node;
+  };
+
+  _onChange = event => {
     const { checked, value } = event.target;
     const { disabled, onChange } = this.props;
 
@@ -104,10 +107,6 @@ export default class Radio extends Component {
     if (onChange && !onChange.nativeEvent) {
       onChange(value);
     }
-  };
-
-  saveInput = node => {
-    this.input = node;
   };
 
   render() {
@@ -135,7 +134,7 @@ export default class Radio extends Component {
           disabled={disabled}
           checked={!!checked}
           autoComplete="off"
-          onChange={this.handleChange}
+          onChange={this._onChange}
           ref={this.saveInput}
           value={value}
           {...rest}

@@ -98,11 +98,11 @@ export const PopoverWrapper = styled.div`
         return css`
           padding-left: 4px;
         `;
-      } else {
-        return css`
-          padding-right: 4px;
-          padding-left: 4px;
-        `;
       }
+
+      return css`
+        padding-right: 4px;
+        padding-left: 4px;
+      `;
     }};
 `;
