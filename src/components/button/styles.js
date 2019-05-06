@@ -36,7 +36,11 @@ export const Container = styled.button`
       user-select: none;
       cursor: pointer;
       box-shadow: ${passive.shadow};
-      ${stretched && "width: 100%;"};
+      ${stretched &&
+        css`
+          width: 100%;
+          margin: 6px 0;
+        `};
       transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s,
         color 0.2s;
 

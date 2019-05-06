@@ -177,10 +177,10 @@ Button.defaultProps = {
   type: "button",
   iconRight: false,
   variation: "default",
-  appearance: "raised",
+  appearance: "flat",
   disabled: false,
   loading: false,
-  stretched: true,
+  stretched: false,
   tabIndex: 0,
 };
 
