@@ -1,9 +1,9 @@
 import React, { Children, Component } from "react";
 import PropTypes from "prop-types";
-import { injectGlobal, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import baseTheme from "./base/index";
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   /* Default */
   * {
     box-sizing: border-box;
@@ -77,7 +77,10 @@ export default class ThemeProviderWrapper extends Component {
 
     return (
       <ThemeProvider theme={theme || baseTheme}>
-        {Children.only(children)}
+        <>
+          <GlobalStyle />
+          {Children.only(children)}
+        </>
       </ThemeProvider>
     );
   }
