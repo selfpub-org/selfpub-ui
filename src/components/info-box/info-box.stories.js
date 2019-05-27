@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { boolean } from "@storybook/addon-knobs";
-import { ThemeProviderWrapper, InfoBox } from "../index";
+
+import { ThemeProviderWrapper, InfoBox } from "@selfpub-ui";
 
 const buttonsMdDocs = `
   Component dor display info and notes

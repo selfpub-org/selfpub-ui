@@ -6,7 +6,8 @@ import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { text, select, boolean } from "@storybook/addon-knobs";
 import { hashFromArray } from "./../../utils/utils";
-import { ThemeProviderWrapper, Radio } from "../index";
+
+import { ThemeProviderWrapper, Radio } from "@selfpub-ui";
 
 const buttonsMdDocs = `
   Component dor display info and notes

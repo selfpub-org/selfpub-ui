@@ -3,7 +3,8 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { boolean } from "@storybook/addon-knobs";
-import { Select, ThemeProviderWrapper } from "./../index";
+
+import { Select, ThemeProviderWrapper } from "@selfpub-ui";
 
 const rangeOptions = [
   { text: "За последние 7 дней", value: "last7" },

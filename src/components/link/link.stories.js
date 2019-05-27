@@ -4,7 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { LinkAllInOneExample } from "./__stories__/all-in-one";
 import LinkWithEditablePropsExample from "./__stories__/editable-props";
-import { ThemeProviderWrapper } from "../index";
+
+import { ThemeProviderWrapper } from "@selfpub-ui";
 
 const buttonsMdDocs = `Link component`;
 

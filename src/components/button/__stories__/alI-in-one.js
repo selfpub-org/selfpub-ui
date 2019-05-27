@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { Button, ThemeProviderWrapper } from "../../index";
+import { Button, ThemeProviderWrapper } from "@selfpub-ui";
 
 export default function() {
   return (

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Checkbox from "../checkbox";
-import ThemeProviderWrapper from "../../theme/theme-provider";
+
+import { Checkbox, ThemeProviderWrapper } from "@selfpub-ui";
 
 export default class CheckboxAllInOneExample extends Component {
   constructor() {

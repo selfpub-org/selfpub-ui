@@ -6,7 +6,7 @@ import {
   InputStatus,
   Input,
   ThemeProviderWrapper,
-} from "./../../index";
+} from "@selfpub-ui";
 
 const types = {
   text: "text",

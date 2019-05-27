@@ -4,9 +4,11 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { boolean, select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
+
+import { Checkbox, ThemeProviderWrapper } from "@selfpub-ui";
+
 import { positions, themes } from "./__stories__/editable-props";
 import CheckboxAllInOneExample from "./__stories__/al-in-one";
-import { Checkbox, ThemeProviderWrapper } from "../index";
 
 const buttonsMdDocs = `Checkbox with editable props`;
 

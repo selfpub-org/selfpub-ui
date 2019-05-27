@@ -3,7 +3,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { ThemeProviderWrapper } from "./../index";
+
+import { ThemeProviderWrapper } from "@selfpub-ui";
+
 import SearchBoxExample from "./search-box-example";
 
 const buttonsMdDocs = `

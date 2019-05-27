@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { Link, ThemeProviderWrapper } from "../../index";
+
+import { Link, ThemeProviderWrapper } from "@selfpub-ui";
 
 export class LinkAllInOneExample extends Component {
   render() {

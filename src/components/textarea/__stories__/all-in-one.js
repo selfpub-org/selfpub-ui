@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { action } from "@storybook/addon-actions";
-import { InputWrapper, Textarea } from "../../index";
+
+import { InputWrapper, Textarea } from "@selfpub-ui";
 
 export class TextareaExample extends Component {
   constructor() {

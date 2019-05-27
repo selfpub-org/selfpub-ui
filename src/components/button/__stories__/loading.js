@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { boolean, select } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import { sizes } from "./constants";
-import { Button, ThemeProviderWrapper } from "../../index";
+import { Button, ThemeProviderWrapper } from "@selfpub-ui";
 
+import { sizes } from "./constants";
 export default class ButtonWithLoadingExample extends Component {
   render() {
     return (

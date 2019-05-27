@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
-import { Toggle, ToggleOption, ThemeProviderWrapper, colors } from "../index";
+
+import { Toggle, ToggleOption, ThemeProviderWrapper, colors } from "@selfpub-ui";
 
 storiesOf("Toggle", module).add(
   "1. toggle-group",
