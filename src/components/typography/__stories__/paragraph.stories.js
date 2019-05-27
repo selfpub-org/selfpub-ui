@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Paragraph from "../paragraph";
+
+import { Paragraph } from "@selfpub-ui";
 
 export class ParagraphExample extends Component {
   render() {

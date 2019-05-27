@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Td, Tr } from "../index";
+import { Table, Td, Tr } from "@selfpub-ui";
 
 export class TableExample extends Component {
   render() {

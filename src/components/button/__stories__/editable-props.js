@@ -1,8 +1,10 @@
 import React from "react";
 import { boolean, select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
+
+import { ThemeProviderWrapper, Button } from "@selfpub-ui";
+
 import { sizes, targets, themes } from "./constants";
-import { ThemeProviderWrapper, Button } from "../../index";
 
 const iconTypes = {
   "arrow-bottom": "arrow-bottom",

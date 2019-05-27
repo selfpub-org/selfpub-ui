@@ -3,7 +3,8 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
-import { InlineSelect } from "../index";
+
+import { InlineSelect } from "@selfpub-ui";
 
 const rangeOptions = [
   { text: "За последние 7 дней", value: "last7" },

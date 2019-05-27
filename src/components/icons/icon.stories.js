@@ -2,10 +2,9 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { number, select, boolean } from "@storybook/addon-knobs";
-import { InlineSelect } from "../index";
-import Icon from "./icon";
-import PropTypes from "prop-types";
+import { select, boolean } from "@storybook/addon-knobs";
+
+import { Icon } from "@selfpub-ui";
 
 const buttonsMdDocs = `
   description or documentation about my component, supports markdown

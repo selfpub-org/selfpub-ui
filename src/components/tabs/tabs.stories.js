@@ -4,7 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { number } from "@storybook/addon-knobs";
-import { Tabs, Tab } from "./../index";
+
+import { Tabs, Tab } from "@selfpub-ui";
 
 const buttonsMdDocs = `
 *A component of navigation in the form of tabs. Usually used in conjunction with **\`<Tab />\`**.*

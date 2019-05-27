@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
-import { ThemeProviderWrapper, Input, FieldGroup } from "../index";
+
+import { ThemeProviderWrapper, Input, FieldGroup } from "@selfpub-ui";
 
 export default class FieldGroupExample extends Component {
   constructor() {

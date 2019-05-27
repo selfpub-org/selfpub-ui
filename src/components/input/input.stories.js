@@ -2,6 +2,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
+
 import { InputExample } from "./__stories__/all-in-one";
 import InputExampleWithEditableProps from "./__stories__/editable-props";
 

@@ -1,9 +1,10 @@
+import React from "react";
 import { select } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
-import { RadioGroup, Radio, ThemeProviderWrapper } from "../index";
-import React from "react";
+
+import { RadioGroup, Radio, ThemeProviderWrapper } from "@selfpub-ui";
 
 storiesOf("RadioGroup", module)
   .add(

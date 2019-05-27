@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { text, select, boolean } from "@storybook/addon-knobs";
-import { ThemeProviderWrapper, Popover, Link } from "index";
+
+import { ThemeProviderWrapper, Popover, Link } from "@selfpub-ui";
 
 const buttonsMdDocs = `
   **Popover**
