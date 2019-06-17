@@ -1433,12 +1433,12 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-options@^5.0.10":
-  version "5.0.11"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-5.0.11.tgz#fea3b1b92e64c2321efa52fac67772043126cc66"
-  integrity sha512-vfeuKm25y8yfiqmYbL4T98BXXzbUPOldrVmAQevYF2pqaoLnBpFneMqgSEJwV0m25kHBR6rWRj9HT6BdDDpWfg==
+  version "5.1.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-5.1.8.tgz#1cbd261f2fcae9f2ddc2765587adc7c984e3879c"
+  integrity sha512-9gzU03ZP9D4fBZjPZHK1WCpR6N/u9YB7DqWVG5XFmyHae7W8TfSSv45eOQInwsNt9lx7MgqyaP+MAhNyDyo2pQ==
   dependencies:
-    "@storybook/addons" "5.0.11"
-    core-js "^2.6.5"
+    "@storybook/addons" "5.1.8"
+    core-js "^3.0.1"
     util-deprecate "^1.0.2"
 
 "@storybook/addon-viewport@^5.0.10":
