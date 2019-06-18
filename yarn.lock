@@ -1416,26 +1416,26 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-knobs@^5.0.10":
-  version "5.0.11"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-5.0.11.tgz#1f093560ceec78f4906e0575ded0ac03b4494b09"
-  integrity sha512-9/Q88GhzISxue1wxvbfVa1e8kBA1V6ny1eXWwKN1TRIfBRk4fzmIQtgKMf2R9kQ1VJCzzPHs1sHEpjjvSGbMFw==
+  version "5.1.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-5.1.8.tgz#f0b7cf1e14e647e2030055a8f9eb9e09e595fd5d"
+  integrity sha512-GCcjc3iO8YQOKdOaA1pr4INzNA3gU/0qIpYg0En3CbNH9LodfBha3l91G64AH06rCqhAYWp5D482kptKRaFxOA==
   dependencies:
-    "@storybook/addons" "5.0.11"
-    "@storybook/components" "5.0.11"
-    "@storybook/core-events" "5.0.11"
-    "@storybook/theming" "5.0.11"
+    "@storybook/addons" "5.1.8"
+    "@storybook/client-api" "5.1.8"
+    "@storybook/components" "5.1.8"
+    "@storybook/core-events" "5.1.8"
+    "@storybook/theming" "5.1.8"
     copy-to-clipboard "^3.0.8"
-    core-js "^2.6.5"
+    core-js "^3.0.1"
     escape-html "^1.0.3"
     fast-deep-equal "^2.0.1"
     global "^4.3.2"
-    lodash.debounce "^4.0.8"
-    prop-types "^15.6.2"
-    qs "^6.5.2"
+    lodash "^4.17.11"
+    prop-types "^15.7.2"
+    qs "^6.6.0"
     react-color "^2.17.0"
     react-lifecycles-compat "^3.0.4"
-    react-select "^2.3.0"
-    util-deprecate "^1.0.2"
+    react-select "^2.2.0"
 
 "@storybook/addon-options@^5.0.10":
   version "5.1.8"
@@ -9557,7 +9557,7 @@ react-resize-detector@^4.0.5:
     raf-schd "^4.0.0"
     resize-observer-polyfill "^1.5.1"
 
-react-select@^2.3.0:
+react-select@^2.2.0:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-2.4.4.tgz#ba72468ef1060c7d46fbb862b0748f96491f1f73"
   integrity sha512-C4QPLgy9h42J/KkdrpVxNmkY6p4lb49fsrbDk/hRcZpX7JvZPNb6mGj+c5SzyEtBv1DmQ9oPH4NmhAFvCrg8Jw==
