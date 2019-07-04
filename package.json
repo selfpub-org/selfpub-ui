@@ -58,7 +58,7 @@
     "@types/storybook__react": "^4.0.1",
     "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "eslint": "^5.2.0",
     "file-loader": "^1.1.11",
