@@ -1554,15 +1554,15 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-jest@^5.0.10":
-  version "5.1.8"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-jest/-/addon-jest-5.1.8.tgz#51d82c6786a8d077a1d48395aa583bc22c53f659"
-  integrity sha512-hnN3AJGoyyhrFer6Km+gRSMTKVjbq/YAX3a6Bes7Itr/z3BR91stuOJXQrmgsxHZpqhunAtqK7UYU+9kWDCRkg==
+  version "5.1.10"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-jest/-/addon-jest-5.1.10.tgz#5966ac1a9bb2c7b764f082031e468a4563fafeaf"
+  integrity sha512-pL2UwWb0ZHkdCDnfl0Idj3ffciD5+1DGlMm1Qu2Tjwk4ljfsJKaeloPRXufVBF7MbaefBvhdRUAsX3gQXrRNBA==
   dependencies:
-    "@storybook/addons" "5.1.8"
-    "@storybook/api" "5.1.8"
-    "@storybook/components" "5.1.8"
-    "@storybook/core-events" "5.1.8"
-    "@storybook/theming" "5.1.8"
+    "@storybook/addons" "5.1.10"
+    "@storybook/api" "5.1.10"
+    "@storybook/components" "5.1.10"
+    "@storybook/core-events" "5.1.10"
+    "@storybook/theming" "5.1.10"
     core-js "^3.0.1"
     global "^4.3.2"
     react "^16.8.3"
@@ -1809,6 +1809,30 @@
   integrity sha512-1+Otcn0EFgWNviDPNCR5LtUViADlboz9fmpZc7UY7bgaY5FVNIUO01E4T43tO7fduiRZoEvdltwTuQRm260Vjw==
   dependencies:
     core-js "^3.0.1"
+
+"@storybook/components@5.1.10":
+  version "5.1.10"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.1.10.tgz#4b6436f0b5bb2483fb231bee263d173a9ed7d241"
+  integrity sha512-QUQeeQp1xNWiL4VlxFAea0kqn2zvBfmfPlUddOFO9lBhT6pVy0xYPjXjbTVWjVcYzZpyUNWw5GplqrR5jhlaCA==
+  dependencies:
+    "@storybook/client-logger" "5.1.10"
+    "@storybook/theming" "5.1.10"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    markdown-to-jsx "^6.9.1"
+    memoizerific "^1.11.3"
+    polished "^3.3.1"
+    popper.js "^1.14.7"
+    prop-types "^15.7.2"
+    react "^16.8.3"
+    react-dom "^16.8.3"
+    react-focus-lock "^1.18.3"
+    react-helmet-async "^1.0.2"
+    react-popper-tooltip "^2.8.3"
+    react-syntax-highlighter "^8.0.1"
+    react-textarea-autosize "^7.1.0"
+    recompose "^0.30.0"
+    simplebar-react "^1.0.0-alpha.6"
 
 "@storybook/components@5.1.8":
   version "5.1.8"
