@@ -17,12 +17,13 @@ export const Content = styled.div``;
 export const ContentFixer = styled.div``;
 export const IconPopover = styled.div``;
 
-export const PopoverWrapper = styled.div`
+export const PopoverWrapper = styled.label`
   min-height: 20px;
   position: relative;
   display: inline-flex;
   align-items: flex-end;
   cursor: pointer;
+  border: transparent;
 
   ${Header} {
     display: inline-block;
@@ -98,11 +99,12 @@ export const PopoverWrapper = styled.div`
         return css`
           padding-left: 4px;
         `;
-      } else {
-        return css`
-          padding-right: 4px;
-          padding-left: 4px;
-        `;
       }
+
+      return css`
+        padding-right: 4px;
+        padding-left: 4px;
+      `;
     }};
+  }
 `;

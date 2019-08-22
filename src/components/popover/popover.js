@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Icon } from "../index";
+import { Icon } from "./../index";
+
 import {
   IconPopover,
   Content,
@@ -9,154 +10,171 @@ import {
   PopoverWrapper,
 } from "./popover.styled";
 
-const PopoverElement = PopoverWrapper.withComponent("div");
+const TRIGGERS_EVENT_TYPE = {
+  HOVER: "onhover",
+  CLICK: "onclick",
+  FOCUS: "onfocus",
+};
 
-export default class Popover extends Component {
-  state = {
-    isOpen: false,
-  };
+const _getIcon = (hovered, title) => (
+  <IconPopover key={`IconPopover_${title}`}>
+    <Icon size="small" glyph="question" hovered={hovered} />
+  </IconPopover>
+);
 
-  static propTypes = {
-    open: PropTypes.bool,
-    header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    position: PropTypes.oneOf(["left", "right", "single"]),
-    trigger: PropTypes.oneOf(["hovered", "click", "focus"]),
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element,
-      PropTypes.node,
-    ]),
-  };
-
-  static defaultProps = {
-    header: "",
-    position: "left",
-    trigger: "hovered",
-  };
-
-  componentWillReceiveProps(nextProps, nextContext) {
-    if (nextProps.open !== this.state.open) {
-      this.setState({
-        ...this.state,
-        open: nextProps.open,
-      });
-    }
+const _getHeaderTemplate = title => {
+  if (!title.length) {
+    return "";
   }
 
-  onTouchStart = () => this.toggle();
-
-  onTouchEnd = () => this.toggle();
-
-  toggle = () => {
-    if (this.state.open) {
-      this.close();
-    } else {
-      this.open();
-    }
-  };
-
-  open = () => {
-    if (this.state.open) {
-      return;
-    }
-
-    const { onOpen } = this.props;
-
-    this.setState({ open: true }, () => {
-      onOpen && onOpen();
-    });
-  };
-
-  close = () => {
-    if (!this.state.open) {
-      return;
-    }
-
-    const { onClose } = this.props;
-
-    this.setState({ open: false }, () => {
-      onClose && onClose();
-    });
-  };
-
-  getActionPropsByType = type => {
-    const actions = {
-      click: {
-        onClick: this.toggle,
-        onTouchStart: this.toggle,
-        onTouchEnd: this.toggle,
-      },
-      hovered: {
-        onMouseEnter: this.open,
-        onMouseLeave: this.close,
-        onTouchStart: this.open,
-        onTouchEnd: this.close,
-      },
-      focus: {
-        onFocus: this.open,
-        onBlur: this.close,
-      },
-    };
-
-    return actions[type];
-  };
-
-  getIcon = open => (
-    <IconPopover key={Math.random()}>
-      <Icon size="small" glyph="question" hovered={open} />
-    </IconPopover>
+  return (
+    <Header data-component="PopoverHeader" key={title}>
+      {title}
+    </Header>
   );
+};
 
-  getPopoverLayout = ({ open, position, header, children }) => {
-    let layout = [];
-
-    const icon = this.getIcon(open);
-    const headerContent = !!header ? (
-      <Header key={Math.random()}>{header}</Header>
-    ) : (
-      ""
-    );
-
-    const contentLayout = children && (
-      <Content key={Math.random()}>
-        <ContentFixer open={open} />
-        {children}
-      </Content>
-    );
-
-    if (position === "left") {
-      layout = [icon, contentLayout, headerContent];
-    } else if (position === "right") {
-      layout = [contentLayout, headerContent, icon];
-    } else {
-      layout = [contentLayout, icon];
-    }
-
-    return layout;
-  };
-
-  render() {
-    const { open } = this.state;
-    const { header, children, position, className, trigger } = this.props;
-
-    const actionProps = this.getActionPropsByType(trigger);
-
-    const layout = this.getPopoverLayout({
-      open,
-      position,
-      header,
-      children,
-    });
-
-    return (
-      <PopoverElement
-        {...actionProps}
-        open={open}
-        className={className}
-        position={position}
-      >
-        {layout}
-      </PopoverElement>
-    );
+const _getPopupTemplate = (popupText, open) => {
+  if (!popupText) {
+    return "";
   }
+
+  return (
+    <Content data-component="PopoverContent">
+      <ContentFixer data-component="PopoverContentFixer" open={open} />
+      {popupText}
+    </Content>
+  );
+};
+
+const _getFragments = (isOpen, title, popupText) => {
+  const icon = _getIcon(isOpen, title);
+  const body = _getPopupTemplate(popupText);
+  const header = _getHeaderTemplate(title);
+
+  return {
+    icon,
+    body,
+    header,
+  };
+};
+
+const _getLayout = (position, icon, body, header) => {
+  if (position === "left") {
+    return [icon, body, header];
+  } else if (position === "right") {
+    return [body, header, icon];
+  }
+
+  return [body, icon];
+};
+
+const _getEventByTriggerType = (triggerType, toggleFn) => {
+  switch (triggerType) {
+    case TRIGGERS_EVENT_TYPE.HOVER:
+      return {
+        onMouseEnter: toggleFn,
+        onTouchStart: toggleFn,
+        onMouseLeave: toggleFn,
+        onTouchEnd: toggleFn,
+      };
+    case TRIGGERS_EVENT_TYPE.FOCUS:
+      return {
+        onFocus: toggleFn,
+        onBlur: toggleFn,
+      };
+    case TRIGGERS_EVENT_TYPE.CLICK:
+    default:
+      return {
+        onClick: toggleFn,
+        onTouchStart: toggleFn,
+      };
+  }
+};
+
+const _getHandleClickOutside = (ref, setOpen, onChange) => event => {
+  if (ref.current && !ref.current.contains(event.target)) {
+    setOpen(false);
+    onChange(false);
+  }
+};
+
+const _getToggleFn = (isOpen, setOpen, onChange = Function.prototype) => () => {
+  setOpen(!isOpen);
+
+  try {
+    onChange(isOpen);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+function Popover(props) {
+  const _ref = useRef();
+  const {
+    id,
+    header,
+    children,
+    position,
+    className,
+    trigger: triggerType = TRIGGERS_EVENT_TYPE.HOVER,
+    open = false,
+    onChange = Function.prototype,
+  } = props;
+  const [isOpen, setOpen] = useState(open);
+
+  const text = children || content;
+  const { icon, body, header: title } = _getFragments(isOpen, header, text);
+  const _layout = _getLayout(position, icon, body, title);
+  const _toggleFn = _getToggleFn(isOpen, setOpen, onChange);
+
+  const _events = _getEventByTriggerType(triggerType, _toggleFn);
+
+  useEffect(() => {
+    const _outBoundClickHandler = _getHandleClickOutside(
+      _ref,
+      setOpen,
+      onChange,
+    );
+
+    window.addEventListener("mousedown", _outBoundClickHandler);
+
+    return () => {
+      window.removeEventListener("mousedown", _outBoundClickHandler);
+    };
+  }, []);
+
+  return (
+    <PopoverWrapper
+      id={id}
+      ref={_ref}
+      open={isOpen}
+      position={position}
+      className={className}
+      {..._events}
+      data-component="Popover"
+    >
+      {_layout}
+    </PopoverWrapper>
+  );
 }
+
+Popover.propTypes = {
+  open: PropTypes.bool,
+  header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  position: PropTypes.oneOf(["left", "right", "single"]),
+  trigger: PropTypes.oneOf(["onfocus", "onclick", "onhover"]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+};
+
+Popover.defaultProps = {
+  header: "",
+  position: "left",
+  trigger: "hovered",
+};
+
+export default Popover;
