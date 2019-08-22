@@ -6,6 +6,11 @@ const NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : "production";
 const isProduction = NODE_ENV === "production";
 
 module.exports = {
+  module: {
+    rules: [
+      { test: /\.css$/, use: 'css-loader' }
+    ]
+  },
   resolve: {
     modules: [
       'components',

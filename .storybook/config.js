@@ -2,11 +2,11 @@
 /* global module */
 import React from "react";
 import { configure, addDecorator } from '@storybook/react';
-import { setOptions } from "@storybook/addon-options";
+import { withOptions } from "@storybook/addon-options";
 import { withKnobs } from "@storybook/addon-knobs";
 import packageConf from "./../package";
 
-setOptions({
+withOptions({
   name: `Selfpub UI Design v${packageConf.version}`,
   url: 'https://github.com/MyBook/selfpub-ui/',
   goFullScreen: false,

@@ -35,6 +35,9 @@ const plugins = [
         "createElement",
         "cloneElement",
         "createContext",
+        "useRef",
+        "useState",
+        "useEffect",
       ],
       "node_modules/react-dom/index.js": ["render"],
       "node_modules/react-is/index.js": [
