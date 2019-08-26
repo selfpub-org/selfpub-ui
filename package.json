@@ -14,9 +14,6 @@
   "config": {
     "components": "src/components/index.js"
   },
-  "engines": {
-    "node": ">=10.13.0"
-  },
   "repository": {
     "type": "git",
     "url": "ssh://github.com/mybook/selfpub-ui.git"
@@ -30,11 +27,12 @@
     "build": "NODE_ENV=\"production\" rollup -c",
     "develop": "NODE_ENV=\"develop\" rollup -c -w",
     "deploy-storybook": "storybook-to-ghpages",
-    "storybook:build": "yarn build && build-storybook -c .storybook -o .out",
-    "storybook:dev": "NODE_ENV=\"develop\" start-storybook -p 9001 -c .storybook",
+    "storybook:build": "yarn run build && build-storybook -c .storybook -o .out",
+    "yarn ": "NODE_ENV=\"develop\" start-storybook -p 9001 -c .storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint:js": "eslint --ext .js ./src/components/**/*.js"
+    "lint:js": "eslint --ext .js ./src/components/**/*.js",
+    "now-build": "yarn run storybook:build"
   },
   "peerDependencies": {
     "react": "^16.9.0",
@@ -44,7 +42,7 @@
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
-    "@selfpub/babel-preset": "^1.0.0",
+    "@selfpub/babel-preset": "^1.1.1",
     "@selfpub/eslint-config": "^2.0.0",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-info": "^5.1.11",
@@ -59,17 +57,17 @@
     "@types/react": "^16.9.2",
     "@types/storybook__react": "^4.0.2",
     "babel-core": "^7.0.0-bridge",
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.2.1",
+    "eslint": "^6.2.2",
     "file-loader": "^4.2.0",
     "jest": "^24.9.0",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "rollup": "^1.20.0",
+    "rollup": "^1.20.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.2",
     "rollup-plugin-embed-css": "^1.0.4",

@@ -59,7 +59,6 @@ export default [
   // CommonJS (for Node) and ES module (for bundlers) build.
   {
     input: "src/components/index.js",
-    exclude: ["*.stories.js", "__stories__"],
     external: peerDependencies,
     output: [
       {

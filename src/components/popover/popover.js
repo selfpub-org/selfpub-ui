@@ -92,24 +92,28 @@ const _getEventByTriggerType = (triggerType, toggleFn) => {
   }
 };
 
-const _getHandleClickOutside = (ref, setOpen, onChange) => event => {
-  if (ref.current && !ref.current.contains(event.target)) {
-    setOpen(false);
-    onChange(false);
-  }
-};
-
-const _getToggleFn = (isOpen, setOpen, onChange = Function.prototype) => () => {
-  setOpen(!isOpen);
-
-  try {
-    onChange(isOpen);
-  } catch (err) {
-    throw new Error(err);
-  }
-};
-
 function Popover(props) {
+  const _getHandleClickOutside = (ref, setOpen, onChange) => event => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setOpen(false);
+      onChange(false);
+    }
+  };
+
+  const _getToggleFn = (
+    isOpen,
+    setOpen,
+    onChange = Function.prototype,
+  ) => () => {
+    setOpen(!isOpen);
+
+    try {
+      onChange(isOpen);
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
   const _ref = useRef();
   const {
     id,
