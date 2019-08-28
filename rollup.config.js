@@ -38,6 +38,7 @@ const plugins = [
         "useRef",
         "useState",
         "useEffect",
+        "useCallback",
       ],
       "node_modules/react-dom/index.js": ["render"],
       "node_modules/react-is/index.js": [

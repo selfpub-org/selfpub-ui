@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState, useLayoutEffect } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Icon } from "./../index";
 
@@ -82,55 +82,67 @@ const _getLayout = (position, icon, body, header) => {
   return [body, icon];
 };
 
-function Popover(props) {
-  const {
-    id,
-    header: title,
-    children,
-    position,
-    className,
-    trigger,
-    open = false,
-  } = props;
-  const _innerRef = useRef(null);
-  const text = children || content;
-  const [isOpen, setOpen] = useState(open);
+class Popover extends Component {
+  static displayName = "Button";
 
-  if (typeof id !== "string") {
-    console.warn(`Popover component must have id property`);
+  state = {
+    isOpen: false,
+  };
+
+  _innerRef = React.createRef();
+
+  render() {
+    const {
+      id,
+      header: title,
+      children,
+      position,
+      className,
+      trigger,
+      open = false,
+    } = this.props;
+    const { isOpen } = this.state;
+    const text = children || content;
+
+    if (typeof id !== "string") {
+      console.warn(`Popover component must have id property`);
+    }
+
+    const eventListeners = {};
+    let triggerType = trigger;
+
+    const _outBoundClickHandler = () => {
+      this.setState({ isOpen: !isOpen });
+    };
+
+    if (!Object.values(TRIGGERS_EVENT_TYPE).includes(trigger)) {
+      console.warn(`trigger not passed to component ${id}`);
+      triggerType = TRIGGERS_EVENT_TYPE.HOVER;
+    }
+
+    const triggerActionType = TRIGGER_EVENTS[triggerType];
+    triggerActionType.forEach(type => {
+      eventListeners[type] = _outBoundClickHandler;
+    });
+
+    const { icon, body, header } = _getFragments(open, title, text);
+    const _layout = _getLayout(position, icon, body, header);
+
+    return (
+      <PopoverWrapper
+        role="tooltip"
+        data-component="Popover"
+        id={id}
+        ref={this._innerRef}
+        open={isOpen}
+        position={position}
+        className={className}
+        {...eventListeners}
+      >
+        {_layout}
+      </PopoverWrapper>
+    );
   }
-
-  let triggerType = trigger;
-  if (!Object.values(TRIGGERS_EVENT_TYPE).includes(trigger)) {
-    console.warn(`trigger not passed to component ${id}`);
-    triggerType = TRIGGERS_EVENT_TYPE.HOVER;
-  }
-
-  const _outBoundClickHandler = () => setOpen(!isOpen);
-
-  const triggerActionType = TRIGGER_EVENTS[triggerType];
-  const eventListeners = {};
-  triggerActionType.forEach(type => {
-    eventListeners[type] = _outBoundClickHandler;
-  });
-
-  const { icon, body, header } = _getFragments(open, title, text);
-  const _layout = _getLayout(position, icon, body, header);
-
-  return (
-    <PopoverWrapper
-      role="tooltip"
-      data-component="Popover"
-      id={id}
-      ref={_innerRef}
-      open={isOpen}
-      position={position}
-      className={className}
-      {...eventListeners}
-    >
-      {_layout}
-    </PopoverWrapper>
-  );
 }
 
 Popover.propTypes = {
