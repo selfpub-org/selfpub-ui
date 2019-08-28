@@ -35,6 +35,10 @@ const plugins = [
         "createElement",
         "cloneElement",
         "createContext",
+        "useRef",
+        "useState",
+        "useEffect",
+        "useCallback",
       ],
       "node_modules/react-dom/index.js": ["render"],
       "node_modules/react-is/index.js": [
@@ -56,7 +60,6 @@ export default [
   // CommonJS (for Node) and ES module (for bundlers) build.
   {
     input: "src/components/index.js",
-    exclude: ["*.stories.js", "__stories__"],
     external: peerDependencies,
     output: [
       {

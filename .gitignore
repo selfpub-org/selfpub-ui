@@ -1,5 +1,5 @@
 node_modules/
 lib/
 .idea/
+.out/
 dist/
-.out/jest-test-result.json

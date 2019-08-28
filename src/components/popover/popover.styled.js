@@ -23,6 +23,7 @@ export const PopoverWrapper = styled.div`
   display: inline-flex;
   align-items: flex-end;
   cursor: pointer;
+  border: transparent;
 
   ${Header} {
     display: inline-block;
@@ -98,11 +99,12 @@ export const PopoverWrapper = styled.div`
         return css`
           padding-left: 4px;
         `;
-      } else {
-        return css`
-          padding-right: 4px;
-          padding-left: 4px;
-        `;
       }
+
+      return css`
+        padding-right: 4px;
+        padding-left: 4px;
+      `;
     }};
+  }
 `;
