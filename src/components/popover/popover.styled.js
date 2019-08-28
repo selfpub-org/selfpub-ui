@@ -17,7 +17,7 @@ export const Content = styled.div``;
 export const ContentFixer = styled.div``;
 export const IconPopover = styled.div``;
 
-export const PopoverWrapper = styled.label`
+export const PopoverWrapper = styled.div`
   min-height: 20px;
   position: relative;
   display: inline-flex;
