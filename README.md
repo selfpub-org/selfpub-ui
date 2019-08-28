@@ -1,23 +1,32 @@
+<h1 align="center" style="border-bottom: none;">SelfPub UI-kit 📦</h1>
+
 <p align="center" style="background: #3B393F;">
   <a href="https://selfpub.ru">
     <img width="230" src="https://selfpub.ru/static/i/logo_black.svg">
   </a>
 </p>
 
-# SelfPub UI
-
-![GitHub](https://img.shields.io/github/license/mybook/selfpub-ui.svg)
-[![node (scoped)](https://img.shields.io/node/v/@selfpub/selfpub-ui.svg)](https://www.npmjs.com/package/@selfpub/selfpub-ui)
-![npm (scoped)](https://img.shields.io/npm/v/@selfpub/selfpub-ui.svg)
-[![framework: react](https://img.shields.io/badge/framework-react-blue.svg)](https://github.com/facebook/react/)
-[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
-
+<p align="center">
+  <a href="https://travis-ci.org/selfpub-org/selfpub-ui">
+    <img alt="Travis" src="https://travis-ci.org/selfpub-org/selfpub-ui.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/@selfpub/selfpub-ui">
+    <img alt="Published in npm" src="https://badgen.net/npm/v/@selfpub/selfpub-ui">
+  </a>
+  <a href="https://dependabot.com">
+    <img alt="Dependabot Status" src="https://api.dependabot.com/badges/status?host=github&repo=selfpub-org/selfpub-ui">
+  </a>
+  <a href="https://github.com/facebook/react/">
+    <img alt="framework: react" src="https://img.shields.io/badge/framework-react-blue.svg">
+  </a>
+  <a href="https://github.com/styled-components/styled-components">
+    <img alt="style: styled-components" src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e">
+  </a>
+</p>
 
 [SelfPub](https://selfpub.ru) UI design system language and React-based components implementation.
 
-# Notice
-
-In project used `styled-components` must use in project same version `styled-components`
+> In project used `styled-components` must use in project same version `styled-components`
 
 ## Browsers support
 
@@ -28,9 +37,9 @@ In project used `styled-components` must use in project same version `styled-com
 ## Install
 
 ```bash
-npm install @selfpub/selfpub-ui
+npm install @selfpub/selfpub-ui styled-components
 ---
-yarn add @selfpub/selfpub-ui
+yarn add @selfpub/selfpub-ui styled-components
 ```
 
 ## Try it out
