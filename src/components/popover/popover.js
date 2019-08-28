@@ -89,7 +89,38 @@ class Popover extends Component {
     isOpen: false,
   };
 
+  componentDidMount() {
+    document.addEventListener("mousedown", this._outBoundClickHandler);
+    document.addEventListener("mouseup", this._outBoundClickHandler);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this._outBoundClickHandler);
+    document.removeEventListener("mouseup", this._outBoundClickHandler);
+  }
+
   _innerRef = React.createRef();
+
+  _outBoundClickHandler = event => {
+    if (
+      this._innerRef.current &&
+      !this._innerRef.current.contains(event.target)
+    ) {
+      const { onChange } = this.props;
+      this.setState({ isOpen: false }, () => {
+        onChange(false);
+      });
+    }
+  };
+
+  _onBoundClickHandler = () => {
+    const { isOpen } = this.state;
+    const { onChange } = this.props;
+
+    this.setState({ isOpen: !isOpen }, () => {
+      onChange(!isOpen);
+    });
+  };
 
   render() {
     const {
@@ -111,10 +142,6 @@ class Popover extends Component {
     const eventListeners = {};
     let triggerType = trigger;
 
-    const _outBoundClickHandler = () => {
-      this.setState({ isOpen: !isOpen });
-    };
-
     if (!Object.values(TRIGGERS_EVENT_TYPE).includes(trigger)) {
       console.warn(`trigger not passed to component ${id}`);
       triggerType = TRIGGERS_EVENT_TYPE.HOVER;
@@ -122,7 +149,7 @@ class Popover extends Component {
 
     const triggerActionType = TRIGGER_EVENTS[triggerType];
     triggerActionType.forEach(type => {
-      eventListeners[type] = _outBoundClickHandler;
+      eventListeners[type] = this._onBoundClickHandler;
     });
 
     const { icon, body, header } = _getFragments(open, title, text);
@@ -150,6 +177,7 @@ Popover.propTypes = {
   header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   position: PropTypes.oneOf(["left", "right", "single"]),
   trigger: PropTypes.oneOf(["onfocus", "onclick", "onhover"]),
+  onChange: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
@@ -161,6 +189,7 @@ Popover.defaultProps = {
   header: "",
   position: "left",
   trigger: "onhover",
+  onChange: Function.prototype,
 };
 
 export default Popover;

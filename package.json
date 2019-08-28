@@ -33,7 +33,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:js": "eslint --ext .js ./src/components/**/*.js",
-    "now-build": "yarn run storybook:build"
+    "now-build": "yarn run build && yarn run storybook:build"
   },
   "peerDependencies": {
     "react": "^16.9.0",
