@@ -27,12 +27,14 @@
     "build": "NODE_ENV=\"production\" rollup -c",
     "develop": "NODE_ENV=\"develop\" rollup -c -w",
     "deploy-storybook": "storybook-to-ghpages",
-    "storybook:build": "yarn run build && build-storybook -c .storybook -o .out",
+    "storybook:build": "build-storybook -c .storybook -o .out",
+    "storybook:dev": "NODE_ENV=\"develop\" start-storybook -p 9001 -c .storybook",
     "yarn ": "NODE_ENV=\"develop\" start-storybook -p 9001 -c .storybook",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:js": "eslint --ext .js ./src/components/**/*.js",
-    "now-build": "yarn run storybook:build"
+    "now-build": "yarn run storybook:build",
+    "now-dev": "yarn run storybook:dev"
   },
   "peerDependencies": {
     "react": "^16.9.0",

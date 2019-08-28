@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState, useEffect } from "react";
+import React, { useRef, useCallback, useState, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import { Icon } from "./../index";
 
@@ -16,11 +16,24 @@ const TRIGGERS_EVENT_TYPE = {
   FOCUS: "onfocus",
 };
 
-const _getIcon = (hovered, title) => (
-  <IconPopover key={`IconPopover_${title}`}>
-    <Icon size="small" glyph="question" hovered={hovered} />
-  </IconPopover>
-);
+const TRIGGER_EVENTS = {
+  [TRIGGERS_EVENT_TYPE.HOVER]: [
+    "onMouseOver",
+    "onMouseOut",
+    "onTouchStart",
+    "onTouchEnd",
+  ],
+  [TRIGGERS_EVENT_TYPE.FOCUS]: ["onMouseDown", "onFocus", "onBlur"],
+  [TRIGGERS_EVENT_TYPE.CLICK]: ["onClick", "onTouchStart", "onTouchEnd"],
+};
+
+const _getIcon = (hovered, title) => {
+  return (
+    <IconPopover key={title}>
+      <Icon size="small" glyph="question" hovered={hovered} />
+    </IconPopover>
+  );
+};
 
 const _getHeaderTemplate = title => {
   if (!title.length) {
@@ -69,94 +82,51 @@ const _getLayout = (position, icon, body, header) => {
   return [body, icon];
 };
 
-const _getEventByTriggerType = (triggerType, toggleFn) => {
-  switch (triggerType) {
-    case TRIGGERS_EVENT_TYPE.HOVER:
-      return {
-        onMouseEnter: toggleFn,
-        onTouchStart: toggleFn,
-        onMouseLeave: toggleFn,
-        onTouchEnd: toggleFn,
-      };
-    case TRIGGERS_EVENT_TYPE.FOCUS:
-      return {
-        onFocus: toggleFn,
-        onBlur: toggleFn,
-      };
-    case TRIGGERS_EVENT_TYPE.CLICK:
-    default:
-      return {
-        onClick: toggleFn,
-        onTouchStart: toggleFn,
-      };
-  }
-};
-
 function Popover(props) {
-  const _getHandleClickOutside = (ref, setOpen, onChange) => event => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setOpen(false);
-      onChange(false);
-    }
-  };
-
-  const _getToggleFn = (
-    isOpen,
-    setOpen,
-    onChange = Function.prototype,
-  ) => () => {
-    setOpen(!isOpen);
-
-    try {
-      onChange(isOpen);
-    } catch (err) {
-      throw new Error(err);
-    }
-  };
-
-  const _ref = useRef();
   const {
     id,
-    header,
+    header: title,
     children,
     position,
     className,
-    trigger: triggerType = TRIGGERS_EVENT_TYPE.HOVER,
+    trigger,
     open = false,
-    onChange = Function.prototype,
   } = props;
+  const _innerRef = useRef(null);
+  const text = children || content;
   const [isOpen, setOpen] = useState(open);
 
-  const text = children || content;
-  const { icon, body, header: title } = _getFragments(isOpen, header, text);
-  const _layout = _getLayout(position, icon, body, title);
-  const _toggleFn = _getToggleFn(isOpen, setOpen, onChange);
+  if (typeof id !== "string") {
+    console.warn(`Popover component must have id property`);
+  }
 
-  const _events = _getEventByTriggerType(triggerType, _toggleFn);
+  let triggerType = trigger;
+  if (!Object.values(TRIGGERS_EVENT_TYPE).includes(trigger)) {
+    console.warn(`trigger not passed to component ${id}`);
+    triggerType = TRIGGERS_EVENT_TYPE.HOVER;
+  }
 
-  useEffect(() => {
-    const _outBoundClickHandler = _getHandleClickOutside(
-      _ref,
-      setOpen,
-      onChange,
-    );
+  const _outBoundClickHandler = () => setOpen(!isOpen);
 
-    window.addEventListener("mousedown", _outBoundClickHandler);
+  const triggerActionType = TRIGGER_EVENTS[triggerType];
+  const eventListeners = {};
+  triggerActionType.forEach(type => {
+    eventListeners[type] = _outBoundClickHandler;
+  });
 
-    return () => {
-      window.removeEventListener("mousedown", _outBoundClickHandler);
-    };
-  }, []);
+  const { icon, body, header } = _getFragments(open, title, text);
+  const _layout = _getLayout(position, icon, body, header);
 
   return (
     <PopoverWrapper
+      role="tooltip"
+      data-component="Popover"
       id={id}
-      ref={_ref}
+      ref={_innerRef}
       open={isOpen}
       position={position}
       className={className}
-      {..._events}
-      data-component="Popover"
+      {...eventListeners}
     >
       {_layout}
     </PopoverWrapper>
@@ -178,7 +148,7 @@ Popover.propTypes = {
 Popover.defaultProps = {
   header: "",
   position: "left",
-  trigger: "hovered",
+  trigger: "onhover",
 };
 
 export default Popover;
