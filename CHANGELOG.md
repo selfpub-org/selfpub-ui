@@ -1,3 +1,63 @@
+# Changelog
+
+
+## Release v1.10.0
+
+**Changes:**
+- feat: add travis config [ab956aa](https://github.com/selfpub-org/selfpub-ui/commit/ab956aa)
+- docs: update README.md [aadc28e](https://github.com/selfpub-org/selfpub-ui/commit/aadc28e)
+- fix: remove using vulnerable dependecie [3b6a9a5](https://github.com/selfpub-org/selfpub-ui/commit/3b6a9a5)
+- refactor: Remade popover (#119) [1d1357c](https://github.com/selfpub-org/selfpub-ui/commit/1d1357c)
+- Bump @storybook/addon-viewport from 5.1.8 to 5.1.11 (#114) [de23bf1](https://github.com/selfpub-org/selfpub-ui/commit/de23bf1)
+- Bump @babel/cli from 7.4.4 to 7.5.5 (#105) [59e1ae6](https://github.com/selfpub-org/selfpub-ui/commit/59e1ae6)
+- Bump rollup-plugin-size-snapshot from 0.9.0 to 0.10.0 (#100) [64f8a19](https://github.com/selfpub-org/selfpub-ui/commit/64f8a19)
+- [Security] Bump eslint-utils from 1.3.1 to 1.4.2 (#121) [fb1661a](https://github.com/selfpub-org/selfpub-ui/commit/fb1661a)
+- Bump babel-eslint from 10.0.1 to 10.0.3 (#123) [d206db7](https://github.com/selfpub-org/selfpub-ui/commit/d206db7)
+- Bump @types/react from 16.8.23 to 16.9.2 (#117) [a387e4c](https://github.com/selfpub-org/selfpub-ui/commit/a387e4c)
+- Bump rollup-plugin-babel from 4.3.2 to 4.3.3 (#106) [3fc13af](https://github.com/selfpub-org/selfpub-ui/commit/3fc13af)
+- Bump @storybook/react from 5.1.8 to 5.1.11 (#115) [6f8f742](https://github.com/selfpub-org/selfpub-ui/commit/6f8f742)
+- Bump rollup from 1.12.4 to 1.20.2 (#122) [e6cbc4e](https://github.com/selfpub-org/selfpub-ui/commit/e6cbc4e)
+- [Security] Bump mixin-deep from 1.3.1 to 1.3.2 (#124) [db9a8ea](https://github.com/selfpub-org/selfpub-ui/commit/db9a8ea)
+- Bump styled-components from 4.2.0 to 4.3.2 (#86) [bd6fb8b](https://github.com/selfpub-org/selfpub-ui/commit/bd6fb8b)
+- Bump rollup-plugin-embed-css from 0.4.0 to 1.0.4 (#89) [7c49333](https://github.com/selfpub-org/selfpub-ui/commit/7c49333)
+- Bump @babel/core from 7.4.5 to 7.5.5 (#94) [4a6ea09](https://github.com/selfpub-org/selfpub-ui/commit/4a6ea09)
+- Bump rollup-plugin-terser from 5.0.0 to 5.1.1 (#90) [c6220ca](https://github.com/selfpub-org/selfpub-ui/commit/c6220ca)
+- Bump @storybook/addon-info from 5.1.8 to 5.1.10 (#96) [53382c0](https://github.com/selfpub-org/selfpub-ui/commit/53382c0)
+- Bump @storybook/addon-jest from 5.1.8 to 5.1.10 (#98) [d86892a](https://github.com/selfpub-org/selfpub-ui/commit/d86892a)
+- Bump @storybook/addon-options from 5.1.8 to 5.1.10 (#97) [61b7f57](https://github.com/selfpub-org/selfpub-ui/commit/61b7f57)
+- Bump eslint from 5.16.0 to 6.1.0 (#95) [5841d9c](https://github.com/selfpub-org/selfpub-ui/commit/5841d9c)
+- Bump rollup-plugin-commonjs from 10.0.0 to 10.0.2 (#99) [dbd9cef](https://github.com/selfpub-org/selfpub-ui/commit/dbd9cef)
+- [Security] Bump lodash-es from 4.17.11 to 4.17.14 (#92) [835a4b7](https://github.com/selfpub-org/selfpub-ui/commit/835a4b7)
+- [Security] Bump lodash from 4.17.11 to 4.17.14 (#93) [ec0e878](https://github.com/selfpub-org/selfpub-ui/commit/ec0e878)
+- Bump @storybook/addon-knobs from 5.0.11 to 5.1.9 [5f37c70](https://github.com/selfpub-org/selfpub-ui/commit/5f37c70)
+- Bump @storybook/addon-actions from 5.0.11 to 5.1.9 [2285bc6](https://github.com/selfpub-org/selfpub-ui/commit/2285bc6)
+- Bump babel-jest from 23.6.0 to 24.8.0 [5b0923c](https://github.com/selfpub-org/selfpub-ui/commit/5b0923c)
+- Bump file-loader from 1.1.11 to 4.0.0 (#43) [57d042b](https://github.com/selfpub-org/selfpub-ui/commit/57d042b)
+- Bump @types/storybook__react from 4.0.1 to 4.0.2 [c7dddf6](https://github.com/selfpub-org/selfpub-ui/commit/c7dddf6)
+- Bump jest from 23.6.0 to 24.8.0 [6ed8202](https://github.com/selfpub-org/selfpub-ui/commit/6ed8202)
+- Bump query-string from 6.5.0 to 6.8.1 [a961d18](https://github.com/selfpub-org/selfpub-ui/commit/a961d18)
+- Bump rollup-plugin-node-resolve from 5.0.0 to 5.2.0 [472aa6b](https://github.com/selfpub-org/selfpub-ui/commit/472aa6b)
+- Bump @types/react from 16.8.18 to 16.8.23 [d6f1877](https://github.com/selfpub-org/selfpub-ui/commit/d6f1877)
+- Bump @storybook/react from 5.0.11 to 5.1.8 (#62) [0c73d4a](https://github.com/selfpub-org/selfpub-ui/commit/0c73d4a)
+- Bump @storybook/addon-options from 5.0.11 to 5.1.8 (#61) [88ce251](https://github.com/selfpub-org/selfpub-ui/commit/88ce251)
+- Bump @storybook/addon-info from 5.0.11 to 5.1.8 (#58) [42284f1](https://github.com/selfpub-org/selfpub-ui/commit/42284f1)
+- Bump @storybook/addon-viewport from 5.0.11 to 5.1.8 (#60) [510e6d9](https://github.com/selfpub-org/selfpub-ui/commit/510e6d9)
+- Bump @storybook/addon-jest from 5.0.11 to 5.1.8 (#63) [e5daae9](https://github.com/selfpub-org/selfpub-ui/commit/e5daae9)
+- Bump @types/node from 12.0.2 to 12.0.8 (#50) [a923f27](https://github.com/selfpub-org/selfpub-ui/commit/a923f27)
+
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.9.0
+
+
+## Release v1.9.0
+
+**Changes:**
+
+- Added building for library (#39) [a15c3f3](https://github.com/selfpub-org/selfpub-ui/commit/a15c3f3)
+- Move to babel 7 :tada: (#35) [fcd4015](https://github.com/selfpub-org/selfpub-ui/commit/fcd4015)
+
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.9.0
+
+
 <a name="1.8.0"></a>
 ## [1.8.0](https://github.com/MyBook/selfpub-ui/compare/v1.7.9...v1.8.0) (2018-15-10)
 
