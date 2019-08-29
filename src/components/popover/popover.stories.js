@@ -54,6 +54,7 @@ storiesOf("Popover", module)
               <h4>Configured Popovers</h4>
               <RowWrapper>
                 <Popover
+                  id={`${Math.random()}`}
                   header="DOCX"
                   position={position}
                   trigger={trigger}
@@ -63,6 +64,7 @@ storiesOf("Popover", module)
                   Microsoft Word.
                 </Popover>
                 <Popover
+                  id={`${Math.random()}`}
                   header="FB2"
                   position={position}
                   trigger={trigger}
@@ -73,6 +75,7 @@ storiesOf("Popover", module)
                   тегами.
                 </Popover>
                 <Popover
+                  id={`${Math.random()}`}
                   header={
                     <Fragment>
                       EPUB <sup>*</sup>
@@ -91,6 +94,7 @@ storiesOf("Popover", module)
             <div>
               <h4>Popover styled</h4>
               <PopoverOverWrite
+                id={`${Math.random()}`}
                 header={
                   <Fragment>
                     Имя владельца карты
@@ -120,13 +124,25 @@ storiesOf("Popover", module)
           <div>
             <h4>Position Popovers</h4>
             <ItemWrapper>
-              <Popover header="Right mark" position="right">
+              <Popover
+                id={`${Math.random()}`}
+                header="Right mark"
+                position="right"
+              >
                 Icon mark positioning <b>right</b> from from header text.
               </Popover>
-              <Popover header="Single (only) mark" position="single">
+              <Popover
+                id={`${Math.random()}`}
+                header="Single (only) mark"
+                position="single"
+              >
                 Single (only) mark.
               </Popover>
-              <Popover header="Left mark" position="left">
+              <Popover
+                id={`${Math.random()}`}
+                header="Left mark"
+                position="left"
+              >
                 Icon mark positioning <b>left</b> from from header text.
               </Popover>
             </ItemWrapper>
@@ -136,6 +152,7 @@ storiesOf("Popover", module)
           <div>
             <h4>Styled popover from outer (styled-components)</h4>
             <PopoverOverWrite
+              id={`${Math.random()}`}
               header={
                 <Fragment>
                   <sub>*</sub>
@@ -154,17 +171,28 @@ storiesOf("Popover", module)
           <div>
             <h4>Position Popovers</h4>
             <ItemWrapper>
-              <Popover header="Click me" position="left" trigger="onclick">
+              <Popover
+                id={`${Math.random()}`}
+                header="Click me"
+                position="left"
+                trigger="onclick"
+              >
                 Popover activate by click.
               </Popover>
             </ItemWrapper>
             <ItemWrapper>
-              <Popover header="Hover me" position="left" trigger="onhover">
+              <Popover
+                id={`${Math.random()}`}
+                header="Hover me"
+                position="left"
+                trigger="onhover"
+              >
                 Popover activate by hover.
               </Popover>
             </ItemWrapper>
             <ItemWrapper>
               <Popover
+                id={`${Math.random()}`}
                 header="Focus me (may not work in storybook)"
                 position="left"
                 trigger="onfocus"
