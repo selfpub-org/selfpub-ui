@@ -1,10 +1,6 @@
 {
   "name": "@selfpub/selfpub-ui",
-<<<<<<< HEAD
-  "version": "1.10.0",
-=======
   "version": "1.11.0",
->>>>>>> e9fe2111ddf6b0ee1a0d78852c614de64595e9fe
   "description": "Design system components. Selfpub command element library",
   "homepage": "https://mybook.github.io/selfpub-ui/",
   "main": "dist/index.js",
