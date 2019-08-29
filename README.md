@@ -11,7 +11,7 @@
     <img alt="Travis" src="https://travis-ci.org/selfpub-org/selfpub-ui.svg">
   </a>
   <a href="https://www.npmjs.com/package/@selfpub/selfpub-ui">
-    <img alt="Published in npm" src="https://badgen.net/npm/v/@selfpub/selfpub-ui">
+    <img alt="Published in npm" src="https://img.shields.io/npm/v/@selfpub/selfpub-ui">
   </a>
   <a href="https://dependabot.com">
     <img alt="Dependabot Status" src="https://api.dependabot.com/badges/status?host=github&repo=selfpub-org/selfpub-ui">

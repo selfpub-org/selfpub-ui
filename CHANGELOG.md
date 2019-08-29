@@ -1,11 +1,11 @@
 # Changelog
 
-## Release v1.10.0
+## Release v1.11.0
 
 **Changes:**
 - feat: Add popover sticking on click (#125) [e9fe211](https://github.com/selfpub-org/selfpub-ui/commit/e9fe211)
 
-**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.10.0
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.11.0
 
 
 ## Release v1.10.0
