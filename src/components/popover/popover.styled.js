@@ -49,8 +49,8 @@ export const PopoverWrapper = styled.div`
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
     cursor: default;
     white-space: normal;
-    transition: all 0.2s;
-    z-index: 10;
+    transition: all 0.3s;
+    z-index: 100;
     opacity: 0;
     visibility: hidden;
 
@@ -66,7 +66,7 @@ export const PopoverWrapper = styled.div`
       display: inline-flex;
       cursor: auto;
       opacity: 0;
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
 
     &:before {
