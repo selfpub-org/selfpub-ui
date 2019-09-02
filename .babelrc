@@ -1,5 +1,31 @@
 {
-  "presets": [
-    "@selfpub/babel-preset"
-  ]
+  "presets": ["@selfpub/babel-preset"],
+  "env": {
+    "development": {
+      "plugins": [
+        [
+          "babel-plugin-styled-components",
+          { 
+            "ssr": true,
+            "displayName": true,
+            "minify": false,
+          }
+        ]
+      ],
+    },
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types",
+        [
+          "babel-plugin-styled-components",
+          {
+            "ssr": true,
+            "displayName": false,
+            "pure": true,
+          }
+        ]
+      ],
+    }
+  }
 }
+
