@@ -1,5 +1,17 @@
 # Changelog
 
+## Release v1.12.0
+
+Add options for work in ssr (#157)
+
+Changes:
+- chore: update dependencies
+- feat: enable ssr in babel config
+- feat: add remove prop types in build
+
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.12.0
+
+
 ## Release v1.11.0
 
 **Changes:**
