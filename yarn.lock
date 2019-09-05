@@ -1315,7 +1315,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nlib/afs@^3.10.2":
+"@nlib/afs@^3.13.3":
   version "3.13.3"
   resolved "https://registry.yarnpkg.com/@nlib/afs/-/afs-3.13.3.tgz#4c50d5269fda733ef91df5685cd8ffe842de6680"
   integrity sha512-nQHvJ8Mg0wBJmHqS4O3nqjEPY453wK3sr0y8ioGb6bKNSMCSuGZG5aTN1ZIRo4D0xNEmisMEQqTJ7NZ2exMKFg==
@@ -1337,7 +1337,7 @@
     "@nlib/real-number" "^3.13.3"
     "@nlib/util" "^3.13.3"
 
-"@nlib/nbnf@^3.12.0":
+"@nlib/nbnf@^3.13.3":
   version "3.13.3"
   resolved "https://registry.yarnpkg.com/@nlib/nbnf/-/nbnf-3.13.3.tgz#f7053a394557ec6a2a77b020c859afcebf6b9045"
   integrity sha512-gtkCd/q+6tAvLVI8JoEFPVBUAiZe7TRXdPmBE+ACA555POWXJCijj2I7E1yioVy3Lacf3wUsqKoipoNZc+LR/w==
@@ -2060,10 +2060,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
   integrity sha512-dyYO+f6ihZEtNPDcWNR1fkoTDf3zAK3lAABDze3mz6POyIercH0lEUawUFXlG8xaQZmm1yEBON/4TsYv/laDYg==
 
-"@types/node@^12.7.3":
-  version "12.7.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.3.tgz#27b3f40addaf2f580459fdb405222685542f907a"
-  integrity sha512-3SiLAIBkDWDg6vFo0+5YJyHPWU9uwu40Qe+v+0MH8wRKYBimHvvAOyk3EzMrD/TrIlLYfXrqDqrg913PynrMJQ==
+"@types/node@^12.7.4":
+  version "12.7.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.4.tgz#64db61e0359eb5a8d99b55e05c729f130a678b04"
+  integrity sha512-W0+n1Y+gK/8G2P/piTkBBN38Qc5Q1ZSO6B5H3QmPCUewaiXOo2GCAWZ4ElZCcNhjJuBSUSLGFUJnmlCn5+nxOQ==
 
 "@types/prop-types@*":
   version "15.7.1"
@@ -2314,6 +2314,11 @@ accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
+acorn-dynamic-import@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz#482210140582a36b83c3e342e1cfebcaa9240948"
+  integrity sha512-d3OEjQV4ROpoflsnUA8HozoIR504TFxNivYEUi6uwz0IYhBkTDXGuWlNdMtybRt3nqVx/L6XqMt0FxkXuWKZhw==
+
 acorn-globals@^4.1.0:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-4.3.3.tgz#a86f75b69680b8780d30edd21eee4e0ea170c05e"
@@ -2327,17 +2332,22 @@ acorn-jsx@^5.0.2:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.0.2.tgz#84b68ea44b373c4f8686023a551f61a21b7c4a4f"
   integrity sha512-tiNTrP1MP0QrChmD2DdupCr6HWSFeKVw5d/dHTu4Y7rkAkRhU/Dt7dphAfIUyxtHpl/eBVip5uTNSpQJHylpAw==
 
-acorn-walk@^6.0.1, acorn-walk@^6.2.0:
+acorn-walk@^6.0.1:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
+acorn-walk@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-7.0.0.tgz#c8ba6f0f1aac4b0a9e32d1f0af12be769528f36b"
+  integrity sha512-7Bv1We7ZGuU79zZbb6rRqcpxo3OY+zrdtloZWoyD8fmGX+FeXRjE+iuGkZjSXLVovLzrsvMGMy0EkwA0E0umxg==
+  
 acorn@^5.2.1, acorn@^5.5.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
   integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
 
-acorn@^6.0.1, acorn@^6.0.5, acorn@^6.2.0, acorn@^6.2.1:
+acorn@^6.0.1, acorn@^6.0.5, acorn@^6.2.1:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.3.0.tgz#0087509119ffa4fc0a0041d1e93a417e68cb856e"
   integrity sha512-/czfa8BwS88b9gWQVhc8eknunSA2DoJpJyTQkhheIf5E48u1N0R4q/YxxsAeqRrmK9TQ/uYfgLDfZo91UlANIA==
@@ -3804,6 +3814,11 @@ commander@^2.11.0, commander@^2.19.0, commander@^2.20.0, commander@^2.5.0, comma
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
   integrity sha512-7j2y+40w61zy6YC2iRNpUe/NwhNyoXrYpHMrSunaMG64nRnaf96zO/KMQR4OyN/UnE5KLyEBnKHd4aG3rskjpQ==
 
+commander@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.1.tgz#4595aec3530525e671fb6f85fb173df8ff8bf57a"
+  integrity sha512-UNgvDd+csKdc9GD4zjtkHKQbT8Aspt2jCBqNSPp53vAS0L1tS9sXB2TCEOPHJ7kt9bN/niWkYj8T3RQSoMXdSQ==
+
 common-tags@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
@@ -4710,16 +4725,17 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-esifycss@^1.3.2:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/esifycss/-/esifycss-1.3.3.tgz#5dbcc350661e11ec2edff88ece3aa85c94febbeb"
-  integrity sha512-MCLF/drXdf5n8FMrqBTMKIy74xOVRZAdNBpe5mnSkwtvTRAcqrFLlVdk08wgeJ7i4GOr/h/vn2ddFC3uUEK7zw==
+esifycss@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/esifycss/-/esifycss-1.3.5.tgz#e7ce9de932e48693bea0bb51809cd3429ef19900"
+  integrity sha512-eBZ2PUx8pFWzT87iQgFy6rx6q/m3n6+TZFGcNqX2kgR537mKd5CLP/DqvAOMvtkdhji4wCn/bttqe+bC0tBAkw==
   dependencies:
-    "@nlib/nbnf" "^3.12.0"
-    acorn "^6.2.0"
-    acorn-walk "^6.2.0"
+    "@nlib/nbnf" "^3.13.3"
+    acorn "^7.0.0"
+    acorn-dynamic-import "^4.0.0"
+    acorn-walk "^7.0.0"
     chokidar "^3.0.2"
-    commander "^2.20.0"
+    commander "^3.0.1"
     postcss "^7.0.17"
     postcss-selector-parser "^6.0.2"
     vlq "^1.0.1"
@@ -9941,13 +9957,13 @@ rollup-plugin-commonjs@^10.1.0:
     resolve "^1.11.0"
     rollup-pluginutils "^2.8.1"
 
-rollup-plugin-embed-css@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-embed-css/-/rollup-plugin-embed-css-1.0.4.tgz#918c8330e3b827867b52aa35225cec622ec18c86"
-  integrity sha512-dXjSimlTHiG/YPdlXVq+uZBLoF46LKuAm0SanIGM2ECStiAwFbGJLmLs+x4D3GroZYwzFBY/LOKt23Q+DD9LDg==
+rollup-plugin-embed-css@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-embed-css/-/rollup-plugin-embed-css-1.0.5.tgz#09fb3d821aed56aa919170a0652ca3d6ac4a24f3"
+  integrity sha512-cM8N4ER23B66QTWVed01CcOt5+yMonz2gxgiW/Q/AoP3M7Lssdu7PvcnppcrJ+y06LEkw0wE4OvfhcLQZejFUA==
   dependencies:
-    "@nlib/afs" "^3.10.2"
-    esifycss "^1.3.2"
+    "@nlib/afs" "^3.13.3"
+    esifycss "^1.3.5"
     postcss "^7.0.17"
     rollup-pluginutils "^2.8.1"
 
