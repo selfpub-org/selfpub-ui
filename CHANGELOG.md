@@ -1,5 +1,13 @@
 # Changelog
 
+## Release v1.12.2
+
+Changes:
+- fix rebuild
+
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.12.2
+
+
 ## Release v1.12.1
 
 Changes:
