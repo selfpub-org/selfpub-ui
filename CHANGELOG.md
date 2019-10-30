@@ -1,5 +1,12 @@
 # Changelog
 
+## Release v1.12.1
+
+Changes:
+- fix crash popover on not exist content
+
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.12.1
+
 ## Release v1.12.0
 
 Add options for work in ssr (#157)
@@ -246,7 +253,7 @@ Changes:
 
 ### Fix
 
-* Temporary remove flattens of package need rework 
+* Temporary remove flattens of package need rework
 
 
 <a name="1.5.0"></a>
@@ -287,7 +294,7 @@ Changes:
 
 * Remove conflicted webpack dependencies
 * Fix icons vertical centering
-* Fix colors path export 
+* Fix colors path export
 * Fix radio checked and defaultChecked duplicated
 * Fix radio styles
 
@@ -295,7 +302,7 @@ Changes:
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/MyBook/selfpub-ui/compare/v1.3.0...v1.3.1) (2018-31-08)
 
-### Fix 
+### Fix
 
 * Fix info-box urls
 
@@ -314,10 +321,10 @@ Changes:
 * Exclude dist folder from test paths
 * Add polished at dependencies
 
-### Fix 
+### Fix
 
 * Fix peerDependencies for used packages
-* Fix fagoted focus state for textarea 
+* Fix fagoted focus state for textarea
 
 
 <a name="1.2.4"></a>
@@ -384,7 +391,7 @@ Changes:
 ```js
 import { colors } from "@selfpub/selfpub-ui";
 ```
-* Stabilize Button components API 
+* Stabilize Button components API
 * Add Docs for Button components
 * Stabilize Link components API
 * Add Link for Button components

@@ -237,6 +237,7 @@ class Popover extends Component {
       position,
       className,
       trigger,
+      content,
     } = this.props;
     const { isOpen } = this.state;
     const text = children || content;
