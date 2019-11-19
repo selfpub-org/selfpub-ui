@@ -82,7 +82,7 @@ export default class Select extends Component {
 
   getOptionsElements = options =>
     options.map((option, index) => (
-      <option key={index} value={option.value}>
+      <option {...option} key={index} value={option.value}>
         {option && option.text}
       </option>
     ));
