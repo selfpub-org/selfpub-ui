@@ -8,7 +8,7 @@ import { Select, ThemeProviderWrapper } from "@selfpub-ui";
 
 const rangeOptions = [
   { text: "За последние 7 дней", value: "last7" },
-  { text: "За последние 30 дней", value: "last30" },
+  { text: "За последние 30 дней", value: "last30", disabled: true },
   { text: "За последние 90 дней", value: "last90" },
   { text: "За предыдущий месяц", value: "lastMonth" },
   { text: "За этот месяц", value: "thisMonth" },
