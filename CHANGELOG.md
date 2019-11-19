@@ -1,5 +1,13 @@
 # Changelog
 
+## Release v1.13.0
+
+Changes:
+- Added the ability to forward properties for options in select component (#189)
+
+**NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.13.0
+
+
 ## Release v1.12.2
 
 Changes:
@@ -14,6 +22,7 @@ Changes:
 - fix crash popover on not exist content
 
 **NPM package:** https://www.npmjs.com/package/@selfpub/selfpub-ui/v/1.12.1
+
 
 ## Release v1.12.0
 
